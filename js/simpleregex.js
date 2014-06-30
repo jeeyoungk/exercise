@@ -4,7 +4,26 @@
 
 
 function match(pattern, seq) {
-  return _match(pattern, seq, 0, 0);
+  return _match(_sanitize(pattern), seq, 0, 0);
+}
+
+function _sanitize(pattern) {
+  var character = null;
+  var result = "";
+  for (var i = 0; i < pattern.length; i++) {
+    var cur = pattern[i];
+    if (character == null && cur == '*') continue;
+
+    if (cur == '*') {
+      result += character + '*';
+      character = null;
+    } else {
+      if (character !== null) result += character;
+      character = cur;
+    }
+  }
+  if (character !== null) result += character;
+  return result;
 }
 
 function is_char(x) { return x >= 'a' && x <= 'z'; }
@@ -24,11 +43,18 @@ function _match(pattern, seq, idx_pattern, idx_seq) {
   return false;
 }
 
+console.log(_sanitize('a') === 'a')
+console.log(_sanitize('a*') === 'a*')
+console.log(_sanitize('a**') === 'a*')
+console.log(_sanitize('*') === '')
+console.log(_sanitize('*aa**bb**cc') === 'aa*bb*cc')
+
 // true matches
 console.log(match("a","a"))
 console.log(match("a*","aaa"))
 console.log(match("a*b*","aaaabbbb"))
 console.log(match("a*b*..","aaaabbbb"))
+console.log(match("*", ""))
 // false matches
-console.log(match("a*b*c","aaaabbbb"))
-console.log(match("a*b*c","aaaabbbb"))
+console.log(!match("a*b*c","aaaabbbb"))
+console.log(!match("a*b*c","aaaabbbb"))
