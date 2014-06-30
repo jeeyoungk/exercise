@@ -12,9 +12,8 @@ function _sanitize(pattern) {
   var result = "";
   for (var i = 0; i < pattern.length; i++) {
     var cur = pattern[i];
-    if (character == null && cur == '*') continue;
-
     if (cur == '*') {
+      if (character == null) continue;
       result += character + '*';
       character = null;
     } else {
