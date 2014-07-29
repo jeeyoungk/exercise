@@ -3,27 +3,146 @@ package main
 import "math"
 import "testing"
 
+func TestDijkstraTest_1(t *testing.T) {
+	points := []Point{
+		Point{0, 0, 1},
+		Point{10, 10, 2},
+	}
+	result := dijkstra(points)
+	if result != 14.142135623730951 {
+		t.Error("Actual: ", result)
+	}
+}
+
+func TestDijkstraTest_2(t *testing.T) {
+	points := []Point{
+		Point{0, 0, 1},
+		Point{0, 10, 2},
+		Point{10, 10, 2},
+		Point{10, 20, 3},
+	}
+	result := dijkstra(points)
+	if result != 20 {
+		t.Error("Actual: ", result)
+	}
+}
+
+func TestDijkstraTest_3(t *testing.T) {
+	points := []Point{
+		Point{0, 0, 1},
+		Point{0, 10, 2},
+		Point{10, 10, 2},
+		Point{10, 20, 3},
+		Point{100, 100, 3},
+		Point{100, 200, 3},
+		Point{100, 149, 4},
+	}
+	result := dijkstra(points)
+	if result != 69 {
+		t.Error("Actual: ", result)
+	}
+}
+
+func TestArraySlice(t *testing.T) {
+	// testing the functionality of array and slices in go.
+	var array [4]int // this is an array.
+	array[0] = 4
+	if array[0] != 4 {
+		t.Error()
+	}
+	if array[1] != 0 {
+		t.Error("Arrays in go are zero'ed out")
+	}
+	if len(array) != 4 {
+		t.Error()
+	}
+	if cap(array) != 4 {
+		t.Error()
+	}
+
+	var arrayCopy = array
+	if arrayCopy[0] != 4 {
+		t.Error()
+	}
+	arrayCopy[1] = 3
+	if array[1] != 0 {
+		t.Error("Arrays are copied, not referenced")
+	}
+
+	var slice []int
+	slice = []int{1, 2, 3}
+	if slice[0] != 1 {
+		t.Error()
+	}
+	var sliceCopy = slice
+	if sliceCopy[0] != 1 {
+		t.Error()
+	}
+
+	sliceCopy[0] = 100
+	if slice[0] != 100 {
+		t.Error("Slices are referenced. They share the same internal state")
+	}
+
+	if len(slice) != 3 {
+		t.Error()
+	}
+	if cap(slice) != 3 {
+		t.Error()
+	}
+
+	var largeSlice []int = make([]int, 10, 30)
+	if len(largeSlice) != 10 {
+		t.Error()
+	}
+	if cap(largeSlice) != 30 {
+		t.Error()
+	}
+	var appended = append(largeSlice, 5)
+	if len(appended) != 11 {
+		t.Error()
+	}
+	if cap(appended) != 30 {
+		t.Error()
+	}
+	var secondAppended = append(largeSlice, 7)
+	if len(secondAppended) != 11 {
+		t.Error()
+	}
+	if cap(secondAppended) != 30 {
+		t.Error()
+	}
+	// i can just increase the size of the slice to its capacity.
+	largeSlice = largeSlice[:30]
+	if largeSlice[10] != 7 {
+		t.Error()
+	}
+	if appended[10] != 7 {
+		t.Error()
+	}
+}
+
 func TestBalanced(t *testing.T) {
-  goodInput := []string{
-    "()",
-    "",
-  }
+	goodInput := []string{
+		"()",
+		"",
+	}
 
-  badInput := []string{
-    "(()",
-    "(()))(",
-  }
+	badInput := []string{
+		"(()",
+		"(()))(",
+	}
 
-  for _, good := range goodInput {
-    if !is_balanced(good) {
-      t.Error("Failed is_balanced", good)
-    }
-  }
-  for _, bad := range badInput {
-    if is_balanced(bad) {
-      t.Error("Failed is_balanced", bad)
-    }
-  }
+	for _, good := range goodInput {
+		if !is_balanced(good) {
+			t.Error("Failed is_balanced", good)
+		}
+	}
+	for _, bad := range badInput {
+		if is_balanced(bad) {
+			t.Error("Failed is_balanced", bad)
+		}
+	}
 }
 func TestSum(t *testing.T) {
 	if sum(&[]int{}) != 0 {
