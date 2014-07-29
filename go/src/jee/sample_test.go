@@ -3,6 +3,28 @@ package main
 import "math"
 import "testing"
 
+func TestBalanced(t *testing.T) {
+  goodInput := []string{
+    "()",
+    "",
+  }
+
+  badInput := []string{
+    "(()",
+    "(()))(",
+  }
+
+  for _, good := range goodInput {
+    if !is_balanced(good) {
+      t.Error("Failed is_balanced", good)
+    }
+  }
+  for _, bad := range badInput {
+    if is_balanced(bad) {
+      t.Error("Failed is_balanced", bad)
+    }
+  }
+}
 func TestSum(t *testing.T) {
 	if sum(&[]int{}) != 0 {
 		t.Error("Unexpected result.")
