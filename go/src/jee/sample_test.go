@@ -3,6 +3,82 @@ package main
 import "math"
 import "testing"
 
+func TestMatrix_1(t *testing.T) {
+	matrix := [][]float64{
+		[]float64{2, 0, 0, 2},
+		[]float64{0, 4, 0, 3},
+		[]float64{0, 0, 3, 5},
+	}
+	Gaussian(matrix, 3, 3)
+
+	if !approx(matrix[0][3], 1) {
+		t.Error(matrix)
+	}
+	if !approx(matrix[1][3], 3.0/4) {
+		t.Error(matrix)
+	}
+	if !approx(matrix[2][3], 5.0/3) {
+		t.Error(matrix)
+	}
+}
+
+func TestMatrix_2(t *testing.T) {
+	matrix := [][]float64{
+		[]float64{1, 0, 0, 1},
+		[]float64{0, 0, 1, 1},
+		[]float64{0, 1, 0, 1},
+	}
+	Gaussian(matrix, 3, 3)
+
+	if matrix[0][3] != 1 {
+		t.Error(matrix)
+	}
+	if matrix[1][3] != 1 {
+		t.Error(matrix)
+	}
+	if matrix[2][3] != 1 {
+		t.Error(matrix)
+	}
+}
+
+func TestMatrix_3(t *testing.T) {
+	matrix := [][]float64{
+		[]float64{2, 1, 0, 2},
+		[]float64{0, 4, 0, 3},
+		[]float64{0, 1, 3, 5},
+	}
+	Gaussian(matrix, 3, 3)
+
+	if !approx(matrix[0][3], 5.0/8) {
+		t.Error(matrix)
+	}
+	if !approx(matrix[1][3], 3.0/4) {
+		t.Error(matrix)
+	}
+	if !approx(matrix[2][3], 1.4166) {
+		t.Error(matrix)
+	}
+}
+
+func TestMatrix_4(t *testing.T) {
+	matrix := [][]float64{
+		[]float64{1, 0, 2, 3},
+		[]float64{2, 0, 4, 6},
+		[]float64{0, 1, 0, 1},
+	}
+	Gaussian(matrix, 3, 3)
+
+	if matrix[0][3] != 3 {
+		t.Error(matrix)
+	}
+	if matrix[1][3] != 1 {
+		t.Error(matrix)
+	}
+	if matrix[2][3] != 0 {
+		t.Error(matrix)
+	}
+}
+
 func TestDijkstraTest_1(t *testing.T) {
 	points := []Point{
 		Point{0, 0, 1},
@@ -217,4 +293,8 @@ func assertSorted(t *testing.T, ary *[]int) {
 			t.Error("Array is not sorted. Indexes:", i, i+1)
 		}
 	}
+}
+
+func approx(lhs float64, rhs float64) bool {
+	return math.Abs(lhs-rhs) < 0.001
 }
