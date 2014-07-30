@@ -1,6 +1,7 @@
 package main
 
 import "math"
+import "math/rand"
 import "testing"
 
 func TestMatrix_1(t *testing.T) {
@@ -244,7 +245,7 @@ func TestMax(t *testing.T) {
 	}
 }
 
-func TestSort(t *testing.T) {
+func TestSort_1(t *testing.T) {
 	testdata := [][]int{
 		[]int{1, 3, 2},
 		[]int{1, 100, 2, 5, 4, 78, 24, 3, 6},
@@ -256,6 +257,18 @@ func TestSort(t *testing.T) {
 		mysort(ary)
 		assertSorted(t, &ary)
 	}
+}
+
+func TestSort_2(t *testing.T) {
+  N := 10000000
+	testArray := make([]int, N, N)
+  rand.Seed(42)
+  for i := 0; i < N; i++ {
+    testArray[i] = rand.Int()
+  }
+
+  dist_merge_sort(testArray)
+  assertSorted(t, &testArray)
 }
 
 func TestMaxStack(t *testing.T) {
