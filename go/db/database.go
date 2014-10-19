@@ -1,3 +1,4 @@
+// Package db implements a key-value store.
 package db
 
 type tree struct {
@@ -182,6 +183,12 @@ func (t *tree) remove(key string, value string) bool {
 	for {
 		if n.key == key {
 			n.values, removed = removeSlice(n.values, value)
+			if removed {
+				if len(n.values) == 0 {
+					// no more values - remove the given key from the tree.
+					// TODO implement tree deletion.
+				}
+			}
 			return removed
 		} else if n.key < key {
 			if n.left == nil {
