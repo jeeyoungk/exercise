@@ -260,15 +260,15 @@ func TestSort_1(t *testing.T) {
 }
 
 func TestSort_2(t *testing.T) {
-  N := 10000000
+	N := 10000000
 	testArray := make([]int, N, N)
-  rand.Seed(42)
-  for i := 0; i < N; i++ {
-    testArray[i] = rand.Int()
-  }
+	rand.Seed(42)
+	for i := 0; i < N; i++ {
+		testArray[i] = rand.Int()
+	}
 
-  dist_merge_sort(testArray)
-  assertSorted(t, &testArray)
+	dist_merge_sort(testArray)
+	assertSorted(t, &testArray)
 }
 
 func TestMaxStack(t *testing.T) {

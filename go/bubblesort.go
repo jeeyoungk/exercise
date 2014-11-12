@@ -44,29 +44,29 @@ func dist_merge_sort_impl(a []int, start int, end int, depth int) {
 	if length <= 1 {
 		return
 	}
-  if length <= 32 {
-    mysort(a[start:end])
-  }
+	if length <= 32 {
+		mysort(a[start:end])
+	}
 	mid := (start + end) / 2
-  done := make(chan bool, 2)
-  left := func() {
-    dist_merge_sort_impl(a, start, mid, depth+1)
-    done <- true
-  }
-  right := func() {
-    dist_merge_sort_impl(a, mid, end, depth+1)
-    done <- true
-  }
-  if depth == 1 {
-    go left()
-    go right()
-  } else {
-    left()
-    right()
-  }
-  // wait for the distribution to be done.
-  <-done
-  <-done
+	done := make(chan bool, 2)
+	left := func() {
+		dist_merge_sort_impl(a, start, mid, depth+1)
+		done <- true
+	}
+	right := func() {
+		dist_merge_sort_impl(a, mid, end, depth+1)
+		done <- true
+	}
+	if depth == 1 {
+		go left()
+		go right()
+	} else {
+		left()
+		right()
+	}
+	// wait for the distribution to be done.
+	<-done
+	<-done
 	merge(a, start, mid, end)
 }
 
