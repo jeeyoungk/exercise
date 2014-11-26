@@ -5,17 +5,17 @@
 # Public Interface
 # ----------------
 Q = {
-  # Creates a new `Defer`.
+  # **Public**. Creates a new `Defer`.
   defer: () ->
     d = new Defer(); wrapped = {}
     ['success','fail','promise'].map (method) -> wrapped[method] = d[method].bind(d)
     wrapped
-  # Convenience function to create a failed promise.
+  # **Public**. Convenience function to create a failed promise.
   fail: (value) ->
     d = Q.defer()
     d.fail(value)
     d.promise()
-  # Derive a promise which is resolved iff all the provided
+  # **Public**. Derive a promise which is resolved iff all the provided
   # promises are resolved. The derived promise is successful
   # iff all subpromises are successful.
   all: (promises) ->
@@ -41,7 +41,7 @@ Q = {
           failed |= f isnt null
           decrement()
     return defer.promise()
-  # Derive a promise which automatically fails on timeout.
+  # **Public**. Derive a promise which automatically fails on timeout.
   timeout: (promise, timeout) ->
     d = Q.defer()
     setTimeout (-> d.fail "timeout"), timeout
@@ -158,9 +158,9 @@ testchain_normal = ->
   d.success(5)
   assert(run)
 
+# Test promise resolution is fully propagated through a chain.
+# Mixed workflow of successes and failures.
 testchain_failures = ->
-  # Test promise resolution is fully propagated through a chain.
-  # Mixed workflow of successes and failures.
   run = false
   d = Q.defer()
   d.promise()
@@ -172,9 +172,9 @@ testchain_failures = ->
   d.success(1)
   assert run
 
+# Promise is resolved before chained via `then`.
+# Chained promises should resolve regardless.
 testoutoforder = ->
-  # Promise is resolved before chained via `then`.
-  # Chained promises should resolve regardless.
   run = false
   d = Q.defer()
   p = d.promise()
@@ -182,9 +182,9 @@ testoutoforder = ->
   p.then((s, f) => run = true)
   assert(run)
 
+# Promise returning promise. Q framework should
+# unwrap them accordingly.
 testreturnpromise = ->
-  # Promise returning promise. Q framework should
-  # unwrap them accordingly.
   run = false
   start = Q.defer()
   response = Q.defer()
@@ -197,9 +197,9 @@ testreturnpromise = ->
   response.success 12
   assert run
 
+# Test a fanout of promises - multiple derived promises
+# on top of a single promise.
 testfan = ->
-  # Test a fanout of promises - multiple derived promises
-  # on top of a single promise.
   d = Q.defer()
   p = d.promise()
   count = 5
@@ -212,8 +212,8 @@ testfan = ->
   d.success('start')
   assert(count is 0)
 
+# Duplicate promise resolutions are ignored.
 testduplicate = ->
-  # Duplicate promise resolutions are ignored.
   d = Q.defer()
   count = 0
   increment = -> count++
@@ -227,8 +227,8 @@ testduplicate = ->
   assert not d.fail 1
   assert count is 1
 
+# test `Q.all()`, where all promises are successful.
 testall_normal = ->
-  # test `Q.all()`, where all promises are successful.
   a = Q.defer()
   b = Q.defer()
   c = Q.defer()
@@ -242,8 +242,8 @@ testall_normal = ->
   b.success('b'); assert not run
   c.success('c'); assert run
 
+# test `Q.all()`, where all promises are successful.
 testall_failure = ->
-  # test `Q.all()`, where all promises are successful.
   a = Q.defer()
   b = Q.defer()
   c = Q.defer()
@@ -257,14 +257,14 @@ testall_failure = ->
   b.success('b'); assert not run
   c.fail('c'); assert run
 
+# Test `Q.all()` with an empty array of promises.
 testall_empty = ->
-  # Test `Q.all()` with an empty array of promises.
   run = false
   Q.all([]).then -> run = true
   assert(run)
 
+# Test `Q.timeout()`.
 testtimeout = ->
-  # Test `Q.timeout()`.
   run = false
   d = Q.defer()
   timeoutPromise = Q.timeout(d.promise(), 50)
