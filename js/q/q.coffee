@@ -2,108 +2,97 @@
 # Implementing angularjs promises, for fun and profit.
 
 Q = {
-  defer: () -> new Defer()
+  # creates a new deferred object.
+  defer: () ->
+    d = new Defer()
+    {
+      success: d.success.bind(d)
+      fail:    d.fail.bind(d)
+      promise: d.promise
+    }
+  # shortcut for creating failed promises.
   fail: (value) ->
     d = Q.defer()
     d.fail(value)
     d.promise
-
+  # from an array of promises, returns a promise
+  # which is resolved when ALL of them are resolved.
   all: (promises) ->
-    # from an array of promises, returns a 
     count = promises.length
     defer = Q.defer()
-    if count == 0
-      # short circuit.
-      defer.success([])
-      return defer.promise
-    successes = (null for promise of promises)
-    failures =  (null for promise of promises)
-    hasFailure = false
+    if count == 0 # short circuit on empty array.
+      defer.success([]); return defer.promise
+    resp_succ = (null for promise of promises)
+    resp_fail = (null for promise of promises)
+    failed = false
     decrement = () ->
       count--
-      if count == 0
-        if hasFailure
-          defer.failure(failures)
-        else
-          defer.success(successes)
+      return unless count is 0
+      if failed then defer.failure(resp_fail) else defer.success(resp_succ)
+
     for index, promise of promises
       do (index) ->
         promise.then (s, f) ->
-          successes[index] = s
-          failures[index] = f
-          if f isnt null
-            hasFailure = true
+          resp_succ[index] = s; resp_fail[index] = f
+          failed |= f isnt null
           decrement()
     return defer.promise
+
+  # create a wrapped promise that fails automatically on timeout.
+  timeout: (promise, timeout, fallback = null) ->
+    d = Q.defer()
+    setTimeout (-> d.fail "timeout"), timeout
+    promise.then (s, f) ->
+      if f isnt null
+        if fallback? then d.success fallback
+        else d.fail f
+      else d.success s
+    return d.promise
 }
 
-STATE_NEW = 0
-STATE_SUCCESS = 1
-STATE_FAIL = 2
+# defers can be in 3 state.
+STATE_NEW = 0     # newly created unresolved defer.
+STATE_SUCCESS = 1 # resolved to success
+STATE_FAIL = 2    # resolved to failure
 
 class Defer
   constructor: () ->
     @queued = []
     @value = null
     @state = STATE_NEW
+
     @promise = {
+      # chain the promise with a given function.
       then: (async) =>
-        defer = new Defer()
-        wrapped = (success, failure) =>
-          try
-            successValue = async(success, failure)
-          catch e
-            failValue = e
-
-          if successValue? and successValue.is_promise
-            # chaining the promise.
+        d = new Defer()
+        wrapped = (s, f) =>
+          try successValue = async(s, f) catch failValue
+          if successValue? and successValue.is_promise # chain the promise
             successValue.then (s, f) ->
-              if f isnt null
-                defer.fail f
-              else
-                defer.success s
+              if f isnt null then d.fail f
+              else d.success s
           else
-            # non-promise value.
-            if failValue?
-              defer.fail(failValue)
-            else
-              defer.success(successValue)
-
-        if @state is STATE_NEW
-          @queued.push wrapped
-        else
-          @triggerOne wrapped
-        return defer.promise
+            if failValue? then d.fail failValue
+            else d.success successValue
+        if @state is STATE_NEW then @queued.push wrapped
+        else @triggerOne wrapped
+        d.promise
+      done: () => @state isnt STATE_NEW
       is_promise: true
     }
-
-
-  success: (value) ->
-    # mark the given promise as success.
+  # resolve as success
+  success: (value) -> @resolve value, STATE_SUCCESS
+  # resolve as failure
+  fail: (value) -> @resolve value, STATE_FAIL
+  # resolve as success or failure.
+  resolve: (value, state) ->
     if (operate = (@state is STATE_NEW))
-      @value = value
-      @state = STATE_SUCCESS
-      @triggerAll()
+      @value = value; @state = state
+      @triggerOne(queue) for idx, queue of @queued
     return operate
-
-  fail: (value) ->
-    # fail the given promise.
-    if (operate = (@state is STATE_NEW))
-      @value = value
-      @state = STATE_FAIL
-      @triggerAll()
-    return operate
-
   triggerOne: (queue) ->
-    if @state is STATE_SUCCESS
-      queue(@value, null) # success mode.
-    else
-      queue(null, @value) # fail mode.
-
-  triggerAll: =>
-    for idx, queue of @queued
-      @triggerOne(queue)
-
+    if @state is STATE_SUCCESS then queue(@value, null)
+    else queue(null, @value)
 
 test = ->
   testall_empty()
@@ -116,6 +105,7 @@ test = ->
   testhello_fail()
   testoutoforder()
   testreturnpromise()
+  testtimeout()
 
 assert = (value) =>
   unless value
@@ -125,8 +115,10 @@ testhello = ->
   # Hello to the world of promises.
   run = false
   d = Q.defer()
+  assert not d.promise.done()
   d.promise.then (s, f) => (assert s is 'world'; run = true)
   d.success('world')
+  assert d.promise.done()
   assert run
 
 testhello_fail = ->
@@ -215,10 +207,9 @@ testduplicate = ->
   d = Q.defer()
   count = 0
   increment = -> count++
-  d.promise.then((s, f) ->
+  d.promise.then (s, f) ->
     assert(s == 1)
     increment()
-  )
   assert(count == 0)
   assert(d.success(1))
   assert(count == 1)
@@ -246,9 +237,18 @@ testall_normal = ->
 
 testall_empty = ->
   run = false
-  Q.all([]).then ->
-    run = true
+  Q.all([]).then -> run = true
   assert(run)
+
+testtimeout = ->
+  run = false
+  d = Q.defer()
+  timeoutPromise = Q.timeout(d.promise, 50)
+  timeoutPromise.then (s, f) ->
+    assert f is 'timeout'
+    run = true
+  setTimeout (-> assert not run), 49
+  setTimeout (-> assert run), 51
 
 test()
 
