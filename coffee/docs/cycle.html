@@ -93,8 +93,8 @@ detection.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>detect a cycle.
-graph - {vertex:[vertices…]}</p>
+              <p><code>has_cycle</code> - determines whether a given graph contains a cycle.</p>
+<p><code>graph</code> is an object of the form <code>{vertex:[outgoing vertices...]}</code></p>
 
             </div>
             
@@ -109,11 +109,11 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>set of root vertices.</p>
+              <p>set of root vertices. DFS are started from these.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  roots = find_root(graph)</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  roots = find_root graph</pre></div></div>
             
         </li>
         
@@ -124,7 +124,7 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>If the root set is empty, then there MUST be a cycle.</p>
+              <p>If the root set is empty, then it is cyclic graph.</p>
 
             </div>
             
@@ -139,7 +139,8 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>All the visited node.</p>
+              <p>All the visited node. Set is additive during the execution
+of algorithm.</p>
 
             </div>
             
@@ -154,26 +155,11 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>All the visited node in current path.</p>
+              <p>All the visited node in current path. Added &amp; removed during recursion.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  inpath = {}
-
-  found = <span class="hljs-literal">false</span>
-<span class="hljs-function">  <span class="hljs-title">traverse</span> = <span class="hljs-params">(node)</span> -&gt;</span>
-    <span class="hljs-keyword">if</span> inpath[node]? <span class="hljs-keyword">then</span> found = <span class="hljs-literal">true</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> found <span class="hljs-comment"># short circuit.</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> visited[node]
-    visited[node] = <span class="hljs-literal">true</span>
-    inpath[node] = <span class="hljs-literal">true</span>
-    traverse(neigh) <span class="hljs-keyword">for</span> neigh <span class="hljs-keyword">in</span> graph[node]
-    <span class="hljs-keyword">delete</span> inpath[node]
-  <span class="hljs-keyword">for</span> root <span class="hljs-keyword">in</span> roots
-    traverse(root)
-  <span class="hljs-keyword">return</span> found
-<span class="hljs-function">
-<span class="hljs-title">find_root</span> = <span class="hljs-params">(graph)</span> -&gt;</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  inpath = {}</pre></div></div>
             
         </li>
         
@@ -184,21 +170,11 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <ol>
-<li>reverse the graph.</li>
-</ol>
+              <p>true if a cycle is found.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  has_reverse = {}
-  <span class="hljs-keyword">for</span> parent, neigh <span class="hljs-keyword">of</span> graph
-    has_reverse[parent] ||= <span class="hljs-literal">false</span>
-    <span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> neigh
-      has_reverse[child] ||= <span class="hljs-literal">true</span>
-  result = []
-  <span class="hljs-keyword">for</span> vertex, is_root <span class="hljs-keyword">of</span> has_reverse
-    <span class="hljs-keyword">unless</span> is_root <span class="hljs-keyword">then</span> result.push vertex
-  <span class="hljs-keyword">return</span> result</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  found = <span class="hljs-literal">false</span></pre></div></div>
             
         </li>
         
@@ -209,9 +185,14 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <h1 id="test-code">Test code</h1>
+              <p>Performs a depth first search traversal, and sees if it finds a
+back edge to the traversal path.
+Visisted vertices are tracked for efficiency.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">dfs</span> = <span class="hljs-params">(node)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> inpath[node]? <span class="hljs-keyword">then</span> found = <span class="hljs-literal">true</span></pre></div></div>
             
         </li>
         
@@ -222,24 +203,91 @@ graph - {vertex:[vertices…]}</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
+              <p>Short circuit if a cycle is found. Unwind the stack.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> found
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> visited[node] <span class="hljs-comment"># No need to traverse the same node again.</span>
+    visited[node] = <span class="hljs-literal">true</span>; inpath[node] = <span class="hljs-literal">true</span>
+    dfs neighbour <span class="hljs-keyword">for</span> neighbour <span class="hljs-keyword">in</span> (graph[node] <span class="hljs-keyword">or</span> [])
+    <span class="hljs-keyword">delete</span> inpath[node]
+  dfs root <span class="hljs-keyword">for</span> root <span class="hljs-keyword">in</span> roots
+  <span class="hljs-keyword">return</span> found</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Find all the vertices with no inbound edge.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">find_root</span> = <span class="hljs-params">(graph)</span> -&gt;</span>
+  has_reverse = {}
+  <span class="hljs-keyword">for</span> parent, neigh <span class="hljs-keyword">of</span> graph
+    has_reverse[parent] ||= <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> neigh
+      has_reverse[child] ||= <span class="hljs-literal">true</span>
+  <span class="hljs-keyword">return</span> (node <span class="hljs-keyword">for</span> node, is_root <span class="hljs-keyword">of</span> has_reverse <span class="hljs-keyword">when</span> <span class="hljs-keyword">not</span> is_root)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <h1 id="test-code">Test code</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-function">
-<span class="hljs-title">test</span> = -&gt;</span>
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">test</span> = -&gt;</span>
   test_find_root()
-  test_1()
+
+  test_cycle()
+  test_line()
+  test_tree()
 <span class="hljs-function">
 <span class="hljs-title">assert</span> = <span class="hljs-params">(cond)</span> -&gt;</span> <span class="hljs-keyword">unless</span> cond <span class="hljs-keyword">then</span> <span class="hljs-built_in">console</span>.log <span class="hljs-string">'error'</span>
 <span class="hljs-function">
 <span class="hljs-title">test_find_root</span> = -&gt;</span>
-  graph = { <span class="hljs-string">'a'</span> : [<span class="hljs-string">'b'</span>], <span class="hljs-string">'b'</span> : [<span class="hljs-string">'c'</span>] }
-  assert <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> find_root(graph).length
+  assert <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> find_root({ <span class="hljs-string">'a'</span> : [<span class="hljs-string">'b'</span>], <span class="hljs-string">'b'</span> : [<span class="hljs-string">'c'</span>] }).length
 <span class="hljs-function">
-<span class="hljs-title">test_1</span> = -&gt;</span>
-  graph = { <span class="hljs-string">'a'</span> : [<span class="hljs-string">'b'</span>], <span class="hljs-string">'b'</span> : [<span class="hljs-string">'c'</span>], <span class="hljs-string">'c'</span> : [<span class="hljs-string">'d'</span>], <span class="hljs-string">'d'</span> : [<span class="hljs-string">'b'</span>] }
-  assert has_cycle(graph)
-
+<span class="hljs-title">test_cycle</span> = -&gt;</span>
+  assert has_cycle { <span class="hljs-string">'a'</span> : [<span class="hljs-string">'b'</span>], <span class="hljs-string">'b'</span> : [<span class="hljs-string">'c'</span>], <span class="hljs-string">'c'</span> : [<span class="hljs-string">'d'</span>], <span class="hljs-string">'d'</span> : [<span class="hljs-string">'b'</span>] }
+<span class="hljs-function">
+<span class="hljs-title">test_line</span> = -&gt;</span>
+  assert <span class="hljs-keyword">not</span> has_cycle { <span class="hljs-string">'a'</span> : [<span class="hljs-string">'b'</span>], <span class="hljs-string">'b'</span> : [<span class="hljs-string">'c'</span>] , <span class="hljs-string">'c'</span>: [<span class="hljs-string">'d'</span>], <span class="hljs-string">'d'</span> : [<span class="hljs-string">'e'</span>] }
+<span class="hljs-function">
+<span class="hljs-title">test_tree</span> = -&gt;</span>
+  assert <span class="hljs-keyword">not</span> has_cycle {
+    root : [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'c'</span>]
+    a : [<span class="hljs-string">'aa'</span>, <span class="hljs-string">'ab'</span>, <span class="hljs-string">'ac'</span>, <span class="hljs-string">'ad'</span>]
+    b : [<span class="hljs-string">'ba'</span>]
+    aa : [<span class="hljs-string">'aaa'</span>, <span class="hljs-string">'aab'</span>]
+    ab : [<span class="hljs-string">'aba'</span>]
+    ba : [<span class="hljs-string">'baa'</span>, <span class="hljs-string">'bab'</span>, <span class="hljs-string">'bac'</span>, <span class="hljs-string">'bad'</span>]
+  }
 test()</pre></div></div>
             
         </li>
