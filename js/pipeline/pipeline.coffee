@@ -56,37 +56,37 @@ class PipeContext
   $complete: ->
 
 
-# Data Structure
-# --------------
+# Topology Configurations
+# -----------------------
+# `PipeConfig` provides two things:
+# * Information on how to run a given pipe.
+# * Information on how to wire up the pipes.
+class PipeConfig
+  constructor: (options) ->
+    {
+      # Name for the given pipe in the topology.
+      # It must be unique within the cluster.
+      @name
+      # Names of the dependent pipes, and the clustering strategy.
+      # It is a map {pipe name : grouper}. See `Grouper` for more info.
+      @dependencies
+      # List of required fields emitted by the given pipe.
+      @fields
+      # Number of concurrent instances of the given pipe.
+      @concurrency
+      # how often `onInterval()` event is triggered for a given pipe.
+      # `0` disables `onInterval()` altogether.
+      @interval_ms
+    } = options
+    unless @dependencies? then @dependencies = {}
+    unless @interval_ms?  then @interval_ms = 0
+    unless @concurrency?  then @concurrency = 1
+
 class Grouper
   # required fields.
   fields: () -> []
   # grouping function. maps message -> int.
   group:  (message) ->
-
-# Topology Configurations
-# -----------------------
-class PipeConfig
-  constructor: (options) ->
-    {
-      # Name for the given pipe in the topology.
-      @name
-      # Names of the dependent pipes, and the
-      # clustering strategy.
-      # name -> grouper[fields]
-      @dependencies
-      # List of fields the given pipe must have.
-      @fields
-      # Concurrency factor of the pipe.
-      @concurrency
-      # how often "onInterval" is called.
-      @interval_ms
-    } = options
-    # no periodic invocation.
-    unless @dependencies?  then @dependencies = {}
-    unless @interval_ms? then @interval_ms = 0
-    unless @concurrency? then @concurrency = 1
-
 
 # Implementation detail of the pipe context.
 # Internally it has callbacks on emit and completion to make things
@@ -120,6 +120,7 @@ class Topology
     @name_to_dependents = {}
     @handles = [] # various handles.
 
+  # Registers a given pipe & config into the topology.
   register: (pipe, config) ->
     name = config.name
     assert not @name_to_pipe[name], "Pipe already registered"
