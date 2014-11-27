@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>q.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="cycle.html">
+                cycle.coffee
+              </a>
+            
+              
+              <a class="source" href="pipeline.html">
+                pipeline.coffee
+              </a>
+            
+              
+              <a class="source" href="q.html">
+                q.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>q.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>Author : Jeeyoung Kim</p>
+<p>Implementing angularjs promises, for fun and profit.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="public-interface">Public Interface</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>Q = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Creates a new <code>Defer</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">defer</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    d = <span class="hljs-keyword">new</span> Defer(); wrapped = {}
+    [<span class="hljs-string">'success'</span>,<span class="hljs-string">'fail'</span>,<span class="hljs-string">'promise'</span>].map (method) -&gt; wrapped[method] = d[method].bind(d)
+    wrapped</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Convenience function to create a failed promise.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">fail</span>: <span class="hljs-function"><span class="hljs-params">(value)</span> -&gt;</span>
+    d = Q.defer()
+    d.fail(value)
+    d.promise()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Derive a promise which is resolved iff all the provided
+promises are resolved. The derived promise is successful
+iff all subpromises are successful.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">all</span>: <span class="hljs-function"><span class="hljs-params">(promises)</span> -&gt;</span>
+    count = promises.length; defer = Q.defer()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>short circuit on empty array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> count <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+      defer.success([]); <span class="hljs-keyword">return</span> defer.promise()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Aggregated results</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    resp_succ = (<span class="hljs-literal">null</span> <span class="hljs-keyword">for</span> promise <span class="hljs-keyword">of</span> promises)
+    resp_fail = (<span class="hljs-literal">null</span> <span class="hljs-keyword">for</span> promise <span class="hljs-keyword">of</span> promises)
+    failed = <span class="hljs-literal">false</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>decrements the number of unresolved promises, and resolve the derived
+promise upon completion.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">    <span class="hljs-title">decrement</span> = <span class="hljs-params">()</span> -&gt;</span>
+      count--
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> count <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+      <span class="hljs-keyword">if</span> failed <span class="hljs-keyword">then</span> defer.fail(resp_fail)
+      <span class="hljs-keyword">else</span> defer.success(resp_succ)
+    <span class="hljs-keyword">for</span> index, promise <span class="hljs-keyword">of</span> promises
+      <span class="hljs-keyword">do</span> (index) -&gt;
+        promise.<span class="hljs-keyword">then</span> (s, f) -&gt;
+          resp_succ[index] = s; resp_fail[index] = f
+          failed |= f <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
+          decrement()
+    <span class="hljs-keyword">return</span> defer.promise()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Derive a promise which automatically fails on timeout.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">timeout</span>: <span class="hljs-function"><span class="hljs-params">(promise, timeout)</span> -&gt;</span>
+    d = Q.defer()
+    setTimeout (<span class="hljs-function">-&gt;</span> d.fail <span class="hljs-string">"timeout"</span>), timeout
+    promise.<span class="hljs-keyword">then</span> (s, f) -&gt;
+      <span class="hljs-keyword">if</span> f <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">then</span> d.fail f
+      <span class="hljs-keyword">else</span> d.success s
+    <span class="hljs-keyword">return</span> d.promise()
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <h2 id="implementation">Implementation</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p><code>Defer</code> is in 3 one of states.</p>
+<ul>
+<li><code>NEW</code> - unresolved promise.</li>
+<li><code>SUCCESS,FAIL</code> - resolved promise.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>STATE_NEW = <span class="hljs-number">0</span>
+STATE_SUCCESS = <span class="hljs-number">1</span>
+STATE_FAIL = <span class="hljs-number">2</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Defer</span></span>
+  <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> <span class="hljs-property">@queued</span> = []; <span class="hljs-property">@value</span> = <span class="hljs-literal">null</span>; <span class="hljs-property">@state</span> = STATE_NEW</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Resolve as success.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">success</span>: <span class="hljs-function"><span class="hljs-params">(value)</span> -&gt;</span> <span class="hljs-property">@resolve</span> value, STATE_SUCCESS</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Resolve as failure.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">fail</span>: <span class="hljs-function"><span class="hljs-params">(value)</span> -&gt;</span> <span class="hljs-property">@resolve</span> value, STATE_FAIL</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. Creates an externally exposed promise object.
+libraries should only expose promises to the client, and encapsulate
+defers as implementation detail.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">promise</span>: <span class="hljs-function">-&gt;</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. chain the promise with a given function.
+Returns a derived promise object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">then</span>: <span class="hljs-function"><span class="hljs-params">(async)</span> =&gt;</span>
+      d = <span class="hljs-keyword">new</span> Defer()
+<span class="hljs-function">      <span class="hljs-title">wrapped</span> = <span class="hljs-params">(s, f)</span> =&gt;</span>
+        <span class="hljs-keyword">try</span> successValue = async(s, f) <span class="hljs-keyword">catch</span> failValue
+        <span class="hljs-keyword">if</span> successValue? <span class="hljs-keyword">and</span> successValue.__is_promise
+          successValue.<span class="hljs-keyword">then</span> (s, f) -&gt;
+            <span class="hljs-keyword">if</span> f <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">then</span> d.fail f
+            <span class="hljs-keyword">else</span> d.success s
+        <span class="hljs-keyword">else</span>
+          <span class="hljs-keyword">if</span> failValue? <span class="hljs-keyword">then</span> d.fail failValue
+          <span class="hljs-keyword">else</span> d.success successValue
+      <span class="hljs-keyword">if</span> <span class="hljs-property">@state</span> <span class="hljs-keyword">is</span> STATE_NEW <span class="hljs-keyword">then</span> <span class="hljs-property">@queued</span>.push wrapped
+      <span class="hljs-keyword">else</span> <span class="hljs-property">@triggerOne</span> wrapped
+      d.promise()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p><strong>Public</strong>. true if the given promise is resolved.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">done</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-property">@state</span> <span class="hljs-keyword">isnt</span> STATE_NEW</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>sentinal value to distinguish promise objects.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">__is_promise</span>: <span class="hljs-literal">true</span>
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>resolve as success or failure.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">resolve</span>: <span class="hljs-function"><span class="hljs-params">(value, state)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> (operate = (<span class="hljs-property">@state</span> <span class="hljs-keyword">is</span> STATE_NEW))
+      <span class="hljs-property">@value</span> = value; <span class="hljs-property">@state</span> = state
+      <span class="hljs-property">@triggerOne</span>(queue) <span class="hljs-keyword">for</span> idx, queue <span class="hljs-keyword">of</span> <span class="hljs-property">@queued</span>
+    <span class="hljs-keyword">return</span> operate</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>trigger a given queued asynchronous function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">triggerOne</span>: <span class="hljs-function"><span class="hljs-params">(queue)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-property">@state</span> <span class="hljs-keyword">is</span> STATE_SUCCESS <span class="hljs-keyword">then</span> queue <span class="hljs-property">@value</span>, <span class="hljs-literal">null</span>
+    <span class="hljs-keyword">else</span> queue <span class="hljs-literal">null</span>, <span class="hljs-property">@value</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <h2 id="unit-tests">Unit Tests</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">test</span> = -&gt;</span>
+  testall_empty()
+  testall_failure()
+  testall_normal()
+  testchain_normal()
+  testchain_failures()
+  testduplicate()
+  testfan()
+  testhello()
+  testhello_fail()
+  testoutoforder()
+  testreturnpromise()
+  testtimeout()
+<span class="hljs-function">
+<span class="hljs-title">assert</span> = <span class="hljs-params">(value)</span> =&gt;</span>
+  <span class="hljs-keyword">unless</span> value <span class="hljs-keyword">then</span> <span class="hljs-built_in">console</span>.error <span class="hljs-string">'failure'</span>
+<span class="hljs-function">
+<span class="hljs-title">testhello</span> = -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Hello to the world of promises.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  run = <span class="hljs-literal">false</span>
+  d = Q.defer()
+  assert <span class="hljs-keyword">not</span> d.promise().done()
+  d.promise().<span class="hljs-keyword">then</span> (s, f) =&gt; (assert s <span class="hljs-keyword">is</span> <span class="hljs-string">'world'</span>; run = <span class="hljs-literal">true</span>)
+  d.success(<span class="hljs-string">'world'</span>)
+  assert d.promise().done()
+  assert run
+<span class="hljs-function">
+<span class="hljs-title">testhello_fail</span> = -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>test failure methods:</p>
+<ul>
+<li><code>defer.fail()</code> - resolving as failure.</li>
+<li><code>throw</code>ing - returing exception as failure.</li>
+<li><code>Q.fail()</code></li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  run = <span class="hljs-literal">false</span>
+  d = Q.defer()
+  d.promise()
+    .<span class="hljs-keyword">then</span> (s, f) =&gt; (assert f <span class="hljs-keyword">is</span> <span class="hljs-string">'hello'</span>; <span class="hljs-keyword">throw</span> <span class="hljs-string">'world'</span>)
+    .<span class="hljs-keyword">then</span> (s, f) =&gt; (assert f <span class="hljs-keyword">is</span> <span class="hljs-string">'world'</span>; Q.fail(<span class="hljs-string">'everybody'</span>))
+    .<span class="hljs-keyword">then</span> (s, f) =&gt; (assert f <span class="hljs-keyword">is</span> <span class="hljs-string">'everybody'</span>; run = <span class="hljs-literal">true</span>)
+  d.fail <span class="hljs-string">'hello'</span>
+  assert run
+<span class="hljs-function">
+<span class="hljs-title">testchain_normal</span> = -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Test promise resolution is fully propagated through a chain.
+Success-only workflow.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  run = <span class="hljs-literal">false</span>
+  d = Q.defer()
+  d.promise().<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> s + <span class="hljs-number">1</span>)
+   .<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> s * <span class="hljs-number">2</span>)
+   .<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> assert s <span class="hljs-keyword">is</span> <span class="hljs-number">12</span>; run = <span class="hljs-literal">true</span>
+   )
+  d.success(<span class="hljs-number">5</span>)
+  assert(run)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Test promise resolution is fully propagated through a chain.
+Mixed workflow of successes and failures.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testchain_failures</span> = -&gt;</span>
+  run = <span class="hljs-literal">false</span>
+  d = Q.defer()
+  d.promise()
+    .<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> Q.fail s + <span class="hljs-number">1</span>)
+    .<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> f + <span class="hljs-number">1</span>)
+    .<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> <span class="hljs-keyword">throw</span> s + <span class="hljs-number">1</span>)
+    .<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> assert f <span class="hljs-keyword">is</span> <span class="hljs-number">4</span>; run = <span class="hljs-literal">true</span>
+    )
+  d.success(<span class="hljs-number">1</span>)
+  assert run</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Promise is resolved before chained via <code>then</code>.
+Chained promises should resolve regardless.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testoutoforder</span> = -&gt;</span>
+  run = <span class="hljs-literal">false</span>
+  d = Q.defer()
+  p = d.promise()
+  d.success(<span class="hljs-number">1</span>)
+  p.<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> run = <span class="hljs-literal">true</span>)
+  assert(run)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Promise returning promise. Q framework should
+unwrap them accordingly.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testreturnpromise</span> = -&gt;</span>
+  run = <span class="hljs-literal">false</span>
+  start = Q.defer()
+  response = Q.defer()
+  chained = start.promise().<span class="hljs-keyword">then</span> (s, f) -&gt;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> s <span class="hljs-keyword">is</span> <span class="hljs-number">10</span>
+    <span class="hljs-keyword">return</span> response.promise()
+  chained.<span class="hljs-keyword">then</span> (s, f) =&gt; assert s <span class="hljs-keyword">is</span> <span class="hljs-number">12</span>; run = <span class="hljs-literal">true</span>
+  start.success <span class="hljs-number">10</span>
+  assert <span class="hljs-keyword">not</span> run
+  response.success <span class="hljs-number">12</span>
+  assert run</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>Test a fanout of promises - multiple derived promises
+on top of a single promise.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testfan</span> = -&gt;</span>
+  d = Q.defer()
+  p = d.promise()
+  count = <span class="hljs-number">5</span>
+<span class="hljs-function">  <span class="hljs-title">decrement</span> = -&gt;</span> count--
+  p.<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> decrement())
+  p.<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> decrement())
+  p.<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> decrement())
+  p.<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> decrement())
+  p.<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(s, f)</span> =&gt;</span> decrement())
+  d.success(<span class="hljs-string">'start'</span>)
+  assert(count <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>Duplicate promise resolutions are ignored.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testduplicate</span> = -&gt;</span>
+  d = Q.defer()
+  count = <span class="hljs-number">0</span>
+<span class="hljs-function">  <span class="hljs-title">increment</span> = -&gt;</span> count++
+  d.promise().<span class="hljs-keyword">then</span> (s, f) -&gt;
+    assert s <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+    increment()
+  assert count <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+  assert d.success <span class="hljs-number">1</span>
+  assert count <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+  assert <span class="hljs-keyword">not</span> d.success <span class="hljs-number">1</span>
+  assert <span class="hljs-keyword">not</span> d.fail <span class="hljs-number">1</span>
+  assert count <span class="hljs-keyword">is</span> <span class="hljs-number">1</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>test <code>Q.all()</code>, where all promises are successful.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testall_normal</span> = -&gt;</span>
+  a = Q.defer()
+  b = Q.defer()
+  c = Q.defer()
+  run = <span class="hljs-literal">false</span>
+  Q.all([a.promise(), b.promise(), c.promise()]).<span class="hljs-keyword">then</span> (s, f) -&gt;
+    assert s[<span class="hljs-number">0</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'a'</span>
+    assert s[<span class="hljs-number">1</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'b'</span>
+    assert s[<span class="hljs-number">2</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'c'</span>
+    run = <span class="hljs-literal">true</span>
+  a.success(<span class="hljs-string">'a'</span>); assert <span class="hljs-keyword">not</span> run
+  b.success(<span class="hljs-string">'b'</span>); assert <span class="hljs-keyword">not</span> run
+  c.success(<span class="hljs-string">'c'</span>); assert run</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>test <code>Q.all()</code>, where all promises are successful.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testall_failure</span> = -&gt;</span>
+  a = Q.defer()
+  b = Q.defer()
+  c = Q.defer()
+  run = <span class="hljs-literal">false</span>
+  Q.all([a.promise(), b.promise(), c.promise()]).<span class="hljs-keyword">then</span> (s, f) -&gt;
+    assert f[<span class="hljs-number">0</span>] <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>
+    assert f[<span class="hljs-number">1</span>] <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>
+    assert f[<span class="hljs-number">2</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'c'</span>
+    run = <span class="hljs-literal">true</span>
+  a.success(<span class="hljs-string">'a'</span>); assert <span class="hljs-keyword">not</span> run
+  b.success(<span class="hljs-string">'b'</span>); assert <span class="hljs-keyword">not</span> run
+  c.fail(<span class="hljs-string">'c'</span>); assert run</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>Test <code>Q.all()</code> with an empty array of promises.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testall_empty</span> = -&gt;</span>
+  run = <span class="hljs-literal">false</span>
+  Q.all([]).<span class="hljs-keyword">then</span> -&gt; run = <span class="hljs-literal">true</span>
+  assert(run)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>Test <code>Q.timeout()</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">testtimeout</span> = -&gt;</span>
+  run = <span class="hljs-literal">false</span>
+  d = Q.defer()
+  timeoutPromise = Q.timeout(d.promise(), <span class="hljs-number">50</span>)
+  timeoutPromise.<span class="hljs-keyword">then</span> (s, f) -&gt;
+    assert f <span class="hljs-keyword">is</span> <span class="hljs-string">'timeout'</span>
+    run = <span class="hljs-literal">true</span>
+  setTimeout (<span class="hljs-function">-&gt;</span> assert <span class="hljs-keyword">not</span> run), <span class="hljs-number">49</span>
+  setTimeout (<span class="hljs-function">-&gt;</span> assert run), <span class="hljs-number">51</span>
+
+test()</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

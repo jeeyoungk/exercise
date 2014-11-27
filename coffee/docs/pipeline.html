@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>pipeline.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="cycle.html">
+                cycle.coffee
+              </a>
+            
+              
+              <a class="source" href="pipeline.html">
+                pipeline.coffee
+              </a>
+            
+              
+              <a class="source" href="q.html">
+                q.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>pipeline.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>Pipeline framework</p>
+<p>Allows developres to create a pipeline of computation.
+Similar to Apache Storm, but within a single javascript runtime.</p>
+<p>Author: Jeeyoung Kim</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h1 id="processing-pipeline">Processing Pipeline</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><code>Pipe</code> is the basic unit of computation.
+Few things about pipes:</p>
+<ul>
+<li>Pipes are stateless.</li>
+<li>Pipe has the following lifecycle:<pre><code>onStart -&gt; (onInterval|onMessage)* -&gt; onStop
+</code></pre></li>
+<li>Per pipe state can be tracked in <code>context</code> object. Multiple
+contexts can be initialized via increasing the <code>concurrency</code> parameter
+in <code>PipeConfig</code>.</li>
+<li>All pipe operations are executed asynchronously.
+Every <code>on...()</code> functions MUST call <code>context.$complete()</code> eventually
+to notify the framework. Moreover, pipe is safe from race conditions.
+Per context, There is at most one event handler function running in a given time.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pipe</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><code>onStart</code> is called on cluster start. Used to initialize the <code>context</code> object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">onStart</span>:    <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><code>onInterval</code> is triggered every provided time interval.</p>
+<p><strong>Example Use Cases:</strong></p>
+<ul>
+<li>Flusing the aggregated data in pipe.</li>
+<li>Periodic status report.</li>
+<li>Generating data.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">onInterval</span>: <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><code>onMessage</code> is triggered on a new emitted message.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">onMessage</span>:  <span class="hljs-function"><span class="hljs-params">(context, name, message)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p><code>onStop</code> is triggered when the given pipe have fully stopped.</p>
+<ul>
+<li>Interval job have finished running.</li>
+<li>All parent pipes have stopped.</li>
+</ul>
+<p>Once stopped, no new jobs will be triggered. Implementation can
+perform the last round of <code>$emit()</code> during <code>onStop()</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">onStop</span>:     <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <h2 id="pipe-context">Pipe Context</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p><code>PipeContext</code> is a state associated with each concurrent execution of
+pipe. It is also an interface to allow a pipe to communicate with the
+entire system.</p>
+<p><strong>Member Fields:</strong></p>
+<p>Fields starting with <code>$</code> are reserved for internal usage. Users should not overwrite them.</p>
+<ul>
+<li><code>@$config</code> - Associated <code>PipeConfig</code> object.</li>
+<li><code>@$id</code> - Id of the context. Number between <code>[0..concurrency - 1]</code>.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PipeContext</span></span>
+  <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">(<span class="hljs-property">@$id</span>, <span class="hljs-property">@$config</span>)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Emtis a message to the underlying <code>Topology</code>.
+Emitted message is delivered to the interested pipes.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">$emit</span>: <span class="hljs-function"><span class="hljs-params">(message)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Mark the current event context as completed.</p>
+<p><strong>NOTE:</strong> Every <code>Pipe</code> event handlers MUST invoke <code>$complete()</code>.
+This can be done asynchronously.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">$complete</span>: <span class="hljs-function">-&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <h1 id="topology">Topology</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Topology</span></span>
+  <span class="hljs-attribute">constructor</span>: <span class="hljs-function">-&gt;</span>
+    <span class="hljs-property">@names</span> = [] <span class="hljs-comment"># All registered pipe names.</span>
+    <span class="hljs-property">@name_to_pipe</span> = {};    <span class="hljs-property">@name_to_config</span> = {}
+    <span class="hljs-property">@name_to_context</span> = {}; <span class="hljs-property">@name_to_dependents</span> = {}
+    <span class="hljs-property">@$state</span> = STATE_NEW <span class="hljs-comment"># Current state of topology.</span>
+    <span class="hljs-property">@messageCount</span> = <span class="hljs-number">0</span>   <span class="hljs-comment"># Number of unprocessed messages within toplogy.</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Registers a given <code>(pipe, config)</code> pair to the toplogy.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">register</span>: <span class="hljs-function"><span class="hljs-params">(pipe, config)</span> -&gt;</span>
+    name = config.name
+    assert <span class="hljs-keyword">not</span> <span class="hljs-property">@name_to_pipe</span>[name], <span class="hljs-string">"Pipe already registered"</span>
+    <span class="hljs-property">@names</span>.push name
+    <span class="hljs-property">@name_to_pipe</span>[name] =         pipe
+    <span class="hljs-property">@name_to_config</span>[name] =       config
+    <span class="hljs-property">@name_to_context</span>[name] =      []
+    <span class="hljs-property">@name_to_dependents</span>[name] ||= [] <span class="hljs-comment"># May be initialized by someone else.</span>
+    <span class="hljs-keyword">for</span> id <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span> .. config.concurrency-<span class="hljs-number">1</span>] <span class="hljs-keyword">by</span> <span class="hljs-number">1</span>
+      <span class="hljs-property">@name_to_context</span>[name].push <span class="hljs-keyword">new</span> PipeContextImpl(id, config, <span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">for</span> dependent_name <span class="hljs-keyword">of</span> config.dependencies
+      <span class="hljs-property">@name_to_dependents</span>[dependent_name] ||= []
+      <span class="hljs-property">@name_to_dependents</span>[dependent_name].push name
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Start the given topology.
+It iterates through <code>(pipe, context)</code> pairs and starts them.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">start</span>: <span class="hljs-function">-&gt;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span> <span class="hljs-keyword">unless</span> <span class="hljs-property">@isValid</span>()
+    <span class="hljs-property">@$moveState</span> STATE_STARTING
+    allStarted = counterCallback(<span class="hljs-number">1</span>, <span class="hljs-function">=&gt;</span> <span class="hljs-property">@$moveState</span> STATE_RUNNING)
+    <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> <span class="hljs-property">@names</span>
+      pipe = <span class="hljs-property">@name_to_pipe</span>[name]
+      config = <span class="hljs-property">@name_to_config</span>[name]
+      <span class="hljs-keyword">for</span> context <span class="hljs-keyword">in</span> <span class="hljs-property">@name_to_context</span>[name]
+        allStarted.inc()
+        context.$onEmit.push <span class="hljs-property">@onEmit</span>
+        <span class="hljs-property">@startPipeContext</span> pipe, context, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> allStarted.dec()
+    allStarted.dec()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Stop the given toplogy.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">stop</span>: <span class="hljs-function">-&gt;</span>
+    <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> <span class="hljs-property">@names</span>
+      pipe = <span class="hljs-property">@name_to_pipe</span>[name]
+      config = <span class="hljs-property">@name_to_config</span>[name]
+      <span class="hljs-keyword">for</span> context <span class="hljs-keyword">in</span> <span class="hljs-property">@name_to_context</span>[name]
+        context.$moveState STATE_STOPPING
+
+  <span class="hljs-attribute">isValid</span>: <span class="hljs-function">-&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>TODO - validate the cluster.</p>
+<ul>
+<li>Circular dependency.</li>
+<li>Mapped fields.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>General callback function invoked when a message is emitted
+within the system. Delivers the message to all the dependent pipes.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">onEmit</span>: <span class="hljs-function"><span class="hljs-params">(source_name, message)</span> =&gt;</span>
+    dependents = <span class="hljs-property">@name_to_dependents</span>[source_name]
+    <span class="hljs-keyword">for</span> dest_name <span class="hljs-keyword">in</span> dependents
+      <span class="hljs-property">@messageCount</span>++
+      dest_config = <span class="hljs-property">@name_to_config</span>[dest_name]
+      dest_pipe =  <span class="hljs-property">@name_to_pipe</span>[dest_name]
+      grouper = dest_config.dependencies[source_name]
+      rawGroupId = grouper.group(message)
+      dest_context_id = rawGroupId % dest_config.concurrency
+      dest_context = <span class="hljs-property">@name_to_context</span>[dest_name][dest_context_id]
+      dest_context.$onComplete.push () =&gt; <span class="hljs-property">@onMessageComplete</span>()
+      queueContextAction dest_context, <span class="hljs-function"><span class="hljs-params">(context)</span> =&gt;</span>
+        dest_pipe.onMessage(context, source_name, message)
+
+  <span class="hljs-attribute">onMessageComplete</span>: <span class="hljs-function">-&gt;</span> <span class="hljs-property">@messageCount</span>--</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Set a given pope context into a started state.
+Starts the periodic interval jobs.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">startPipeContext</span>: <span class="hljs-function"><span class="hljs-params">(pipe, context, customPostStart)</span> =&gt;</span>
+    {interval_ms} = context.$config
+<span class="hljs-function">    <span class="hljs-title">postStart</span> = <span class="hljs-params">(context)</span> -&gt;</span>
+      context.$moveState STATE_RUNNING
+      <span class="hljs-keyword">if</span> interval_ms &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> setTimeout(triggerOnInterval, interval_ms)
+<span class="hljs-function">    <span class="hljs-title">triggerOnInterval</span> = -&gt;</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> context.$state <span class="hljs-keyword">isnt</span> STATE_RUNNING
+      context.$onComplete.push () -&gt;
+        setTimeout(triggerOnInterval, interval_ms)
+      queueContextAction context, <span class="hljs-function"><span class="hljs-params">(ctx)</span> -&gt;</span> pipe.onInterval(ctx)
+    queueContextAction context, <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span>
+      context.$onComplete.push customPostStart
+      context.$onComplete.push postStart
+      context.$moveState STATE_STARTING
+      <span class="hljs-keyword">if</span> pipe.onStart? <span class="hljs-keyword">then</span> pipe.onStart(context)
+      <span class="hljs-keyword">else</span> context.$complete() <span class="hljs-comment"># No onStart provided - just mark as success.</span>
+
+  <span class="hljs-attribute">$moveState</span>: <span class="hljs-function"><span class="hljs-params">(newState)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>do a state machine transition with an assertion.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    curState = <span class="hljs-property">@$state</span>
+    assert STATE_TRANSITIONS[curState].indexOf(newState) &gt; -<span class="hljs-number">1</span>,
+      <span class="hljs-string">"Invalid transition: <span class="hljs-subst">#{curState}</span> -&gt; <span class="hljs-subst">#{newState}</span>"</span>
+    <span class="hljs-property">@$state</span> = newState</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <h1 id="topology-configurations">Topology Configurations</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p><code>PipeConfig</code> provides two things:</p>
+<ul>
+<li>Information on how to run a given pipe.</li>
+<li>Information on how to wire up the pipes.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PipeConfig</span></span>
+  <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">(options)</span> -&gt;</span>
+    {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Name for the given pipe in the topology.
+It must be unique within the cluster.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@name</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Names of the dependent pipes, and the clustering strategy.
+It is a map {pipe name : grouper}. See <code>Grouper</code> for more info.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@dependencies</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>List of required fields emitted by the given pipe.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@fields</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Number of concurrent instances of the given pipe.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@concurrency</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>how often <code>onInterval()</code> event is triggered for a given pipe.
+<code>0</code> disables <code>onInterval()</code> altogether.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@interval_ms</span>
+    } = options
+    <span class="hljs-keyword">unless</span> <span class="hljs-property">@dependencies</span>? <span class="hljs-keyword">then</span> <span class="hljs-property">@dependencies</span> = {}
+    <span class="hljs-keyword">unless</span> <span class="hljs-property">@interval_ms</span>?  <span class="hljs-keyword">then</span> <span class="hljs-property">@interval_ms</span> = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">unless</span> <span class="hljs-property">@concurrency</span>?  <span class="hljs-keyword">then</span> <span class="hljs-property">@concurrency</span> = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">unless</span> <span class="hljs-property">@fields</span>?       <span class="hljs-keyword">then</span> <span class="hljs-property">@fields</span> = []</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <h2 id="grouper">Grouper</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p><code>Grouper</code> is used to control how messages are distributed between
+pipes. Different grouping algorithms can be used to sort messages
+between the dependent pipe instances.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Grouper</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p><code>fields()</code> returns the list of fields required by this Grouper.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">fields</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> []</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p><code>group()</code> returns the corresponding group for the given message.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">group</span>:  <span class="hljs-function"><span class="hljs-params">(message)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <h2 id="utility-functions-and-objects">Utility Functions and Objects</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>Implementation of <code>PipeContext</code>.</p>
+<p>Internally it installs callbacks on <code>emit</code> and <code>complete</code> methods
+to execute the follow up code.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PipeContextImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PipeContext</span></span>
+  <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">(id, config, <span class="hljs-property">@$topology</span>)</span> -&gt;</span>
+    <span class="hljs-keyword">super</span>(id, config)
+    <span class="hljs-property">@$executing</span> =  <span class="hljs-literal">false</span> <span class="hljs-comment"># if true, pipeline is currently processing value.</span>
+    <span class="hljs-property">@$state</span> =      STATE_NEW
+    <span class="hljs-property">@$onComplete</span> = [] <span class="hljs-comment"># queued callbacks on complete call. Cleared after completion.</span>
+    <span class="hljs-property">@$onEmit</span> =     [] <span class="hljs-comment"># queued callbacks when a message is emitted. Not cleared afterwards.</span>
+
+  <span class="hljs-attribute">$emit</span>: <span class="hljs-function"><span class="hljs-params">(message)</span> =&gt;</span>
+    <span class="hljs-keyword">for</span> field <span class="hljs-keyword">in</span> <span class="hljs-property">@$config</span>.fields
+      assert message[field]?, <span class="hljs-string">"Field <span class="hljs-subst">#{field}</span> is required."</span>
+    <span class="hljs-property">@$onEmit</span>.map (onEmit) =&gt;
+      onEmit(<span class="hljs-property">@$config</span>.name, message)
+
+  <span class="hljs-attribute">$complete</span>: <span class="hljs-function">=&gt;</span>
+    assert <span class="hljs-property">@$executing</span>
+    <span class="hljs-property">@$executing</span> = <span class="hljs-literal">false</span>
+    onComplete(<span class="hljs-keyword">this</span>) <span class="hljs-keyword">for</span> onComplete <span class="hljs-keyword">in</span> <span class="hljs-property">@$onComplete</span>
+    <span class="hljs-property">@$onComplete</span> = []</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>Change the internal state of <code>PipeContextImpl</code> with an assertion.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">$moveState</span>: <span class="hljs-function"><span class="hljs-params">(newState)</span> -&gt;</span>
+    curState = <span class="hljs-property">@$state</span>
+    assert STATE_TRANSITIONS[curState].indexOf(newState) &gt; -<span class="hljs-number">1</span>
+    <span class="hljs-property">@$state</span> = newState</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Both <code>Topology</code> and <code>PipeContextImpl</code> maintain a state machine.
+To make state transitions more formal, we specify the valid
+transitions.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>STATE_NEW      = <span class="hljs-string">'STATE_NEW'</span>
+STATE_STARTING = <span class="hljs-string">'STATE_STARTING'</span>
+STATE_RUNNING  = <span class="hljs-string">'STATE_RUNNING'</span>
+STATE_STOPPING = <span class="hljs-string">'STATE_STOPPING'</span>
+STATE_STOPPED  = <span class="hljs-string">'STATE_STOPPED'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>valid state transitions.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>STATE_TRANSITIONS = {
+  <span class="hljs-attribute">STATE_NEW</span>:      [STATE_STARTING]
+  <span class="hljs-attribute">STATE_STARTING</span>: [STATE_RUNNING]
+  <span class="hljs-attribute">STATE_RUNNING</span>:  [STATE_STOPPING]
+  <span class="hljs-attribute">STATE_STOPPING</span>: [STATE_STOPPED]
+  <span class="hljs-attribute">STATE_STOPPED</span>:  []
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>Sentinel object for re-queuing completion events.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>REQUEUE = {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>a semaphore implementation. underlying callback is
+invoked when the underlying counter becomes 0.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">counterCallback</span> = <span class="hljs-params">(value = <span class="hljs-number">0</span>, callback)</span> -&gt;</span>
+  invoked = <span class="hljs-literal">false</span>
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attribute">inc</span>: <span class="hljs-function"><span class="hljs-params">(delta = <span class="hljs-number">1</span>)</span> -&gt;</span>
+      value += delta
+    <span class="hljs-attribute">dec</span>: <span class="hljs-function"><span class="hljs-params">(delta = <span class="hljs-number">1</span>)</span> -&gt;</span>
+      value -= delta
+      <span class="hljs-keyword">if</span> value &lt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> invoked
+        invokeed = <span class="hljs-literal">true</span>
+        callback()
+  }
+<span class="hljs-function">
+<span class="hljs-title">assert</span> = <span class="hljs-params">(value, message=<span class="hljs-string">'Assertion Error'</span>)</span> -&gt;</span>
+  <span class="hljs-keyword">unless</span> value <span class="hljs-keyword">then</span> <span class="hljs-built_in">console</span>.log message</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>Actions requiring explicit completion on context
+must not run concurrently. In order to maintain mutual exclusion,
+we queue up the logic to the completion callback queue. Requirements:</p>
+<ul>
+<li><code>context</code> is a <code>PipeContext</code> object.</li>
+<li><code>logic</code> is a callback that eventually calls <code>context.$complete()</code> exactly once.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">queueContextAction</span> = <span class="hljs-params">(context, logic)</span> -&gt;</span>
+<span class="hljs-function">  <span class="hljs-title">wrapped</span> = <span class="hljs-params">(context)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> context.$executing <span class="hljs-keyword">then</span> context.$onComplete.push wrapped
+    <span class="hljs-keyword">else</span>
+      context.$executing = <span class="hljs-literal">true</span>
+      logic context
+  wrapped(context)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <h2 id="testing-code">Testing Code</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">test</span> = -&gt;</span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RandomGrouper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Grouper</span></span>
+    <span class="hljs-attribute">fields</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> []
+    <span class="hljs-attribute">group</span>:  <span class="hljs-function"><span class="hljs-params">(message)</span> -&gt;</span>  Math.floor(Math.random() * <span class="hljs-number">1024</span>)
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BigSmallGrouper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Grouper</span></span>
+    <span class="hljs-attribute">fields</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> []
+    <span class="hljs-attribute">group</span>:  <span class="hljs-function"><span class="hljs-params">(message)</span> -&gt;</span> <span class="hljs-keyword">if</span> message.source <span class="hljs-keyword">is</span> <span class="hljs-string">'big'</span> <span class="hljs-keyword">then</span> <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span>
+
+  t = <span class="hljs-keyword">new</span> Topology()
+  producer = {
+    <span class="hljs-attribute">onInterval</span>: <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span>
+      source = <span class="hljs-keyword">if</span> Math.random() &gt; <span class="hljs-number">0.75</span> <span class="hljs-keyword">then</span> <span class="hljs-string">"big"</span> <span class="hljs-keyword">else</span> <span class="hljs-string">"small"</span>
+      context.$emit <span class="hljs-attribute">value</span>: Math.random(), <span class="hljs-attribute">source</span>: source
+      context.$complete()
+  }
+  producerConfig = <span class="hljs-keyword">new</span> PipeConfig {
+    <span class="hljs-attribute">name</span>: <span class="hljs-string">"PRODUCER"</span>
+    <span class="hljs-attribute">fields</span>: [<span class="hljs-string">'source'</span>]
+    <span class="hljs-attribute">interval_ms</span>: <span class="hljs-number">100</span>
+    <span class="hljs-attribute">concurrency</span>: <span class="hljs-number">4</span>
+  }
+  pipeSummary = {
+    <span class="hljs-attribute">onStart</span>: <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span>
+      context.sum = <span class="hljs-number">0</span>
+      context.count = <span class="hljs-number">0</span>
+      context.$complete()
+    <span class="hljs-attribute">onInterval</span>: <span class="hljs-function"><span class="hljs-params">(context)</span> -&gt;</span>
+      name = context.$config.name
+      <span class="hljs-built_in">console</span>.log <span class="hljs-string">"reporting status - name:<span class="hljs-subst">#{name}</span> id:<span class="hljs-subst">#{context.$id}</span>, count:<span class="hljs-subst">#{context.count}</span>, average:<span class="hljs-subst">#{context.sum / context.count}</span>"</span>
+      context.$complete()
+    <span class="hljs-attribute">onMessage</span>: <span class="hljs-function"><span class="hljs-params">(context, name, message)</span> -&gt;</span>
+      context.sum += message.value
+      context.count++
+      context.$complete()
+  }
+  configSharded = <span class="hljs-keyword">new</span> PipeConfig {
+    <span class="hljs-attribute">name</span>: <span class="hljs-string">"summary-shard"</span>
+    <span class="hljs-attribute">fields</span>: []
+    <span class="hljs-attribute">interval_ms</span>: <span class="hljs-number">1000</span>
+    <span class="hljs-attribute">concurrency</span>: <span class="hljs-number">2</span>
+    <span class="hljs-attribute">dependencies</span>: {
+      <span class="hljs-attribute">PRODUCER</span>: <span class="hljs-keyword">new</span> BigSmallGrouper
+    }
+  }
+  configAll = <span class="hljs-keyword">new</span> PipeConfig {
+    <span class="hljs-attribute">name</span>: <span class="hljs-string">"summary-all"</span>
+    <span class="hljs-attribute">fields</span>: []
+    <span class="hljs-attribute">interval_ms</span>: <span class="hljs-number">1000</span>
+    <span class="hljs-attribute">concurrency</span>: <span class="hljs-number">1</span>
+    <span class="hljs-attribute">dependencies</span>: {
+      <span class="hljs-attribute">PRODUCER</span>: <span class="hljs-keyword">new</span> RandomGrouper
+    }
+  }
+  t.register producer,    producerConfig
+  t.register pipeSummary, configSharded
+  t.register pipeSummary, configAll
+  t.start()
+  setTimeout (<span class="hljs-function">-&gt;</span> t.stop()), <span class="hljs-number">10000</span>
+
+test()</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
