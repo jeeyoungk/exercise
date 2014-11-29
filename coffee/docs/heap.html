@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>heap.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="cycle.html">
+                cycle.coffee
+              </a>
+            
+              
+              <a class="source" href="heap.html">
+                heap.coffee
+              </a>
+            
+              
+              <a class="source" href="pipeline.html">
+                pipeline.coffee
+              </a>
+            
+              
+              <a class="source" href="q.html">
+                q.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>heap.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <p>Binary min-heap implementation.
+Binary min-heap is a binary tree
+where the parent node &lt;= child nodes. This is referred as the <strong>min-heap invariant</strong>.</p>
+<p>An exmaple of a min-heap would be:</p>
+<pre><code>         <span class="hljs-number">0</span>
+   <span class="hljs-number">1</span>            <span class="hljs-number">2</span>
+ <span class="hljs-number">3</span>   <span class="hljs-number">4</span>       <span class="hljs-number">5</span>     <span class="hljs-number">6</span>
+<span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">9</span> <span class="hljs-number">10</span>   <span class="hljs-number">11</span> <span class="hljs-number">12</span> <span class="hljs-number">13</span> <span class="hljs-number">14</span>
+</code></pre><p>Internally, binary heap is stored in an array <code>(level, left-to-right)</code>
+traversal order. We maintain the following invariants.</p>
+<ul>
+<li>Min-heap invariant.</li>
+<li>Underlying binary tree is almost complete. If the last level
+of the tree isn’t complete, the nodes of that level are filled from left
+to right.</li>
+</ul>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Default comparator function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">default_comparator</span> = <span class="hljs-params">(x, y)</span> -&gt;</span>
+  <span class="hljs-keyword">if</span> x &gt; y <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x &lt; y <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong>Public</strong>: Make a new instance of heap</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">make_heap</span> = <span class="hljs-params">(comparator = default_comparator)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>private variables. <code>data</code> is the underlying data store. <code>size</code> stores the
+size of the heapj</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  data = []; size = <span class="hljs-number">0</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><code>parent</code>, <code>left</code>, and <code>right</code> are functions to navigate the binary heap.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">parent</span> = <span class="hljs-params">(index)</span> -&gt;</span> Math.floor((index - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>)
+<span class="hljs-function">  <span class="hljs-title">left</span>   = <span class="hljs-params">(index)</span> -&gt;</span> index * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>
+<span class="hljs-function">  <span class="hljs-title">right</span>  = <span class="hljs-params">(index)</span> -&gt;</span> index * <span class="hljs-number">2</span> + <span class="hljs-number">2</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><code>swap</code> swaps two indices of <code>data</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">swap</span>   = <span class="hljs-params">(i, j)</span>  -&gt;</span> tmp = data[i]; data[i] = data[j]; data[j] = tmp</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p><code>index_comparator</code> compares data pointed by the indices.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">index_comparator</span> = <span class="hljs-params">(i, j)</span> -&gt;</span> comparator data[i], data[j]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Given a subsection of the form:</p>
+<pre><code>  cur
+L     R
+</code></pre><p>ensure that <code>cur &lt; L and cur &lt; R</code> holds.
+Otherwise, swap <code>cur</code> with either <code>L</code> or <code>R</code>.
+If a swap occurs, <code>maintain_invariant</code> is recursively invoked
+on the subsection rooted by the swapped element.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">maintain_invariant</span> = <span class="hljs-params">(cur_index)</span> -&gt;</span>
+    left_index = left(cur_index); right_index = right(cur_index)
+    swap_index = <span class="hljs-literal">null</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Exit condition: Current node is a leaf node.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> left_index &gt;= size <span class="hljs-keyword">and</span> right_index &gt;= size</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Current node only has a right child. See if a swap is needed.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> right_index &gt;= size
+      <span class="hljs-keyword">if</span> index_comparator(cur_index, left_index) <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+        swap_index = left_index</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Has both left and right child. Note that a node cannot have only
+the a left child since heap is almost fully balanced with bias
+towards left subtrees.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">else</span>
+      cur_l = index_comparator cur_index, left_index
+      cur_r = index_comparator cur_index, right_index
+      l_r =   index_comparator left_index, right_index
+      swap_index = (
+        <span class="hljs-keyword">if</span> cur_l <span class="hljs-keyword">isnt</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> cur_r <span class="hljs-keyword">isnt</span> <span class="hljs-number">1</span> <span class="hljs-keyword">then</span> <span class="hljs-literal">null</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> cur_l <span class="hljs-keyword">isnt</span> <span class="hljs-number">1</span> <span class="hljs-keyword">then</span> right_index
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> cur_r <span class="hljs-keyword">isnt</span> <span class="hljs-number">1</span> <span class="hljs-keyword">then</span> left_index
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> l_r <span class="hljs-keyword">is</span> -<span class="hljs-number">1</span> <span class="hljs-keyword">then</span> left_index
+        <span class="hljs-keyword">else</span> right_index
+      )</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Swap and recurse if needed. Otherwise exit.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> swap_index <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>
+    swap swap_index, cur_index
+    maintain_invariant swap_index
+
+  {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong>Public</strong>: Add a new element to the heap, while
+maintaining the heap invariant.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">push</span>: <span class="hljs-function"><span class="hljs-params">(val)</span> -&gt;</span>
+      index = size; data[size] = val; size++
+      <span class="hljs-keyword">while</span> index <span class="hljs-keyword">isnt</span> <span class="hljs-number">0</span>
+        parent_index = parent(index)
+        <span class="hljs-keyword">if</span> -<span class="hljs-number">1</span> <span class="hljs-keyword">is</span> index_comparator index, parent_index
+          swap parent_index, index
+          index = parent_index
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><strong>Public</strong>: Removes &amp; returns the minimal element, while
+maintaining the heap invariant.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">pop</span>:  <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      <span class="hljs-keyword">if</span> size <span class="hljs-keyword">is</span> <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>
+      result = data[<span class="hljs-number">0</span>]
+      size--; data[<span class="hljs-number">0</span>] = data[size]; data[size] = <span class="hljs-literal">null</span>
+      maintain_invariant(<span class="hljs-number">0</span>)
+      <span class="hljs-keyword">return</span> result</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><strong>Public</strong>: Returns the minimal element, without removing it.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">peek</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> <span class="hljs-keyword">if</span> size <span class="hljs-keyword">is</span> <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">else</span> data[<span class="hljs-number">0</span>]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p><strong>Public</strong>: The size of the heap.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">size</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span> size
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <h1 id="test-code">Test Code</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">assert</span> = <span class="hljs-params">(cond)</span> -&gt;</span> <span class="hljs-keyword">unless</span> cond <span class="hljs-keyword">then</span> <span class="hljs-built_in">console</span>.log <span class="hljs-string">'error'</span>
+<span class="hljs-function">
+<span class="hljs-title">test_3</span> = -&gt;</span>
+  tests = [
+    [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+    [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>]
+    [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]
+    [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>]
+    [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+    [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
+  ]
+  <span class="hljs-keyword">for</span> test <span class="hljs-keyword">in</span> tests
+    h = make_heap()
+    h.push(val) <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> test
+    assert h.pop() <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+    assert h.pop() <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
+    assert h.pop() <span class="hljs-keyword">is</span> <span class="hljs-number">3</span>
+    assert h.size() <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-function">
+<span class="hljs-title">test_10</span> = -&gt;</span>
+  h = make_heap()
+  h.push(val) <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>]
+  <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> [<span class="hljs-number">0.</span><span class="hljs-number">.9</span>]
+    assert h.size() <span class="hljs-keyword">is</span> <span class="hljs-number">10</span> - val
+    assert val <span class="hljs-keyword">is</span> h.pop()
+  assert h.size() <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+
+test_3()
+test_10()</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
