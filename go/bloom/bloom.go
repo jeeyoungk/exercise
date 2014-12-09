@@ -11,37 +11,45 @@ import (
 
 type Bloom struct {
 	size   uint     // size of bloom filter, for testing.
-	filter uint64   // accumulated bit mask so far.
+	filter []uint64 // accumulated bit mask so far.
 	hashes []uint64 // different seeds to FNV hash function.
 }
 
-func (bloom Bloom) hashKey(elem uint64) uint64 {
-	result := uint64(0)
-	for _, initialValue := range bloom.hashes {
-		buffer := make([]byte, 24, 24)
-		binary.PutUvarint(buffer, initialValue)
-		binary.PutUvarint(buffer[8:], elem)
-		hash := fnv.New32()
-		hash.Write(buffer)
-		hashValue := hash.Sum32()
-		indexValue := hashValue % uint32(bloom.size)
-		result |= 1 << indexValue
-	}
-	return result
+func (bloom Bloom) hashKey(index int, elem uint64) uint32 {
+	initialValue := bloom.hashes[index]
+	buffer := make([]byte, 24, 24)
+	binary.PutUvarint(buffer, initialValue)
+	binary.PutUvarint(buffer[8:], elem)
+	hash := fnv.New32()
+	hash.Write(buffer)
+	hashValue := hash.Sum32()
+	return hashValue % uint32(bloom.size)
 }
 
 func New(size uint, hashes []uint64) Bloom {
-	return Bloom{size: size, filter: 0, hashes: hashes}
+	arySize := (size + 63) / 64
+	return Bloom{size: size, filter: make([]uint64, arySize, arySize), hashes: hashes}
 }
 
-func (bloom Bloom) Add(elem uint64) Bloom {
-	bloom.filter |= bloom.hashKey(elem)
-	return bloom
+func (bloom *Bloom) Add(elem uint64) {
+	for index := 0; index < len(bloom.hashes); index++ {
+		hashIndex := bloom.hashKey(index, elem)
+		arrayIndex := hashIndex / 64
+		offsetIndex := hashIndex % 64
+		bloom.filter[arrayIndex] |= 1 << offsetIndex
+	}
 }
 
 func (bloom Bloom) MaybeContains(elem uint64) bool {
-	hash := bloom.hashKey(elem)
-	return (bloom.filter & hash) == hash
+	for index := 0; index < len(bloom.hashes); index++ {
+		hashIndex := bloom.hashKey(index, elem)
+		arrayIndex := hashIndex / 64
+		offsetIndex := hashIndex % 64
+		if bloom.filter[arrayIndex]&(1<<offsetIndex) == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 func TestBloomFilter(r *rand.Rand, size, numAdd, numSample, numHash uint) {
@@ -63,7 +71,7 @@ func TestBloomFilter(r *rand.Rand, size, numAdd, numSample, numHash uint) {
 		}
 		for i := uint(0); i < numAdd; i++ {
 			generated := generate()
-			bloom = bloom.Add(generated)
+			bloom.Add(generated)
 			realset[generated] = true
 		}
 		for i := uint(0); i < numSample; i++ {
@@ -91,9 +99,11 @@ func main() {
 	fmt.Printf(" %12s %12s %12s | %s\n", "size", "# elements", "# hashes", "false +")
 	r := rand.New(rand.NewSource(1))
 	sample_size := uint(10)
+	run_nearby := false
 
-	for _, size := range []uint{64} {
-		for _, num_elements := range []uint{2, 4, 8, 16, 32, 64, 128} {
+	for _, size := range []uint{100, 200} {
+		for _, num_elements := range []uint{1, 10, 25, 50, 100, 200, 400, 1000} {
+			// use the optimal hash function.
 			raw := float64(size) / float64(num_elements) * ln2
 			num_hashes := uint(0)
 			if (raw - math.Floor(raw)) > 0.5 {
@@ -104,12 +114,14 @@ func main() {
 			if num_hashes == 0 {
 				num_hashes = 1
 			}
-			fmt.Println("")
-			if num_hashes > 1 {
+			if num_hashes > 1 && run_nearby {
 				TestBloomFilter(r, size, num_elements, sample_size, num_hashes-1)
 			}
 			TestBloomFilter(r, size, num_elements, sample_size, num_hashes)
-			TestBloomFilter(r, size, num_elements, sample_size, num_hashes+1)
+			if run_nearby {
+				TestBloomFilter(r, size, num_elements, sample_size, num_hashes+1)
+				fmt.Println("")
+			}
 		}
 	}
 	fmt.Println("")
