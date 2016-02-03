@@ -92,28 +92,16 @@ public:
     return true;
   }
 
-  bool contains(const K &key) const {
-    return find(key) ? true : false;
-  }
+  bool contains(const K &key) const { return find(key) ? true : false; }
 
   const V &get(const K &key) {
     const unique_ptr<Node<K, V>> &ptr = find(key);
-    return ptr ? ptr-> value : EMPTY;
+    return ptr ? ptr->value : EMPTY;
   }
 
-  const uint64_t size() const {
-    if (!root) {
-      return 0;
-    }
-    return root->size();
-  }
+  const uint64_t size() const { return root ? root->size() : 0; }
 
-  const uint64_t depth() const {
-    if (!root) {
-      return 0;
-    }
-    return root->depth();
-  }
+  const uint64_t depth() const { return root ? root->depth() : 0; }
 };
 
 bool test1() {
