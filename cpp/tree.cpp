@@ -57,6 +57,50 @@ public:
       }
     }
   }
+  bool remove(const K &key) {
+    if (!root) {
+      return false;
+    }
+    unique_ptr<Node<K, V>> *parentptr = &root;
+    Node<K, V> *ptr = root.get();
+    while (ptr) {
+      if (ptr->key > key) {
+        if (ptr->left) {
+          parentptr = &(ptr->left);
+          ptr = ptr->left.get();
+        } else {
+          return false;
+        }
+      } else if (ptr->key < key) {
+        if (ptr->right) {
+          parentptr = &(ptr->right);
+          ptr = ptr->right.get();
+        } else {
+          return false;
+        }
+      } else {
+        // found the element!
+        if (!ptr->left && ptr->right) {
+          *parentptr = move(ptr->right);
+        } else if (!ptr->right && ptr->left) {
+          *parentptr = move(ptr->left);
+        } else if (!ptr->left && !ptr->right) {
+          parentptr->reset();
+        } else {
+          // contains both :(. remove and append to right.
+          auto right = move(ptr->right);
+          *parentptr = move(ptr->left);
+          Node<K, V>* appendpoint = parentptr->get();
+          while (appendpoint->right) {
+            appendpoint = appendpoint->right.get();
+          }
+          (appendpoint)->right = move(right);
+        }
+        return true;
+      }
+    }
+    return false;
+  }
   bool contains(const K &key) const {
     if (!root) {
       return false;
@@ -137,4 +181,18 @@ int main() {
       cout << "does not contain the correct value " << i << endl;
     }
   }
+  for (auto j = 9; j >= 0; j--) {
+    for (auto i = 9; i >= 0; i--) {
+      t.remove(i + j * 10);
+    }
+  }
+  Tree<int, string> t2;
+  t2.put(1, "a");
+  t2.put(0, "b");
+  t2.put(2, "c");
+  t2.remove(1);
+  t2.remove(0);
+  t2.remove(2);
+  cout << t2.size() << endl;
+  cout << t2.depth() << endl;
 }
