@@ -88,10 +88,13 @@ int main() {
 
   std::cout << "Case 2" << std::endl;
   std::vector<PointCluster<Point>> points2;
-  points2.push_back(PointCluster<Point>(std::vector<Point> { Point(0, 0) }));
-  points2.push_back(PointCluster<Point>(std::vector<Point> { Point(10, 10) }));
-  points2.push_back(PointCluster<Point>(std::vector<Point> { Point(0, 1), Point(100, 100) }));
-  points2.push_back(PointCluster<Point>(std::vector<Point> { Point(100, 101), Point(10, 9) }));
-  points2.push_back(PointCluster<Point>(std::vector<Point> { Point(0, 2), Point(10, 8) }));
+  points2.push_back(PointCluster<Point>(std::vector<Point>{Point(0, 0)}));
+  points2.push_back(PointCluster<Point>(std::vector<Point>{Point(10, 10)}));
+  points2.push_back(
+      PointCluster<Point>(std::vector<Point>{Point(0, 1), Point(100, 100)}));
+  points2.push_back(
+      PointCluster<Point>(std::vector<Point>{Point(100, 101), Point(10, 9)}));
+  points2.push_back(
+      PointCluster<Point>(std::vector<Point>{Point(0, 2), Point(10, 8)}));
   std::cout << dijkstra(points2, 0, 1) << std::endl;
 }
