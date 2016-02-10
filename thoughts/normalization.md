@@ -2,18 +2,16 @@
 
 Consider the following database of tasks.
 
-* Tasks has `task_type` (a small finite set of unique symbols) and `payload` associated with individual tasks.
+* Tasks have `task_type` (a small finite set of unique symbols) and `payload` associated with individual tasks.
 * Tasks can be attempted many times - the application will attempt until it succeeds.
-* Tasks and Attempts form one-to-many relationship via foreign key.
+* Tasks and Attempts form one-to-many relationship via a foreign key from attempts.
 
 ```
 tasks (id, task_type, payload)
 attempts (id, task_id (foreign key to tasks.id), status, attempted_at)
 ```
 
-I want to perform the following question efficiently:
-
-Givein a `task_type` find the latest attempt.
+I want to perform the following question efficiently: **Given a `task_type` find the latest attempt for it**.
 
 Which I write the following query:
 ```
