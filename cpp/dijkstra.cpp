@@ -37,34 +37,44 @@ public:
   }
 };
 
+struct DistanceIndex {
+  int index;
+  double distance;
+};
+
+class DistanceIndexComparator {
+public:
+  bool operator()(DistanceIndex a, DistanceIndex b) {
+    return a.distance > b.distance;
+  }
+};
+
 template <typename P>
 double dijkstra(const std::vector<P> &points, size_t begin, size_t end) {
   auto n = points.size();
-  std::vector<bool> visited = std::vector<bool>(n, false);
-  std::vector<double> distance =
-      std::vector<double>(n, std::numeric_limits<double>::max());
+  std::vector<bool> visited(n, false);
+  std::vector<double> distance(n, std::numeric_limits<double>::max());
+  std::priority_queue<DistanceIndex, std::vector<DistanceIndex>,
+                      DistanceIndexComparator> closest;
   visited[begin] = true;
   distance[begin] = 0.0;
   for (auto i = 0; i < n; i++) {
     distance[i] = points[i].dist(points[begin]);
+    closest.push(DistanceIndex{i, distance[i]});
   }
 
   // put a bound on iterations.
   for (auto iteration = 0; iteration < n; iteration++) {
     size_t index;
-    bool found = false;
-    double lowest = 0;
-    for (auto i = 0; i < n; i++) {
-      // TODO - use a priority queue here.
-      if (visited[i]) {
+    while (!closest.empty()) {
+      auto top = closest.top();
+      if (visited[top.index]) {
+        closest.pop();
         continue;
-      } else if (!found) {
-        index = i;
-        found = true;
-        lowest = distance[i];
-      } else if (distance[i] < lowest) {
-        lowest = distance[i];
-        index = i;
+      } else {
+        closest.pop();
+        index = top.index;
+        break;
       }
     }
     if (index == end) {
