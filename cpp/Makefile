@@ -1,4 +1,4 @@
-# http://www.aktau.be/2013/08/07/a-makefile-for-modern-c-programming-on-unix-like-operating-systems/
+#http: // www.aktau.be/2013/08/07/a-makefile-for-modern-c-programming-on-unix-like-operating-systems/
 COMPILER ?= clang++
 COMPILER_FLAGS ?= -std=c++11
 
