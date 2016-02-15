@@ -1,15 +1,18 @@
-#http://www.aktau.be/2013/08/07/a-makefile-for-modern-c-programming-on-unix-like-operating-systems/
+# http://www.aktau.be/2013/08/07/a-makefile-for-modern-c-programming-on-unix-like-operating-systems/
 COMPILER ?= clang++
 COMPILER_FLAGS ?= -std=c++11
-DEPS = lib/*.h
+HEADERS = lib/graph.h
+OBJECTS = lib/graph.o
 
-%.o: %.cpp $(DEPS)
+# compile object files
+%.o: %.cpp $(HEADERS)
 	$(COMPILER) $(COMPILER_FLAGS) -c $< -o $@
 
-%: %.cpp $(DEPS)
-	$(COMPILER) $(COMPILER_FLAGS) $< -o $@
+# compile main files.
+%: %.cpp $(HEADERS) $(OBJECTS)
+	$(COMPILER) $(COMPILER_FLAGS) $(OBJECTS) $< -o $@
 
 all: dijkstra tree database quadtree fordfulkerson
 
-format: *.cpp lib/*.h
+format: *.cpp lib/*.cpp $(HEADERS)
 	clang-format -i $^
