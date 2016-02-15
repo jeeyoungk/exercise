@@ -59,12 +59,18 @@ double dijkstra_with_path(const std::vector<std::vector<double>> adj,
     if (index == end) {
       // done - fill the vector.
       if (path != nullptr) {
-        // path.push(index);
+        while (index != -1) {
+          path.push(index);
+          index = previous[index];
+        }
       }
       return distance[index];
     }
     for (auto i = 0; i < n; i++) {
-      distance[i] = std::min(distance[i], distance[index] + adj[i][j]);
+      if (distance[index] + adj[i][j] < distance[i]) {
+        distance[i] = distance[index] + adj[i][j];
+        previous[i] = index;
+      }
     }
     visited[index] = true;
   }
