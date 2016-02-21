@@ -50,12 +50,17 @@ def generate_code(n):
         else: return Path.LINETO
     return map(index_to_code, xrange(n))
 
+count = 0
+fig = matplotlib.pyplot.figure()
+
 def execute(points):
+    global count
+    global fig
+    count += 1
     hull = convexhull(points)
     codes = generate_code(len(hull))
     path = Path(hull, codes)
-    fig = matplotlib.pyplot.figure()
-    ax = fig.add_subplot(111)
+    ax = fig.add_subplot(3, 2, count)
     limit = 10
     patch = matplotlib.patches.PathPatch(path, facecolor='orange', alpha = 0.1, lw=2)
     # plot the points
@@ -66,13 +71,20 @@ def execute(points):
     ax.add_patch(patch)
     ax.set_xlim(-limit, limit)
     ax.set_ylim(-limit, limit)
-    matplotlib.pyplot.show()
 
 def test_1():
     execute([(1, 0), (-1, 0), (0, 1), (0, -1), (0, 0)])
 
 def test_2():
     execute([(1, 0), (-1, 0), (0, 1), (0, -1), (0, 0), (0, -0.25)])
+
+def test_3():
+    result = []
+    for i in range(-2, 3):
+        for j in range(-2, 3):
+            # add a bit of variation
+            result.append((i + numpy.random.normal(scale=0.01), j + numpy.random.normal(scale=0.01)))
+    execute(result)
 
 def test_random_1():
     result = []
@@ -84,20 +96,26 @@ def test_random_2():
     """two gaussian distributions"""
     result = []
     for i in range(1000):
-        result.append((2 + numpy.random.normal(), 2 + numpy.random.normal()))
+        result.append((numpy.random.normal(2), numpy.random.normal(2)))
     for i in range(1000):
-        result.append((-2 + numpy.random.normal(), -2 + numpy.random.normal()))
+        result.append((numpy.random.normal(-2), numpy.random.normal(-2)))
     execute(result)
 
 def test_random_3():
     """three gaussian distributions"""
     result = []
     for i in range(100):
-        result.append((3 + numpy.random.normal(), numpy.random.normal()))
+        result.append((numpy.random.normal(3), numpy.random.normal()))
     for i in range(100):
-        result.append((-3 + numpy.random.normal(), numpy.random.normal()))
+        result.append((numpy.random.normal(-3), numpy.random.normal()))
     for i in range(100):
-        result.append((numpy.random.normal(), -3 + numpy.random.normal()))
+        result.append((numpy.random.normal(), numpy.random.normal(-3)))
     execute(result)
 
+test_random_1()
+test_random_2()
 test_random_3()
+test_1()
+test_2()
+test_3()
+matplotlib.pyplot.show()
