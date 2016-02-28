@@ -47,7 +47,13 @@ def palindrome(a):
     return (a, result, len(result) - len(a))
 
 def main():
-    for a in ["", "a", "aa", "aaa", "aaab", "baab", "aaabc", "aaabcaaa", "abcxyz", "aaaaXaaaXaaaaaXaYaaaXaaaaXaaaaa"]:
+    for a in ["", "a", "aa", "aaa", "aaab", "baab",
+            "aaabc", "aaabcaaa", "abcxyz",
+            "0010 1010 1101 1101 1101",
+            "aaaaXaaaXaaaaaXaYaaaXaaaaXaaaaa",
+            "my name is jeeyoung kim and i like pineapples",
+            "google is google"
+            ]:
         print "%s -> %s (+%d)" % palindrome(a)
 
 if __name__ == '__main__':

@@ -1,3 +1,5 @@
+# Donald Clark's interview question.
+
 # consts
 UP = "u"
 DOWN = "d"
