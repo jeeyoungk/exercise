@@ -1,6 +1,12 @@
 package com.kimjeeyoung;
 
+import com.kimjeeyoung.datastruct.FibHeap;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -22,7 +28,7 @@ public class FibHeapTest {
     }
 
     @Test
-    public void testPop() {
+    public void testPop_simple() {
         FibHeap<Integer> heap = new FibHeap<>();
         heap.insert(101);
         heap.insert(102);
@@ -32,6 +38,7 @@ public class FibHeapTest {
         assertEquals(0, heap.size());
         assertNull(heap.popMinimum());
     }
+
     @Test
     public void testPop_complex() {
         FibHeap<Integer> heap = new FibHeap<>();
@@ -53,6 +60,31 @@ public class FibHeapTest {
     }
 
     @Test
+    public void testRandom() {
+        final int SIZE_PER_HEAP = 100;
+        final int NUM_HEAPS = 100;
+        final Random RANDOM = new Random(0);
+        FibHeap<Integer> combinedHeap = new FibHeap<>();
+        for (int j = 0; j < NUM_HEAPS; j++) {
+            FibHeap<Integer> localHeap = new FibHeap<>();
+            List<Integer> values = new ArrayList<>();
+            for (int i = 0; i < SIZE_PER_HEAP; i++) {
+                values.add(j * SIZE_PER_HEAP + i);
+            }
+            Collections.shuffle(values, RANDOM);
+            for (Integer value : values) {
+                localHeap.insert(value);
+            }
+            combinedHeap = combinedHeap.union(localHeap);
+        }
+        assertEquals(SIZE_PER_HEAP * NUM_HEAPS, combinedHeap.size());
+        for (int i = 0; i < SIZE_PER_HEAP * NUM_HEAPS; i++) {
+            assertEquals(i, combinedHeap.popMinimum().intValue());
+        }
+        assertEquals(0, combinedHeap.size());
+    }
+
+    @Test
     public void testUnion() {
         FibHeap<Integer> heapA = new FibHeap<>();
         heapA.insert(1);
@@ -62,5 +94,20 @@ public class FibHeapTest {
         FibHeap<Integer> heapC = heapA.union(heapB);
         assertEquals(3, heapC.size());
         assertEquals(1, heapC.getMinimum().intValue());
+    }
+
+    @Test
+    public void testDecrement() {
+        FibHeap<Integer> heap = new FibHeap<>();
+        FibHeap.FibNode<Integer> last = heap.insert(6);
+        FibHeap.FibNode<Integer> secondLast = heap.insert(5);
+        heap.insert(4);
+        heap.insert(3);
+        heap.insert(2);
+        heap.insert(1);
+        assertEquals(1, heap.popMinimum().intValue());
+        last.decrement(0);
+        secondLast.decrement(-1);
+        assertEquals(-1, heap.popMinimum().intValue());
     }
 }
