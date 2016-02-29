@@ -1,25 +1,45 @@
-{
-  "namespace": "com.kimjeeyoung.avro",
-  "type": "record",
-  "name": "User",
-  "fields": [
-    {
-      "name": "name",
-      "type": "string"
-    },
-    {
-      "name": "favorite_number",
-      "type": [
-        "int",
-        "null"
-      ]
-    },
-    {
-      "name": "favorite_color",
-      "type": [
-        "string",
-        "null"
-      ]
-    }
-  ]
-}
+[
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "User",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "favorite_number",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "favorite_color",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "LinkedList",
+    "fields": [
+      {
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "name": "next",
+        "type": [
+          "com.kimjeeyoung.avro.LinkedList",
+          "null"
+        ]
+      }
+    ]
+  }
+]

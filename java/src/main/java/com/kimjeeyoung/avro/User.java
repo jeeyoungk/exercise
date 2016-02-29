@@ -7,6 +7,7 @@ package com.kimjeeyoung.avro;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class User extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 7133911546724284167L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.kimjeeyoung.avro\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"favorite_number\",\"type\":[\"int\",\"null\"]},{\"name\":\"favorite_color\",\"type\":[\"string\",\"null\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence name;
@@ -95,17 +96,28 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     this.favorite_color = value;
   }
 
-  /** Creates a new User RecordBuilder */
+  /**
+   * Creates a new User RecordBuilder.
+   * @return A new User RecordBuilder
+   */
   public static com.kimjeeyoung.avro.User.Builder newBuilder() {
     return new com.kimjeeyoung.avro.User.Builder();
   }
   
-  /** Creates a new User RecordBuilder by copying an existing Builder */
+  /**
+   * Creates a new User RecordBuilder by copying an existing Builder.
+   * @param other The existing builder to copy.
+   * @return A new User RecordBuilder
+   */
   public static com.kimjeeyoung.avro.User.Builder newBuilder(com.kimjeeyoung.avro.User.Builder other) {
     return new com.kimjeeyoung.avro.User.Builder(other);
   }
   
-  /** Creates a new User RecordBuilder by copying an existing User instance */
+  /**
+   * Creates a new User RecordBuilder by copying an existing User instance.
+   * @param other The existing instance to copy.
+   * @return A new User RecordBuilder
+   */
   public static com.kimjeeyoung.avro.User.Builder newBuilder(com.kimjeeyoung.avro.User other) {
     return new com.kimjeeyoung.avro.User.Builder(other);
   }
@@ -125,7 +137,10 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       super(com.kimjeeyoung.avro.User.SCHEMA$);
     }
     
-    /** Creates a Builder by copying an existing Builder */
+    /**
+     * Creates a Builder by copying an existing Builder.
+     * @param other The existing Builder to copy.
+     */
     private Builder(com.kimjeeyoung.avro.User.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.name)) {
@@ -142,7 +157,10 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       }
     }
     
-    /** Creates a Builder by copying an existing User instance */
+    /**
+     * Creates a Builder by copying an existing User instance
+     * @param other The existing instance to copy.
+     */
     private Builder(com.kimjeeyoung.avro.User other) {
             super(com.kimjeeyoung.avro.User.SCHEMA$);
       if (isValidValue(fields()[0], other.name)) {
@@ -159,75 +177,117 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       }
     }
 
-    /** Gets the value of the 'name' field */
+    /**
+      * Gets the value of the 'name' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getName() {
       return name;
     }
-    
-    /** Sets the value of the 'name' field */
+
+    /**
+      * Sets the value of the 'name' field.
+      * @param value The value of 'name'.
+      * @return This builder.
+      */
     public com.kimjeeyoung.avro.User.Builder setName(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.name = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
-    
-    /** Checks whether the 'name' field has been set */
+
+    /**
+      * Checks whether the 'name' field has been set.
+      * @return True if the 'name' field has been set, false otherwise.
+      */
     public boolean hasName() {
       return fieldSetFlags()[0];
     }
-    
-    /** Clears the value of the 'name' field */
+
+
+    /**
+      * Clears the value of the 'name' field.
+      * @return This builder.
+      */
     public com.kimjeeyoung.avro.User.Builder clearName() {
       name = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
-    /** Gets the value of the 'favorite_number' field */
+    /**
+      * Gets the value of the 'favorite_number' field.
+      * @return The value.
+      */
     public java.lang.Integer getFavoriteNumber() {
       return favorite_number;
     }
-    
-    /** Sets the value of the 'favorite_number' field */
+
+    /**
+      * Sets the value of the 'favorite_number' field.
+      * @param value The value of 'favorite_number'.
+      * @return This builder.
+      */
     public com.kimjeeyoung.avro.User.Builder setFavoriteNumber(java.lang.Integer value) {
       validate(fields()[1], value);
       this.favorite_number = value;
       fieldSetFlags()[1] = true;
       return this; 
     }
-    
-    /** Checks whether the 'favorite_number' field has been set */
+
+    /**
+      * Checks whether the 'favorite_number' field has been set.
+      * @return True if the 'favorite_number' field has been set, false otherwise.
+      */
     public boolean hasFavoriteNumber() {
       return fieldSetFlags()[1];
     }
-    
-    /** Clears the value of the 'favorite_number' field */
+
+
+    /**
+      * Clears the value of the 'favorite_number' field.
+      * @return This builder.
+      */
     public com.kimjeeyoung.avro.User.Builder clearFavoriteNumber() {
       favorite_number = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
-    /** Gets the value of the 'favorite_color' field */
+    /**
+      * Gets the value of the 'favorite_color' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getFavoriteColor() {
       return favorite_color;
     }
-    
-    /** Sets the value of the 'favorite_color' field */
+
+    /**
+      * Sets the value of the 'favorite_color' field.
+      * @param value The value of 'favorite_color'.
+      * @return This builder.
+      */
     public com.kimjeeyoung.avro.User.Builder setFavoriteColor(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.favorite_color = value;
       fieldSetFlags()[2] = true;
       return this; 
     }
-    
-    /** Checks whether the 'favorite_color' field has been set */
+
+    /**
+      * Checks whether the 'favorite_color' field has been set.
+      * @return True if the 'favorite_color' field has been set, false otherwise.
+      */
     public boolean hasFavoriteColor() {
       return fieldSetFlags()[2];
     }
-    
-    /** Clears the value of the 'favorite_color' field */
+
+
+    /**
+      * Clears the value of the 'favorite_color' field.
+      * @return This builder.
+      */
     public com.kimjeeyoung.avro.User.Builder clearFavoriteColor() {
       favorite_color = null;
       fieldSetFlags()[2] = false;
@@ -247,4 +307,21 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       }
     }
   }
+
+  private static final org.apache.avro.io.DatumWriter
+    WRITER$ = new org.apache.avro.specific.SpecificDatumWriter(SCHEMA$);  
+
+  @Override public void writeExternal(java.io.ObjectOutput out)
+    throws java.io.IOException {
+    WRITER$.write(this, org.apache.avro.specific.SpecificData.getEncoder(out));
+  }
+
+  private static final org.apache.avro.io.DatumReader
+    READER$ = new org.apache.avro.specific.SpecificDatumReader(SCHEMA$);  
+
+  @Override public void readExternal(java.io.ObjectInput in)
+    throws java.io.IOException {
+    READER$.read(this, org.apache.avro.specific.SpecificData.getDecoder(in));
+  }
+
 }
