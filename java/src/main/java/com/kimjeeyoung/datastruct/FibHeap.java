@@ -1,5 +1,6 @@
 package com.kimjeeyoung.datastruct;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.function.Consumer;
 import static com.google.common.base.Preconditions.checkArgument;
 
 /**
- * An implementation of Fibonacci Heap.
+ * An implementation of Fibonacci Heap, according to CLRS.
  *
  * @param <T> Contained type
  */
@@ -67,6 +68,7 @@ public class FibHeap<T extends Comparable<T>> {
         if (root == null && oldRoot.child == null) {
             return oldRoot.value; // heap is empty after pop. no further actions needed.
         } else if (root == null) {
+            oldRoot.child.iterateSibling((node) -> node.parent = null);
             root = oldRoot.child; // previously no sibling, so elevate children to top level nodes.
         } else if (oldRoot.child != null) {
             oldRoot.child.iterateSibling((node) -> node.parent = null);
@@ -244,7 +246,8 @@ public class FibHeap<T extends Comparable<T>> {
         }
 
         /**
-         * this method does NOT handle parents.
+         * Note: this method does NOT handle setting {@link #parent} link.
+         *
          * @param other
          */
         void appendSibling(FibNodeImpl<T> other) {
@@ -255,7 +258,9 @@ public class FibHeap<T extends Comparable<T>> {
             prevOtherLeft.right = prevThisRight;
             prevThisRight.left = prevOtherLeft;
         }
-;
+
+        ;
+
         void appendChild(FibNodeImpl<T> other) {
             checkArgument(value.compareTo(other.value) < 0);
             other.iterateSibling((node) -> node.parent = this);
@@ -345,7 +350,6 @@ public class FibHeap<T extends Comparable<T>> {
         private void toString(StringBuilder sb, int indent) {
             String prefix = Strings.repeat("-", indent);
             iterateSibling((node) -> {
-                // checkArgument(node.parent == this);
                 sb.append(prefix).append(node.value);
                 if (node.marked) {
                     sb.append(" X");
@@ -354,6 +358,39 @@ public class FibHeap<T extends Comparable<T>> {
                 if (node.child != null) {
                     node.child.toString(sb, indent + 1);
                 }
+            });
+        }
+    }
+
+    /**
+     * validate the internal state of the heap.
+     */
+    @VisibleForTesting
+    void validateState() {
+        if (root != null) {
+            root.iterateSibling((node) -> {
+                // invariants for being a sibling of the root node.
+                checkArgument(node.parent == null);
+                checkArgument(root.value.compareTo(node.value) <= 0);
+                // doubly linked list is correctly formed.
+                checkArgument(node.left.right == node);
+                checkArgument(node.right.left == node);
+                // recursion
+                validateState(node);
+            });
+            validateState(root);
+        }
+    }
+
+    private void validateState(FibNodeImpl<T> parent) {
+        if (parent.child != null) {
+            parent.child.iterateSibling((node) -> {
+                // invariants regarding parent <-> child relation.
+                checkArgument(node.parent == parent);
+                checkArgument(node.parent.value.compareTo(node.value) <= 0);
+                // doubly linked list is correctly formed.
+                checkArgument(node.left.right == node);
+                checkArgument(node.right.left == node);
             });
         }
     }
