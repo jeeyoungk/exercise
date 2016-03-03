@@ -41,5 +41,86 @@
         ]
       }
     ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "TypeA",
+    "fields": [
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "TypeB",
+    "fields": [
+      {
+        "name": "value",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "TypeBShuffle",
+    "fields": [
+      {
+        "name": "value",
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "TypeC",
+    "fields": [
+      {
+        "name": "another_value",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "TypeAWithNewField",
+    "fields": [
+      {
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "name": "new_value",
+        "type": "string",
+        "default": "default-value"
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "TypeANoDefault",
+    "fields": [
+      {
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "name": "new_value",
+        "type": "string"
+      }
+    ]
   }
 ]
