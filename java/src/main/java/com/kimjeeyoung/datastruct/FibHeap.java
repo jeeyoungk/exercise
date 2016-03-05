@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static com.kimjeeyoung.datastruct.HeapUtil.compareTo;
+import static com.kimjeeyoung.datastruct.ComparatorUtil.compareTo;
 
 /**
  * An implementation of Fibonacci Heap, according to CLRS.

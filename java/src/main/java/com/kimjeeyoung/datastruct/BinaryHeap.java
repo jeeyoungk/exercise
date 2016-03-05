@@ -4,8 +4,8 @@ package com.kimjeeyoung.datastruct;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-import static com.kimjeeyoung.datastruct.HeapUtil.compareTo;
-import static com.kimjeeyoung.datastruct.HeapUtil.unsupportedHeapNode;
+import static com.kimjeeyoung.datastruct.ComparatorUtil.compareTo;
+import static com.kimjeeyoung.datastruct.ComparatorUtil.unsupportedHeapNode;
 
 public class BinaryHeap<T> implements Heap<T> {
   private final Comparator<? super T> comparator;
