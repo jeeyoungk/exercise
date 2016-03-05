@@ -8,7 +8,7 @@ package com.kimjeeyoung.avro;
 @org.apache.avro.specific.AvroGenerated
 public class LinkedList extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 6231379833340459913L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LinkedList\",\"namespace\":\"com.kimjeeyoung.avro\",\"fields\":[{\"name\":\"value\",\"type\":\"string\"},{\"name\":\"next\",\"type\":[\"LinkedList\",\"null\"]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LinkedQueue\",\"namespace\":\"com.kimjeeyoung.avro\",\"fields\":[{\"name\":\"value\",\"type\":\"string\"},{\"name\":\"next\",\"type\":[\"LinkedQueue\",\"null\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence value;
   @Deprecated public com.kimjeeyoung.avro.LinkedList next;
@@ -78,33 +78,33 @@ public class LinkedList extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
-   * Creates a new LinkedList RecordBuilder.
-   * @return A new LinkedList RecordBuilder
+   * Creates a new LinkedQueue RecordBuilder.
+   * @return A new LinkedQueue RecordBuilder
    */
   public static com.kimjeeyoung.avro.LinkedList.Builder newBuilder() {
     return new com.kimjeeyoung.avro.LinkedList.Builder();
   }
   
   /**
-   * Creates a new LinkedList RecordBuilder by copying an existing Builder.
+   * Creates a new LinkedQueue RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new LinkedList RecordBuilder
+   * @return A new LinkedQueue RecordBuilder
    */
   public static com.kimjeeyoung.avro.LinkedList.Builder newBuilder(com.kimjeeyoung.avro.LinkedList.Builder other) {
     return new com.kimjeeyoung.avro.LinkedList.Builder(other);
   }
   
   /**
-   * Creates a new LinkedList RecordBuilder by copying an existing LinkedList instance.
+   * Creates a new LinkedQueue RecordBuilder by copying an existing LinkedQueue instance.
    * @param other The existing instance to copy.
-   * @return A new LinkedList RecordBuilder
+   * @return A new LinkedQueue RecordBuilder
    */
   public static com.kimjeeyoung.avro.LinkedList.Builder newBuilder(com.kimjeeyoung.avro.LinkedList other) {
     return new com.kimjeeyoung.avro.LinkedList.Builder(other);
   }
   
   /**
-   * RecordBuilder for LinkedList instances.
+   * RecordBuilder for LinkedQueue instances.
    */
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<LinkedList>
     implements org.apache.avro.data.RecordBuilder<LinkedList> {
@@ -138,7 +138,7 @@ public class LinkedList extends org.apache.avro.specific.SpecificRecordBase impl
     }
     
     /**
-     * Creates a Builder by copying an existing LinkedList instance
+     * Creates a Builder by copying an existing LinkedQueue instance
      * @param other The existing instance to copy.
      */
     private Builder(com.kimjeeyoung.avro.LinkedList other) {
