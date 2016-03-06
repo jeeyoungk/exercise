@@ -3,6 +3,7 @@ package com.kimjeeyoung.datastruct;
 
 import java.util.Comparator;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 import static com.kimjeeyoung.datastruct.ComparatorUtil.compareTo;
 
@@ -58,9 +59,32 @@ public class BinarySearchTree<K, V> implements Tree<K, V> {
       }
     }
 
-    private Node<K, V> remove(BinarySearchTree<K, V> tree, K key) {
-      // implement this.
-      return null;
+    private Node<K, V> remove(BinarySearchTree<K, V> tree, K key, Consumer<Node<K, V>> parentSetter) {
+      int comparison = compareTo(tree.comparator, this.key, key);
+      if (comparison == 0) {
+        rebalance(parentSetter);
+        return null;
+      } else if (comparison < 0) {
+        return left == null ? null : left.remove(tree, key, (n) -> left = n);
+      } else {
+        return right == null ? null : right.remove(tree, key, (n) -> right = n);
+      }
+    }
+
+    private void rebalance(Consumer<Node<K, V>> parentSetter) {
+      if (left == null && right == null) {
+        parentSetter.accept(null);
+      } else if (left == null) {
+        parentSetter.accept(right);
+      } else if (right == null) {
+        parentSetter.accept(left);
+      } else {
+        Node<K, V> oldParent = this;
+        Node<K, V> newParent = this.left;
+        parentSetter.accept(newParent);
+        rebalance((n) -> newParent.left = n);
+        newParent.right = oldParent.right;
+      }
     }
   }
 
@@ -93,7 +117,7 @@ public class BinarySearchTree<K, V> implements Tree<K, V> {
   @Override
   public V remove(K key) {
     if (root != null) {
-      Node<K, V> node = root.remove(this, key);
+      Node<K, V> node = root.remove(this, key, (n) -> this.root = n);
       if (node != null) {
         return node.value;
       }
