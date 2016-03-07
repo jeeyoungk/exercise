@@ -1,42 +1,12 @@
 package com.kimjeeyoung.datastruct;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FibHeapTest {
-  @Test
-  public void testInsert() {
-    FibHeap<Integer> heap = new FibHeap<>();
-    assertEquals(0, heap.size());
-    heap.insert(102);
-    assertEquals(102, heap.getMinimum().intValue());
-    assertEquals(1, heap.size());
-    heap.insert(101);
-    assertEquals(101, heap.getMinimum().intValue());
-    assertEquals(2, heap.size());
-    heap.validateState();
-  }
-
-  @Test
-  public void testReverseHeap() {
-    FibHeap<Integer> heap = new FibHeap<>((o1, o2) -> o2.compareTo(o1));
-    assertEquals(0, heap.size());
-    heap.insert(102);
-    assertEquals(102, heap.getMinimum().intValue());
-    assertEquals(1, heap.size());
-    heap.insert(101);
-    assertEquals(102, heap.getMinimum().intValue());
-    assertEquals(2, heap.size());
-    heap.insert(103);
-    assertEquals(103, heap.getMinimum().intValue());
-    assertEquals(3, heap.size());
-    heap.validateState();
-  }
+public class FibHeapTest extends AbstractHeapTest {
 
   @Test
   public void testPop_simple() {
@@ -47,30 +17,7 @@ public class FibHeapTest {
     assertEquals(1, heap.size());
     assertEquals(102, heap.popMinimum().intValue());
     assertEquals(0, heap.size());
-    heap.validateState();
-  }
-
-  @Test
-  public void testPop_complex() {
-    FibHeap<Integer> heap = new FibHeap<>();
-    heap.insert(1001);
-    heap.insert(2002);
-    heap.insert(2003);
-    heap.insert(2008);
-    heap.insert(2004);
-    heap.insert(2005);
-    heap.insert(2006);
-    heap.insert(2007);
-    assertEquals(1001, heap.popMinimum().intValue());
-    heap.insert(2008);
-    heap.insert(2009);
-    heap.insert(2010);
-    heap.insert(2011);
-    heap.insert(2012);
-    assertEquals(2002, heap.popMinimum().intValue());
-    assertEquals(2003, heap.popMinimum().intValue());
-    assertEquals(2004, heap.popMinimum().intValue());
-    heap.validateState();
+    validate(heap);
   }
 
   @Test
@@ -83,7 +30,7 @@ public class FibHeapTest {
     FibHeap<Integer> heapC = heapA.union(heapB);
     assertEquals(3, heapC.size());
     assertEquals(1, heapC.getMinimum().intValue());
-    heapC.validateState();
+    validate(heapC);
   }
 
   @Test
@@ -99,7 +46,7 @@ public class FibHeapTest {
     last.decrement(0);
     secondLast.decrement(-1);
     assertEquals(-1, heap.popMinimum().intValue());
-    heap.validateState();
+    validate(heap);
   }
 
   @Test
@@ -120,15 +67,30 @@ public class FibHeapTest {
       }
       combinedHeap = combinedHeap.union(localHeap);
     }
-    combinedHeap.validateState();
+    validate(combinedHeap);
     assertEquals(SIZE_PER_HEAP * NUM_HEAPS, combinedHeap.size());
     for (int i = 0; i < SIZE_PER_HEAP * NUM_HEAPS; i++) {
       assertEquals(i, combinedHeap.popMinimum().intValue());
       if (i % SIZE_PER_HEAP == 0) {
-        combinedHeap.validateState();
+        validate(combinedHeap);
       }
     }
     assertEquals(0, combinedHeap.size());
-    combinedHeap.validateState();
+    validate(combinedHeap);
+  }
+
+  @Override
+  <K> Heap<K> newHeap() {
+    return new FibHeap<K>();
+  }
+
+  @Override
+  <K> Heap<K> newHeap(Comparator<K> comparator) {
+    return new FibHeap<>(comparator);
+  }
+
+  @Override
+  void validate(Heap<?> heap) {
+    ((FibHeap<?>) heap).validateState();
   }
 }

@@ -12,9 +12,9 @@ public interface Heap<T> {
      * Decrement the key of the given node.
      *
      * @param t value decremented to.
-     * @throws IllegalArgumentException if the current value is smaller than <code>t</code>.
+     * @throws IllegalArgumentException      if the current value is smaller than <code>t</code>.
      * @throws UnsupportedOperationException if the heap implementation does not support this
-     * operaiton.
+     *                                       operaiton.
      */
     void decrement(T t) throws UnsupportedOperationException, IllegalArgumentException;
   }
@@ -39,4 +39,11 @@ public interface Heap<T> {
    * @throws NoSuchElementException if the heap is empty.
    */
   T popMinimum() throws NoSuchElementException;
+
+  /**
+   * Returns the number of elements in this heap.
+   *
+   * @return the number of elements in this heap.
+   */
+  int size();
 }

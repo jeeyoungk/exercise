@@ -1,36 +1,46 @@
 // Copyright 2015 Square, Inc.
 package com.kimjeeyoung.datastruct;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.kimjeeyoung.datastruct.ComparatorUtil.compareTo;
 import static com.kimjeeyoung.datastruct.ComparatorUtil.unsupportedHeapNode;
 
 public class BinaryHeap<T> implements Heap<T> {
   private final Comparator<? super T> comparator;
+  private static final int DEFAULT_SIZE = 1024;
   private T[] heap;
   private int size = 0;
 
   @SuppressWarnings("unchecked")
+  public BinaryHeap() {
+    comparator = null;
+    this.heap = (T[]) new Object[DEFAULT_SIZE];
+  }
+
+  @SuppressWarnings("unchecked")
   public BinaryHeap(Comparator<? super T> comparator) {
     this.comparator = comparator;
-    this.heap = (T[]) new Object[1024];
+    this.heap = (T[]) new Object[DEFAULT_SIZE];
   }
 
   @Override
   public HeapNode insert(T t) throws IllegalStateException {
     if (size + 1 >= heap.length) {
-      throw new IllegalStateException();
+      heap = Arrays.copyOf(heap, heap.length * 2);
     }
     int index = size;
     heap[index] = t;
     size++;
     while (index != 0) {
-      if (compareTo(comparator, heap[index], heap[parent(index)]) > 0) {
+      if (compareTo(comparator, heap[index], heap[parent(index)]) < 0) {
         T temp = heap[index];
         heap[index] = heap[parent(index)];
         heap[parent(index)] = temp;
+        index = parent(index);
       } else {
         break;
       }
@@ -53,6 +63,7 @@ public class BinaryHeap<T> implements Heap<T> {
     }
     T value = heap[0];
     int index = 0;
+    T lastElement = heap[size - 1];
     while (true) {
       heap[index] = null;
       int left = left(index);
@@ -60,9 +71,19 @@ public class BinaryHeap<T> implements Heap<T> {
       if (left >= size) {
         break; // terminal condition - both left & right children do not exist.
       } else if (right >= size) {
-        heap[index] = heap[right];
+        if (compareTo(comparator, heap[left], lastElement) >= 0) {
+          heap[index] = lastElement;
+          heap[size - 1] = null;
+        } else {
+          heap[index] = heap[left];
+        }
+        break;
       } else {
-        if (compareTo(comparator, heap[left], heap[right]) < 0) {
+        if (compareTo(comparator, heap[left], lastElement) >= 0 && compareTo(comparator, heap[right], lastElement) >= 0) {
+          heap[index] = lastElement;
+          heap[size - 1] = null;
+          break;
+        } else if (compareTo(comparator, heap[left], heap[right]) < 0) {
           heap[index] = heap[left];
           index = left;
         } else {
@@ -72,10 +93,25 @@ public class BinaryHeap<T> implements Heap<T> {
       }
     }
     if (index != size - 1) {
-      heap[index] = heap[size - 1];
+      if (heap[index] != null) {
+        heap[index] = heap[size - 1];
+        heap[size - 1] = null;
+      }
     }
     size--;
+    validateState();
     return value;
+  }
+
+  @Override
+  public int size() {
+    return size;
+  }
+
+  void validateState() {
+    for (int i = 1; i < size; i++) {
+      checkArgument(compareTo(comparator, heap[i], heap[parent(i)]) >= 0);
+    }
   }
 
   private static int parent(int index) {
