@@ -37,9 +37,7 @@ public class BinaryHeap<T> implements Heap<T> {
     size++;
     while (index != 0) {
       if (compareTo(comparator, heap[index], heap[parent(index)]) < 0) {
-        T temp = heap[index];
-        heap[index] = heap[parent(index)];
-        heap[parent(index)] = temp;
+        swap(index, parent(index));
         index = parent(index);
       } else {
         break;
