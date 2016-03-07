@@ -1,8 +1,6 @@
 // Copyright 2015 Square, Inc.
 package com.kimjeeyoung.datastruct;
 
-import com.google.common.base.Preconditions;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
@@ -63,18 +61,18 @@ public class BinaryHeap<T> implements Heap<T> {
     if (size == 0) {
       throw new NoSuchElementException();
     }
-    T value = heap[0];
-    int index = 0;
-    heap[0] = heap[size - 1];
-    heap[size - 1] = null;
+    T returnValue = heap[0];
     size--;
+    heap[0] = heap[size];
+    heap[size] = null;
+    int index = 0;
     while (true) {
       int left = left(index);
       int right = right(index);
       if (left >= size) {
         break; // terminal condition - both left & right children do not exist.
       } else if (right >= size) {
-        checkArgument(heap[left] != null);
+        // terminal condition - only "left" remains.
         if (compareTo(comparator, heap[index], heap[left]) > 0) {
           swap(index, left);
         }
@@ -94,7 +92,7 @@ public class BinaryHeap<T> implements Heap<T> {
         }
       }
     }
-    return value;
+    return returnValue;
   }
 
   @Override
