@@ -78,11 +78,9 @@ public abstract class AbstractHeapTest {
       heap.insert(value);
     }
     validate(heap);
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < NUMBER; i++) {
       assertEquals(heap.popMinimum().intValue(), i);
-      validate(heap);
     }
-    heap.popMinimum();
     validate(heap);
   }
 
