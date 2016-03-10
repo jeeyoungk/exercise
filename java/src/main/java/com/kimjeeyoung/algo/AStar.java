@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 
 /**
- * Created by jeeyoungk on 3/10/16.
+ * Implementation of A* Algorithm on 2-d grid.
  */
 public class AStar {
   public final static class Coordinate {
@@ -51,7 +51,7 @@ public class AStar {
     final int heuristic;
 
     /**
-     * real value;
+     * real value from "start" to this coordinate.
      */
     final int value;
 
@@ -61,9 +61,10 @@ public class AStar {
       this.heuristic = heuristic;
     }
 
-
     @Override
     public int compareTo(CoordValue o) {
+      // A* picks the next point by finding the next smallest
+      // (real value + heuristic value)
       return Integer.compare(heuristic + value, o.heuristic + o.value);
     }
   }
