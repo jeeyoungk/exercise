@@ -69,7 +69,7 @@ public class AStar {
     }
   }
 
-  public static class ShortestHistory {
+  public final static class ShortestHistory {
     private int distance;
     private Coordinate previous;
 
@@ -94,7 +94,9 @@ public class AStar {
     shortestDistance = new HashMap<>();
   }
 
-  // TODO - history list.
+  /**
+   * Execute the A* algorithm on top of data.
+   */
   public int execute() {
     PriorityQueue<CoordValue> queue = new PriorityQueue<>();
     queue.add(new CoordValue(start, heuristic(start), 0));
