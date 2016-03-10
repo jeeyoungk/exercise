@@ -1,14 +1,7 @@
-package com.kimjeeyoung.serialization.avro;
+package com.kimjeeyoung.avro;
 
 import avro.shaded.com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
-import com.kimjeeyoung.avro.TypeA;
-import com.kimjeeyoung.avro.TypeANoDefault;
-import com.kimjeeyoung.avro.TypeAWithNewField;
-import com.kimjeeyoung.avro.TypeB;
-import com.kimjeeyoung.avro.TypeBShuffle;
-import com.kimjeeyoung.avro.TypeC;
-import com.kimjeeyoung.avro.User;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +21,6 @@ import org.apache.avro.io.DatumWriter;
 import org.apache.avro.io.DecoderFactory;
 import org.apache.avro.io.EncoderFactory;
 import org.apache.avro.specific.SpecificDatumReader;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -156,7 +148,7 @@ public class AvroExperiment {
     try {
       new SchemaValidatorBuilder().canReadStrategy().validateAll().validate(
           reader, ImmutableList.of(writer));
-      Assert.fail("Expected to be incompatible, but are compatible");
+      fail("Expected to be incompatible, but are compatible");
     } catch (SchemaValidationException e) {
       /* expected */
     }
@@ -165,7 +157,7 @@ public class AvroExperiment {
       new SchemaValidatorBuilder().canBeReadStrategy().validateAll().validate(
           reader, ImmutableList.of(writer));
     } catch (SchemaValidationException e) {
-      Assert.fail(e.getMessage());
+      fail(e.getMessage());
     }
   }
 
@@ -174,7 +166,7 @@ public class AvroExperiment {
       new SchemaValidatorBuilder().mutualReadStrategy().validateAll().validate(
           to, ImmutableList.of(from));
     } catch (SchemaValidationException e) {
-      Assert.fail(e.getMessage());
+      fail(e.getMessage());
     }
   }
 
@@ -182,7 +174,7 @@ public class AvroExperiment {
     try {
       new SchemaValidatorBuilder().canReadStrategy().validateAll().validate(
           schemaA, ImmutableList.of(schemaB));
-      Assert.fail("Expected to be incompatible, but are compatible");
+      fail("Expected to be incompatible, but are compatible");
     } catch (SchemaValidationException e) {
       /* expected */
     }
@@ -190,7 +182,7 @@ public class AvroExperiment {
     try {
       new SchemaValidatorBuilder().canReadStrategy().validateAll().validate(
           schemaA, ImmutableList.of(schemaB));
-      Assert.fail("Expected to be incompatible, but are compatible");
+      fail("Expected to be incompatible, but are compatible");
     } catch (SchemaValidationException e) {
       /* expected */
     }
