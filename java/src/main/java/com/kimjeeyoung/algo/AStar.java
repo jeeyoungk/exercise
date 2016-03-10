@@ -69,11 +69,23 @@ public class AStar {
     }
   }
 
+  public static class ShortestHistory {
+    private int distance;
+    private Coordinate previous;
+
+    public ShortestHistory() {
+    }
+
+    public ShortestHistory(int distance) {
+      this.distance = distance;
+    }
+  }
+
   private final Board board;
   private final Coordinate start;
   private final Coordinate end;
   @VisibleForTesting
-  final Map<Coordinate, Integer> shortestDistance;
+  final Map<Coordinate, ShortestHistory> shortestDistance;
 
   public AStar(Coordinate start, Coordinate end, Board board) {
     this.board = board;
@@ -82,10 +94,11 @@ public class AStar {
     shortestDistance = new HashMap<>();
   }
 
+  // TODO - history list.
   public int execute() {
     PriorityQueue<CoordValue> queue = new PriorityQueue<>();
     queue.add(new CoordValue(start, heuristic(start), 0));
-    shortestDistance.put(start, 0);
+    shortestDistance.put(start, new ShortestHistory(0));
     int rows[] = {0, 1, 0, -1};
     int cols[] = {1, 0, -1, 0};
     while (!queue.isEmpty()) {
@@ -93,13 +106,18 @@ public class AStar {
       int newValue = elem.value + 1;
       for (int i = 0; i < 4; i++) {
         Coordinate newCoord = elem.coord.add(rows[i], cols[i]);
-        Integer shortest = shortestDistance.get(newCoord);
-        if (shortest == null || shortest > newValue) {
+        ShortestHistory shortestHistory = shortestDistance.get(newCoord);
+        if (shortestHistory == null || shortestHistory.distance > newValue) {
           if (!board.blocked(newCoord.row, newCoord.col)) {
             if (newCoord.equals(end)) {
               return newValue;
             }
-            shortestDistance.put(newCoord, newValue);
+            if (shortestHistory == null) {
+              shortestHistory = new ShortestHistory();
+              shortestDistance.put(newCoord, shortestHistory);
+            }
+            shortestHistory.distance = newValue;
+            shortestHistory.previous = elem.coord;
             queue.add(new CoordValue(newCoord, heuristic(newCoord), newValue));
           }
         }

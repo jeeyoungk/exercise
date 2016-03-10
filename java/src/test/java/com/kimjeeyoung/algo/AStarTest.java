@@ -43,4 +43,24 @@ public class AStarTest {
     assertEquals(18, astar.execute());
     assertEquals(85, astar.shortestDistance.size());
   }
+
+  @Test
+  public void testWall() throws Exception {
+    Board board = new Board(21, 21);
+    for (int i = 3; i < 21 - 3; i++) {
+      board.board[i][10] = true;
+    }
+    AStar astar = new AStar(new AStar.Coordinate(10, 2), new AStar.Coordinate(10, 18), board);
+    assertEquals(32, astar.execute());
+  }
+
+  @Test
+  public void testBlocked() throws Exception {
+    Board board = new Board(21, 21);
+    for (int i = 0; i < 21; i++) {
+      board.board[i][10] = true;
+    }
+    AStar astar = new AStar(new AStar.Coordinate(10, 2), new AStar.Coordinate(10, 18), board);
+    assertEquals(-1, astar.execute());
+  }
 }
