@@ -122,5 +122,41 @@
         "type": "string"
       }
     ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "UnionRecord",
+    "fields": [
+      {
+        "name": "field",
+        "type": [
+          "int",
+          "string",
+          "float",
+          "double",
+          "null",
+          {
+            "type": "array",
+            "items": "boolean"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "com.kimjeeyoung.avro",
+    "type": "record",
+    "name": "Point",
+    "fields": [
+      {
+        "name": "x",
+        "type": "int"
+      },
+      {
+        "name": "y",
+        "type": "int"
+      }
+    ]
   }
 ]

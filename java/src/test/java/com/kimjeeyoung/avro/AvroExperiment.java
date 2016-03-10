@@ -1,6 +1,6 @@
 package com.kimjeeyoung.avro;
 
-import avro.shaded.com.google.common.base.Throwables;
+import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,9 +44,23 @@ public class AvroExperiment {
     user = schema.getTypes().stream().filter((x) -> x.getName().equals("User")).findFirst().get();
   }
 
+  /**
+   * simple interaction using the compiled schema.
+   *
+   * @throws Exception
+   */
+  @Test
+  public void testSimple() throws Exception {
+    User user = new User();
+    user.setFavoriteColor("red");
+    user.setFavoriteNumber(10);
+    user.setName("jeeyoung kim");
+  }
+
   @Test
   public void testSchema() {
     assertEquals(schema.getType(), Schema.Type.UNION);
+    assertEquals(user.getType(), Schema.Type.RECORD);
   }
 
   @Test
@@ -74,6 +88,33 @@ public class AvroExperiment {
     assertEquals(b2Decoded.get("value"), b1Decoded.get("value"));
   }
 
+  /**
+   * Test the object sizes
+   */
+  @Test
+  public void testObjectSize() {
+    assertEquals("union type header + size byte + 0 bytes", 2, toByte(UnionRecord.newBuilder().setField("").build()).length);
+    assertEquals("union type header + size byte + 3 bytes", 5, toByte(UnionRecord.newBuilder().setField("foo").build()).length);
+    assertEquals("union type header + 1 byte", 2, toByte(UnionRecord.newBuilder().setField(0).build()).length);
+    // Avro uses variable-length zig-zg encoding for integers - so they can take up to 5 (instead of 4) bytes.
+    assertEquals("union type header + 1 byte", 2, toByte(UnionRecord.newBuilder().setField(1 << 7 - 2).build()).length);
+    assertEquals("union type header + 2 byte", 3, toByte(UnionRecord.newBuilder().setField(1 << 7 - 1).build()).length);
+    assertEquals("union type header + 2 byte", 3, toByte(UnionRecord.newBuilder().setField(1 << 15 - 3).build()).length);
+    assertEquals("union type header + 3 byte", 4, toByte(UnionRecord.newBuilder().setField(1 << 15 - 2).build()).length);
+    assertEquals("union type header + 3 byte", 4, toByte(UnionRecord.newBuilder().setField(1 << 23 - 4).build()).length);
+    assertEquals("union type header + 4 byte", 5, toByte(UnionRecord.newBuilder().setField(1 << 23 - 3).build()).length);
+    assertEquals("union type header + 4 byte", 5, toByte(UnionRecord.newBuilder().setField(1 << 31 - 5).build()).length);
+    assertEquals("union type header + 5 byte", 6, toByte(UnionRecord.newBuilder().setField(1 << 31 - 4).build()).length);
+    assertEquals("union type header + 5 byte", 6, toByte(UnionRecord.newBuilder().setField(Integer.MAX_VALUE).build()).length);
+    // null is encoded as 0 byte, but type header uses 1 byte.
+    assertEquals("union type header + null (0 bytes)", 1, toByte(UnionRecord.newBuilder().setField(null).build()).length);
+    assertEquals("union type header + size byte + 4 bytes + null block", 7, toByte(UnionRecord.newBuilder().setField(Arrays.asList(true, true, false, true)).build()).length);
+    // without type headers - almost as efficient as c-structs!
+    assertEquals(2, toByte(Point.newBuilder().setX(0).setY(0).build()).length);
+    assertEquals(4, toByte(Point.newBuilder().setX(1 << 7 - 1).setY(1 << 7 - 1).build()).length);
+    assertEquals(10, toByte(Point.newBuilder().setX(Integer.MAX_VALUE).setY(Integer.MAX_VALUE).build()).length);
+  }
+
   @Test
   public void testParsingSchemaEvolution() {
     TypeA a = new TypeA();
@@ -84,14 +125,9 @@ public class AvroExperiment {
     assertEquals(decoded.get("new_value").toString(), "default-value");
   }
 
-  @Test
-  public void testSimple() throws Exception {
-    User user = new User();
-    user.setFavoriteColor("red");
-    user.setFavoriteNumber(10);
-    user.setName("jeeyoung kim");
-  }
-
+  /**
+   * Write to a file and read back.
+   */
   @Test
   public void testWriteRead() throws Exception {
     ImmutableList<User> users = ImmutableList.of(
@@ -120,8 +156,11 @@ public class AvroExperiment {
     }
   }
 
+  /**
+   * Sample interaction of {@link GenericRecord} without a compiled schema.
+   */
   @Test
-  public void testWithoutSchema() throws Exception {
+  public void testWithoutSchema() {
     GenericRecord record = new GenericData.Record(user);
     record.put("name", "jeeyoung kim");
     record.put("favorite_number", 10);
@@ -129,6 +168,9 @@ public class AvroExperiment {
     assertEquals("{\"name\": \"jeeyoung kim\", \"favorite_number\": 10, \"favorite_color\": \"red\"}", record.toString());
   }
 
+  /**
+   * Invalid operation.
+   */
   @Test
   public void testWithoutSchema_invalid() throws Exception {
     GenericRecord record = new GenericData.Record(user);
@@ -136,7 +178,7 @@ public class AvroExperiment {
       record.put("name_does_not_exist", "jeeyoung kim");
       fail("putting a field that doesn't exist should fail.");
     } catch (AvroRuntimeException e) {
-      /* expected. */
+      assertEquals(e.getMessage(), "Not a valid schema field: name_does_not_exist");
     }
   }
 
@@ -188,6 +230,9 @@ public class AvroExperiment {
     }
   }
 
+  /**
+   * Convert the given generic record to bytes.
+   */
   private byte[] toByte(GenericRecord record) {
     try {
       DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<>(record.getSchema());
@@ -197,7 +242,7 @@ public class AvroExperiment {
       return bos.toByteArray();
     } catch (IOException e) {
       fail(e.getMessage());
-      return null;
+      throw com.google.common.base.Throwables.propagate(e);
     }
   }
 
