@@ -14,7 +14,8 @@ public class AStarTest {
     Board board = new Board(10, 20);
     AStar astar = new AStar(new AStar.Coordinate(0, 0), new AStar.Coordinate(19, 9), board);
     assertEquals(28, astar.execute());
-    assertEquals(163, astar.shortestDistance.size());
+    assertEquals(164, astar.shortestDistance.size());
+    System.err.println(astar.toString());
   }
 
   @Test
@@ -22,7 +23,8 @@ public class AStarTest {
     Board board = new Board(10, 10);
     AStar astar = new AStar(new AStar.Coordinate(0, 0), new AStar.Coordinate(1, 1), board);
     assertEquals(2, astar.execute());
-    assertEquals(4, astar.shortestDistance.size());
+    assertEquals(5, astar.shortestDistance.size());
+    System.err.println(astar.toString());
   }
 
   @Test
@@ -32,7 +34,8 @@ public class AStarTest {
     board.board[1][1] = true;
     AStar astar = new AStar(new AStar.Coordinate(0, 0), new AStar.Coordinate(0, 2), board);
     assertEquals(6, astar.execute());
-    assertEquals(6, astar.shortestDistance.size());
+    assertEquals(7, astar.shortestDistance.size());
+    System.err.println(astar.toString());
   }
 
   @Test
@@ -41,17 +44,25 @@ public class AStarTest {
     board.board[10][10] = true;
     AStar astar = new AStar(new AStar.Coordinate(10, 2), new AStar.Coordinate(10, 18), board);
     assertEquals(18, astar.execute());
-    assertEquals(85, astar.shortestDistance.size());
+    assertEquals(86, astar.shortestDistance.size());
+    System.err.println(astar.toString());
   }
 
   @Test
   public void testWall() throws Exception {
     Board board = new Board(21, 21);
-    for (int i = 3; i < 21 - 3; i++) {
+    for (int i = 3; i < 21; i++) {
       board.board[i][10] = true;
     }
+    for (int i = 0; i < 21 - 3; i++) {
+      board.board[i][12] = true;
+    }
+    for (int i = 3; i < 21; i++) {
+      board.board[i][14] = true;
+    }
     AStar astar = new AStar(new AStar.Coordinate(10, 2), new AStar.Coordinate(10, 18), board);
-    assertEquals(32, astar.execute());
+    assertEquals(64, astar.execute());
+    System.out.println(astar.toString());
   }
 
   @Test
@@ -62,5 +73,6 @@ public class AStarTest {
     }
     AStar astar = new AStar(new AStar.Coordinate(10, 2), new AStar.Coordinate(10, 18), board);
     assertEquals(-1, astar.execute());
+    System.err.println(astar.toString());
   }
 }

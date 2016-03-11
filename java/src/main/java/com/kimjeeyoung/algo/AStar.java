@@ -2,10 +2,15 @@ package com.kimjeeyoung.algo;
 
 import com.google.common.annotations.VisibleForTesting;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 /**
  * Implementation of A* Algorithm on 2-d grid.
@@ -79,11 +84,21 @@ public class AStar {
     public ShortestHistory(int distance) {
       this.distance = distance;
     }
+
+    @Override
+    public String toString() {
+      return "ShortestHistory{" +
+        "distance=" + distance +
+        ", previous=" + previous +
+        '}';
+    }
   }
 
   private final Board board;
   private final Coordinate start;
   private final Coordinate end;
+  private boolean executed = false;
+  private int result = 0;
   @VisibleForTesting
   final Map<Coordinate, ShortestHistory> shortestDistance;
 
@@ -98,6 +113,34 @@ public class AStar {
    * Execute the A* algorithm on top of data.
    */
   public int execute() {
+    if (!executed) {
+      result = executeImpl();
+      executed = true;
+    }
+    return result;
+  }
+
+  public List<Coordinate> getPath() {
+    if (!executed) {
+      execute();
+    }
+    if (result != -1) {
+      List<Coordinate> result = new ArrayList<>();
+      Coordinate coord = end;
+      result.add(coord);
+      do {
+        ShortestHistory prev = shortestDistance.get(coord);
+        coord = prev.previous;
+        result.add(coord);
+      } while (!coord.equals(start));
+      Collections.reverse(result);
+      return result;
+    } else {
+      return Collections.emptyList();
+    }
+  }
+
+  private int executeImpl() {
     PriorityQueue<CoordValue> queue = new PriorityQueue<>();
     queue.add(new CoordValue(start, heuristic(start), 0));
     shortestDistance.put(start, new ShortestHistory(0));
@@ -111,23 +154,51 @@ public class AStar {
         ShortestHistory shortestHistory = shortestDistance.get(newCoord);
         if (shortestHistory == null || shortestHistory.distance > newValue) {
           if (!board.blocked(newCoord.row, newCoord.col)) {
-            if (newCoord.equals(end)) {
-              return newValue;
-            }
             if (shortestHistory == null) {
               shortestHistory = new ShortestHistory();
               shortestDistance.put(newCoord, shortestHistory);
             }
             shortestHistory.distance = newValue;
             shortestHistory.previous = elem.coord;
+            if (newCoord.equals(end)) {
+              return newValue;
+            }
             queue.add(new CoordValue(newCoord, heuristic(newCoord), newValue));
           }
         }
       }
     }
-    return -1;
+    return -1; // no result.
   }
 
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    Set<Coordinate> path = new HashSet<>(getPath());
+    for (int col = 0; col < board.width; col++) {
+      for (int row = 0; row < board.height; row++) {
+        Coordinate coord = new Coordinate(row, col);
+        char toAppend;
+        if (coord.equals(start)) {
+          toAppend = 'X';
+        } else if (coord.equals(end)) {
+          toAppend = 'X';
+        } else if (board.blocked(row, col)) {
+          toAppend = 'O';
+        } else if (path.contains(coord)) {
+          toAppend = '*';
+        } else {
+          toAppend = '.';
+        }
+        sb.append(toAppend);
+      }
+      sb.append("\n");
+    }
+    return sb.toString();
+  }
+
+  /**
+   * A* heuristic function.
+   */
   public int heuristic(Coordinate coord) {
     return Math.abs(coord.row - end.row) + Math.abs(coord.col - end.col);
   }
