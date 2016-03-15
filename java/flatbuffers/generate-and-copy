@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+flatc -j sample.flat
+cp -r com/ ../src/main/java/com/

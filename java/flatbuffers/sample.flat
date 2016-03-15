@@ -1,0 +1,15 @@
+// example IDL file
+
+namespace com.kimjeeyoung.serialization.flatbuffers;
+
+struct Point {
+  x:float;
+  y:float;
+}
+
+table User {
+  pos:Point;
+  name:string;
+}
+
+root_type User;
