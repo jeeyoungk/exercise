@@ -1,11 +1,12 @@
 package com.kimjeeyoung.avro;
 
+import com.google.common.base.Charsets;
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.Arrays;
+
 import org.apache.avro.AvroRuntimeException;
 import org.apache.avro.Schema;
 import org.apache.avro.SchemaValidationException;
@@ -16,10 +17,7 @@ import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericDatumReader;
 import org.apache.avro.generic.GenericDatumWriter;
 import org.apache.avro.generic.GenericRecord;
-import org.apache.avro.io.DatumReader;
-import org.apache.avro.io.DatumWriter;
-import org.apache.avro.io.DecoderFactory;
-import org.apache.avro.io.EncoderFactory;
+import org.apache.avro.io.*;
 import org.apache.avro.specific.SpecificDatumReader;
 import org.junit.Before;
 import org.junit.Rule;
@@ -131,9 +129,9 @@ public class AvroExperiment {
   @Test
   public void testWriteRead() throws Exception {
     ImmutableList<User> users = ImmutableList.of(
-        makeUser("john", "red", 13),
-        makeUser("amy", "blue", 14),
-        makeUser("mark", "pink", 15)
+      makeUser("john", "red", 13),
+      makeUser("amy", "blue", 14),
+      makeUser("mark", "pink", 15)
     );
     File testOutput = folder.newFile();
     DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<>(schema);
@@ -168,6 +166,29 @@ public class AvroExperiment {
     assertEquals("{\"name\": \"jeeyoung kim\", \"favorite_number\": 10, \"favorite_color\": \"red\"}", record.toString());
   }
 
+  @Test
+  public void testJson() throws IOException {
+    ByteArrayOutputStream os = new ByteArrayOutputStream();
+    GenericRecord inputRow = new GenericData.Record(user);
+    inputRow.put("name", "jeeyoung kim");
+    inputRow.put("favorite_number", 10);
+    inputRow.put("favorite_color", "red");
+    JsonEncoder encoder = EncoderFactory.get().jsonEncoder(user, os, false);
+    DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<>(inputRow.getSchema());
+    datumWriter.write(inputRow, encoder);
+    encoder.flush();
+    os.close();
+    // union types are not represented well in Avro.
+    assertEquals("{\"name\":\"jeeyoung kim\",\"favorite_number\":{\"int\":10},\"favorite_color\":{\"string\":\"red\"}}",
+      new String(os.toByteArray(), Charsets.UTF_8));
+    JsonDecoder decoder = DecoderFactory.get().jsonDecoder(user,
+      new DataInputStream(new ByteArrayInputStream(os.toByteArray())));
+    DatumReader<GenericRecord> reader = new GenericDatumReader<>(user);
+    GenericRecord deserializedRow = reader.read(null, decoder);
+    assertEquals(deserializedRow, inputRow);
+  }
+
+
   /**
    * Invalid operation.
    */
@@ -189,7 +210,7 @@ public class AvroExperiment {
   public void assertOnlyForward(Schema writer, Schema reader) {
     try {
       new SchemaValidatorBuilder().canReadStrategy().validateAll().validate(
-          reader, ImmutableList.of(writer));
+        reader, ImmutableList.of(writer));
       fail("Expected to be incompatible, but are compatible");
     } catch (SchemaValidationException e) {
       /* expected */
@@ -197,7 +218,7 @@ public class AvroExperiment {
 
     try {
       new SchemaValidatorBuilder().canBeReadStrategy().validateAll().validate(
-          reader, ImmutableList.of(writer));
+        reader, ImmutableList.of(writer));
     } catch (SchemaValidationException e) {
       fail(e.getMessage());
     }
@@ -206,7 +227,7 @@ public class AvroExperiment {
   public void assertBothWays(Schema from, Schema to) {
     try {
       new SchemaValidatorBuilder().mutualReadStrategy().validateAll().validate(
-          to, ImmutableList.of(from));
+        to, ImmutableList.of(from));
     } catch (SchemaValidationException e) {
       fail(e.getMessage());
     }
@@ -215,7 +236,7 @@ public class AvroExperiment {
   private void assertIncompatible(Schema schemaA, Schema schemaB) {
     try {
       new SchemaValidatorBuilder().canReadStrategy().validateAll().validate(
-          schemaA, ImmutableList.of(schemaB));
+        schemaA, ImmutableList.of(schemaB));
       fail("Expected to be incompatible, but are compatible");
     } catch (SchemaValidationException e) {
       /* expected */
@@ -223,7 +244,7 @@ public class AvroExperiment {
 
     try {
       new SchemaValidatorBuilder().canReadStrategy().validateAll().validate(
-          schemaA, ImmutableList.of(schemaB));
+        schemaA, ImmutableList.of(schemaB));
       fail("Expected to be incompatible, but are compatible");
     } catch (SchemaValidationException e) {
       /* expected */
