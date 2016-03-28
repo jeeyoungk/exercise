@@ -91,7 +91,7 @@ Now let’s move farther away from the metal and take a look at Python, a popula
 import sys
 
 class Class:
-    def__init__(self):
+    def __init__(self):
         pass
 
 instance = Class()
@@ -104,16 +104,18 @@ print("size of [] is %d" % sys.getsizeof([]))
 print("size of [0] is %d" % sys.getsizeof([0]))
 print("size of {} is %d" % sys.getsizeof({}))
 print("size of Class is %d" % (sys.getsizeof(instance) + sys.getsizeof(instance.__dict__)))
+```
 
+```
 // output
 size of 0 is 24
 size of 1 is 28
 size of 0x3fffffff is 28
 size of 0x40000000 is 32
+size of [] is 64
 size of [0] is 72
-size of (0,) is 56
 size of {} is 288
-size of Class() is 152
+size of Class is 152
 ```
 
 Observations:
