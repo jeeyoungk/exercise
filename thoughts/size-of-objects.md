@@ -4,9 +4,9 @@ This is one of the first question I ask while I learn a new programming language
 
 ## C
 
-This is one of the reason why C is great and relevant even after many years, because there’s no or very little overhead. You use precisely what your program declares. 
+C has very little or no overhead - You use precisely what your program declares. This is one of the reason why C is great and relevant even after many years. 
 
-char uses a single byte. A single 32-bit integer takes up exactly 4 bytes.
+`char` uses a single byte. A single 32-bit integer takes up 4 bytes, so non and so forth.
 
 I wrote a small code snippet:
 
