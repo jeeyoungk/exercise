@@ -6,7 +6,11 @@
     "fields": [
       {
         "name": "name",
-        "type": "string"
+        "type": "string",
+        "property": "foo",
+        "nested_property": {
+          "property": "bar"
+        }
       },
       {
         "name": "favorite_number",
