@@ -37,7 +37,7 @@ try {
 ```python
 try:
   operationA()
-catch SpecificException, e:
+except SpecificException, e:
   # error case
 else:
   # success case
