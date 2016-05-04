@@ -9,6 +9,7 @@
 
 ## `try-catch` example
 ```java
+// this is code smell
 try {
   operationA() // throws SpecificException
   operationB() // throws SpecificException
