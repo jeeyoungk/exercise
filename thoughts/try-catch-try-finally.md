@@ -23,7 +23,7 @@ try {
 ```java
 Resource r = allocate();
 try {
-  // use r.
+  // use the allocated resource in this scope.
 } finally {
   r.free();
 }
