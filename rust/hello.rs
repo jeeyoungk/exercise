@@ -8,6 +8,8 @@ fn main() {
     arrays();
     println!("> Structs");
     structs();
+    println!("> References");
+    references();
 }
 
 fn primitives() {
@@ -66,3 +68,34 @@ fn structs() {
     print_point(p3);
 }
 
+fn references() {
+    // testing mutable reference.
+    let mut x:i32 = 5;
+    println!("x: {}", x);
+    fn increment(x: &mut i32) {
+        *x = *x + 1;
+    }
+    increment(&mut x);
+    println!("x: {}", x);
+    // testing immutable references
+    fn print_twice(x: &i32) {
+        println!("first:  {}", x);
+        println!("second: {}", x);
+    }
+    print_twice(&3);
+    print_twice(&x);
+    /*
+    this code does not compile - taking multiple mutable references.
+    { 
+        let y = &mut x;
+        let z = &mut x;
+    }
+    */
+    /*
+    this code does not compile - taking mutable & immutable references (they form read-write-lock).
+    { 
+        let y = & x;
+        let z = &mut x;
+    }
+    */
+}
