@@ -127,8 +127,8 @@ fn enums() {
     }
     fn app(o: Option, function: fn(i32) -> i32) -> Option {
         match o {
-            Option::None => return Option::None,
-            Option::Some(x) => return Option::Some(function(x))
+            Option::None => Option::None,
+            Option::Some(x) => Option::Some(function(x))
         }
     }
     fn add_one(x:i32) -> i32 {
