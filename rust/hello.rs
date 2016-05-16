@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 fn main() {
     println!("hello, world");
     println!("> Primitives");
@@ -51,6 +53,8 @@ fn arrays() {
 }
 
 fn structs() {
+    // this is used to override move semantics.
+    #[derive(Copy, Clone)]
     struct Point {
         x: i32,
         y: i32
@@ -61,13 +65,23 @@ fn structs() {
             y: p1.y + p2.y
         }
     }
+    impl Add for Point {
+        // operator overloading!
+        type Output = Point;
+        fn add(self, other: Point) -> Point {
+            Point { x: self.x + other.x, y: self.y + other.y }
+        }
+    }
+    
     fn print_point(p: Point) {
         println!("({} ,{})", p.x, p.y);
     }
     let p1 = Point { x: 1, y: 2 };
     let p2 = Point { x: 4, y: 5 };
     let p3 = add(p1, p2);
+    let p4 = p1 + p2;
     print_point(p3);
+    print_point(p4);
 }
 
 fn references() {
