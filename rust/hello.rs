@@ -10,6 +10,8 @@ fn main() {
     structs();
     println!("> References");
     references();
+    println!("> Enums");
+    enums();
 }
 
 fn primitives() {
@@ -98,4 +100,44 @@ fn references() {
         let z = &mut x;
     }
     */
+}
+
+fn enums() {
+    // standard enum.
+    enum Color {
+        RED,
+        GREEN,
+        BLACK
+    };
+    fn categorize_color(c: Color) {
+        match c {
+            Color::RED => println!("color is red!"),
+            Color::GREEN => println!("color is green!"),
+            _ =>
+                println!("Unknown color.")
+        }
+    }
+    categorize_color(Color::RED);
+    categorize_color(Color::GREEN);
+    categorize_color(Color::BLACK);
+    // pattern matching enum.
+    enum Option {
+        None,
+        Some(i32)
+    }
+    fn app(o: Option, function: fn(i32) -> i32) -> Option {
+        match o {
+            Option::None => return Option::None,
+            Option::Some(x) => return Option::Some(function(x))
+        }
+    }
+    fn add_one(x:i32) -> i32 {
+        x + 1
+    }
+    fn print_value(x:i32) -> i32 {
+        println!("value: {}", x);
+        return 0;
+    }
+    app(app(Option::Some(10), add_one), print_value);
+    app(app(Option::None, add_one), print_value);
 }
