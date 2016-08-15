@@ -1,7 +1,5 @@
 # Determine best time to buy and sell a given item.
 # input - time series [v_0, v_1 ... v_n]
-:wa
-j
 # input - k >= 1 - # of times you can buy / sell. you cannot buy again if you've already bought one.
 # output - total delta you are making.
 
