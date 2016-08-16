@@ -1,79 +1,99 @@
 # Determine best time to buy and sell a given item.
 # input - time series [v_0, v_1 ... v_n]
 # input - k >= 1 - # of times you can buy / sell. you cannot buy again if you've already bought one.
-# output - total delta you are making.
+# output - total profit with k trades.
 
-# This implementation takes O(n log n),
-# but it can be optimized to O(n) if
-# quickselect is used instead of sorting.
+# The solution is O(n) given quickselect.
+import pprint
+
+DEBUG = False
+class Node(object):
+    def __init__(self, low, high):
+        """
+        tree of stock prices, constructed from the historic price.
+
+        invariants:
+        * low < high
+        * low < child.low for all children
+
+        tree is constructed greedily from the input. thus, recursively
+        traversing the tree from left to right should yield the original input order.
+        """
+        assert low < high
+        self.low = low
+        self.high = high     # original high
+        self.max_high = high # transitive high of node + all children.
+        self.children = []
+        self.profits = []    # list of possible profits for doing a single trade.
+
+    def finish(self):
+        """
+        merges the stock price tree and generates list of profits.
+        should be called after all children are appended.
+        """
+        for child in self.children:
+            if child.max_high > self.max_high:
+                # Price transitions A_low ~ A_high ~ B_low ~ B_high can be merged:
+                # the optimal trade is A_low ~ B_high.
+                # if an additional trade is permitted, then do split to two trades: A_low ~ A_high and B_low ~ B_high
+                # For that case, additional profit is
+                #   B_low - A_high
+                # ex: reduce (5~8) ~ (7~10) to (5~10) and profit of 1
+                self.profits.append(self.max_high - child.low)
+                self.max_high = child.max_high
+            else:
+                # Price transitions are nested - i.e. A_low < B_low < B_high < A_high
+                # the optimal trade is (A_low ~ A_high).
+                # if an additional trade is permitted, then perform (B_low ~ B_high)
+                # ex: reduce (0~10) ~ (1~9) to (0~10) and profit of 8
+                self.profits.append(child.max_high - child.low)
+
+    def to_profits(self):
+        output = [self.max_high - self.low]
+        self._append_profits(output)
+        return output
+
+    def _append_profits(self, output):
+        output += self.profits
+        for child in self.children:
+            child._append_profits(output)
+
+    def to_dict(self):
+        "useful for debugging. prefixed to hack python dictionary ordering."
+        return {
+            '1-range': (self.low, self.high),
+            '2-profits': self.profits,
+            '3-children': tuple(child.to_dict() for child in self.children)
+        }
 
 def buy_sell(raw_prices, k):
     prices = normalize(raw_prices)
-    maxes = max_from(prices)
-    mins = partitioned_min_since(prices, maxes)
-    # normalization + maxes + mins gives a nice property, where
-    # max[idx] - min[idx] gives a single optimal solution
-    # for a buy-sell range that contains idx.
-    possibilities = []
-    N = len(prices) / 2
+    if len(prices) <= 1: return 0
+    stack = []; roots = []
     for idx in xrange(0, len(prices), 2):
-        if idx < len(prices) - 2: # not last element
-            if mins[idx] != mins[idx+2] or maxes[idx] != maxes[idx+2]:
-                # end of a range - append delta for the entire range.
-                possibilities.append(maxes[idx] - mins[idx])
-            else:
-                # not end yet - append delta from the drop only.
-                # the reason why we calculate "drop" instead of gain is the following:
-                # an optimal range hasn't ended yet - but any range (start, end) that contains
-                # idx can be split to two ranges:
-                # (start, end) -> (start, idx + 1), (idx + 2, end)
-                # and the difference between LHS and RHS for total gain is precisely
-                # (prices[idx + 1] - prices[idx + 2])
-                possibilities.append(prices[idx + 1] - prices[idx + 2])
-        else: # last element - append delta for the entire range.
-            possibilities.append(maxes[idx] - mins[idx])
-    # Sort all possibilities, and select top K.
-    # This makes the runtime to O(n log n)
-    # However, this can be done in O(n) if quickselect is used to find the kth largest element
-    # and filter all items greater than k.
+        low, high = prices[idx], prices[idx + 1]
+        node = Node(low, high)
+        while stack and stack[-1].low > node.low:
+            popped = stack.pop()
+            popped.finish()
+        # append to the latest node as a child, or append as a root.
+        if stack: stack[-1].children.append(node)
+        else: roots.append(node)
+        stack.append(node)
+    while stack:
+        popped = stack.pop()
+        popped.finish()
+    possibilities = []
+    for root in roots:
+        possibilities += root.to_profits()
+    if DEBUG:
+        print "Prices: %s" % prices
+        pprint.pprint([root.to_dict() for root in roots])
     possibilities.sort(reverse = True)
     result = 0
     for i, p in enumerate(possibilities):
         if i < k: result += p
     return result
-
-def partitioned_min_since(array, maxes):
-    """
-    similar to max_from, except:
-    - it calculates minimums.
-    - it gets reset whenever the max value changes.
-    """
-    v = None
-    output = []
-    for i, cur in enumerate(array):
-        if v is None: v = cur
-        else:
-            if maxes[i] != maxes[i - 1]: v = cur
-            else: v = min(v, cur)
-        output.append(v)
-    return output
-
-def max_from(array):
-    "result[i] = max(array[0]..array[i])"
-    return list(reversed(partial_reduce(reversed(array), max)))
-
-def partial_reduce(array, reduce_fn):
-    """
-    reduce a given array, but produces partial output for each iteration.
-    """
-    v = None
-    output = []
-    for cur in array:
-        if v is None: v = cur
-        else: v = reduce_fn(v, cur)
-        output.append(v)
-    return output
-
 
 def normalize(prices):
     """
@@ -81,6 +101,10 @@ def normalize(prices):
     ex: [1,2,3] -> [1,3], [1,2,3,4,3,2] -> [1,4,2]
     2. ensure that prices[0] < prices[1] - otherwise prices[0] will never belong in an optimal answer.
     3. ensure that prices[-2] < prices[-1] - otherwise prices[-1] will never belong in an optimal answer.
+
+    output is:
+    * even number of elements.
+    * alternates between decreasing and increasing.
     """
     output = []
     for i, p in enumerate(prices):
@@ -96,17 +120,20 @@ def normalize(prices):
     return output
 
 def main():
-    print buy_sell([], 1) == 0    # simple case 1
-    print buy_sell([1], 1) == 0   # simple case 2
-    print buy_sell([1,2], 1) == 1 # simple case 3
-    print buy_sell([1,2,3,4,5], 1) == 4   # reduces to a single range.
-    print buy_sell([1,2,1,2,1,2], 3) == 3 # repeating the simple case
-    print buy_sell([1,2,1,2,1,2], 4) == 3 # more buy-sell pairs then we need.
-    print buy_sell([1,5,2,3], 2) == 5     # double range 1~5 + 2~3 = 5
-    print buy_sell([1,3,2,4], 2) == 4     # range splitting 1~3 + 2~4 = 4
+    assert buy_sell([], 1) == 0    # simple case 1
+    assert buy_sell([1], 1) == 0   # simple case 2
+    assert buy_sell([1,2], 1) == 1 # simple case 3
+    assert buy_sell([1,2,3,4,5], 1) == 4   # reduces to a single range.
+    assert buy_sell([1,2,1,2,1,2], 3) == 3 # repeating the simple case
+    assert buy_sell([1,2,1,2,1,2], 4) == 3 # more buy-sell pairs then we need.
+    assert buy_sell([1,5,2,3], 2) == 5     # double range 1~5 + 2~3 = 5
+    assert buy_sell([1,3,2,4], 2) == 4     # range splitting 1~3 + 2~4 = 4
     ary = [100,140,50,71,60,75,70,80]
-    print buy_sell(ary, 1) == 40 # 100~140
-    print buy_sell(ary, 2) == 70 # 100~140 + 50~80
-    print buy_sell(ary, 3) == 81 # 100~140 + 50~71 + 60~80
+    assert buy_sell(ary, 1) == 40 # 100~140
+    assert buy_sell(ary, 2) == 70 # 100~140 + 50~80
+    assert buy_sell(ary, 3) == 81 # 100~140 + 50~71 + 60~80
+    assert buy_sell([0,60,40,90,15,85,10,60,50,100], 1) == 100 # 0~100
+    assert buy_sell([0,60,40,90,15,85,10,60,50,100], 2) == 180 # 0~90 10~100
+    assert buy_sell([0,60,40,90,15,85,10,60,50,100], 3) == 250 # 0~90 15~85 10~100
 
 main()
