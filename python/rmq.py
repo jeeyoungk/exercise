@@ -2,76 +2,175 @@
 
 import math
 import random
+import argparse
 
+# Helper Functions
 def log2(v):
     return int(math.log(v, 2))
 
-def naive_rmq(array):
+def min_index_for_array(ary):
+    def min_index(*args):
+        idx = None
+        for arg in args:
+            if idx is None or ary[idx] > ary[arg]:
+                idx = arg
+        return idx
+    return min_index
+
+def pairwise_min_index_for_array(ary):
+    def min_index(i, j):
+        if ary[i] < ary[j]:
+            return i
+        return j
+    return min_index
+
+class Node(object):
+    __slots__ = ('v', 'left', 'right')
+    def __init__(self, v):
+        self.v = v
+        self.left = self.right = None
+
+    def inorder(self):
+        if self.left:
+            for v in self.left.inorder():
+                yield v
+        yield self.v
+        if self.right:
+            for v in self.right.inorder():
+                yield v
+
+    def _signature(self, v):
+        v = v * 2
+        if self.left: v = self.left._signature(v + 1)
+        v = v * 2
+        if self.right: v = self.right._signature(v + 1)
+        return v
+
+    def signature(self):
+        return self._signature(1) / 4
+
+def cartesian_tree(ary):
+    stack = []
+    for v in ary:
+        node = Node(v)
+        # stack invariants:
+        # left to right order.
+        # higher on stack = higher value
+        while stack and stack[-1].v >= node.v:
+            if len(stack) == 1 or stack[-2].v < node.v:
+                left = stack.pop()
+                node.left = left
+            else:
+                right = stack.pop()
+                stack[-1].right = right
+        stack.append(node)
+    while len(stack) > 1:
+        right = stack.pop()
+        stack[-1].right = right
+    node = stack[0]
+    # assert ary == list(node.inorder()) # ensures that the construction is correct.
+    return node
+
+def naive_rmq(ary):
     """
     prep - O(1)
     exec - O(n)
     """
     def inner(start, end):
-        v = array[start]
+        v = ary[start]
+        vidx = start
         for i in xrange(start+1, end+1):
-            v = min(v, array[i])
-        return v
+            if ary[i] < v:
+                v = ary[i]
+                vidx = i
+        return vidx
     return inner
 
-def rmq_by_block(array):
-    N = len(array)
-    block_width = log2(N)
+def rmq_pow_2(ary):
+    """
+    prep - O(n log n)
+    exec - O(1)
+    """
+    N = len(ary)
+    P = log2(N)
+    width = 1
+    last_row = list(range(N))
+    mins = [last_row]
+    min_index = pairwise_min_index_for_array(ary)
+    for power in xrange(P):
+        new_mins = [0] * (len(last_row) - width)
+        for i in xrange(len(last_row) - width):
+            min_value = min_index(last_row[i], last_row[i + width])
+            new_mins[i] = min_value
+        mins.append(new_mins)
+        last_row = new_mins
+        width *= 2 
+    def inner(start, end):
+        if start == end: return start
+        delta = end - start
+        length = log2(delta)
+        end_index = end - (2 ** length - 1)
+        cur_mins = mins[length]
+        return min_index(cur_mins[start], cur_mins[end_index])
+    return inner
+
+def rmq_by_block(ary, index_subblock=False, block_rmq_algorithm=rmq_pow_2):
+    N = len(ary)
+    block_width = max(5, log2(N) / 4)
     num_blocks = N / block_width
-    if num_blocks * block_width < N: num_blocks += 1
-    min_blocks = [None] * num_blocks
+    if num_blocks * block_width < N: num_blocks += 1 # round up
+    min_block_indices = [None] * num_blocks
+    min_index = min_index_for_array(ary)
     for i in xrange(N):
         block_idx = i / block_width
-        if min_blocks[block_idx] is None or min_blocks[block_idx] > array[i]:
-            min_blocks[block_idx] = array[i]
-    
-    inner_rmq = rmq_pow_2(min_blocks)
+        if min_block_indices[block_idx] is None:
+            min_block_indices[block_idx] = i
+        else:
+            min_block_indices[block_idx] = min_index(i, min_block_indices[block_idx])
+    min_block_values = [ary[idx] for idx in min_block_indices]
+    inner_rmq = block_rmq_algorithm(min_block_values)
+
+    trees = {}
+    block_signatures = []
+    if index_subblock:
+        for i in xrange(num_blocks):
+            subarray =  ary[i * block_width : (i + 1) * block_width]
+            while len(subarray) < block_width:
+                subarray.append(float('inf'))
+            signature = cartesian_tree(subarray).signature()
+            block_signatures.append(signature)
+            if signature not in trees:
+                trees[signature] = rmq_pow_2(subarray)
+
+    def min_block(start, end):
+        block_idx = start / block_width
+        signature = block_signatures[block_idx]
+        sub_rmq = trees[signature]
+        return sub_rmq(start % block_width, end % block_width) + block_idx * block_width
 
     def inner(start, end):
         start_block = start / block_width
         end_block = end / block_width
         if start_block == end_block:
-            return min(array[start:end + 1])
-        # O(log(N))
-        start_min = min(array[start:(start_block + 1) * block_width])
-        end_min = min(array[end_block * block_width:end + 1])
+            if index_subblock:
+                return min_block(start, end)
+            else:
+                return min_index(*range(start, end + 1))
+        if index_subblock:
+            start_min = min_block(start, (start_block + 1) * block_width - 1)
+            end_min = min_block(end_block * block_width, end)
+        else:
+            start_min = min_index(*range(start, (start_block + 1) * block_width))
+            end_min = min_index(*range(end_block * block_width, end + 1))
+
         if start_block + 1 <= end_block - 1:
-            # O(1)
-            block_min = inner_rmq(start_block + 1, end_block - 1)
-            return min(start_min, block_min, end_min)
-        return min(start_min, end_min)
+            block_min = min_block_indices[inner_rmq(start_block + 1, end_block - 1)]
+            return min_index(start_min, block_min, end_min)
+        return min_index(start_min, end_min)
     return inner
 
-def rmq_pow_2(array):
-    """
-    prep - O(n log n)
-    exec - O(1)
-    """
-    N = len(array)
-    P = log2(N)
-    width = 1
-    last_row = array
-    mins = [array]
-    for power in xrange(P):
-        new_mins = []
-        for i in xrange(len(last_row) - width):
-            min_value = min(last_row[i], last_row[i + width])
-            new_mins.append(min_value)
-        mins.append(new_mins)
-        last_row = new_mins
-        width *= 2 
-    def inner(start, end):
-        if start == end: return array[start]
-        delta = end - start
-        length = log2(delta)
-        end_index = end - (2 ** length - 1)
-        cur_mins = mins[length]
-        return min(cur_mins[start], cur_mins[end_index])
-    return inner
+def rmq_by_subblock(ary):
+    return rmq_by_block(ary, True)
 
 def rmq_tester_1(rmq_maker, N):
     # test 1 - sequential
@@ -85,7 +184,7 @@ def rmq_tester_2(rmq_maker, N):
     rmq = rmq_maker(list(reversed(range(N))))
     for i in xrange(N):
         for j in xrange(i, N):
-            assert rmq(i, j) == N - max(i, j) - 1
+            assert rmq(i, j) == max(i, j)
 
 def rmq_tester_3(rmq_maker, N):
     # test 3 - 1 minimum
@@ -94,25 +193,55 @@ def rmq_tester_3(rmq_maker, N):
     rmq = rmq_maker(test)
     for i in xrange(N):
         for j in xrange(i, N):
-            assert rmq(i, j) == (0 if (i <= 10 <= j) else 1)
+            assert test[rmq(i, j)] == (0 if (i <= 10 <= j) else 1)
 
-def rmq_tester_4(rmq_maker, N):
+def rmq_tester_random(rmq_maker, N, iteration = 1000):
     # test 4 - random test
     test = range(N)
     random.shuffle(test)
     rmq = rmq_maker(test)
-    canonical = naive_rmq(test)
-    for i in xrange(N):
-        for j in xrange(i, N):
-            assert rmq(i, j) == canonical(i, j)
+    canonical = rmq_pow_2(test)
+    for it in xrange(iteration):
+        x = random.randint(0, N - 1)
+        y = random.randint(0, N - 1)
+        i = min(x, y)
+        j = max(x, y)
+        assert rmq(i, j) == canonical(i, j)
 
 def rmq_tester(rmq_maker):
     for N in (16, 32, 64):
         rmq_tester_1(rmq_maker, N)
         rmq_tester_2(rmq_maker, N)
         rmq_tester_3(rmq_maker, N)
-        rmq_tester_4(rmq_maker, N)
+    rmq_tester_random(rmq_maker, 1000)
 
-rmq_tester(naive_rmq)
-rmq_tester(rmq_pow_2)
-rmq_tester(rmq_by_block)
+def test():
+    # rmq_tester_random(rmq_by_subblock, 1000000, 1)
+    rmq_tester_random(rmq_by_subblock, 10000000, 1)
+    return
+    rmq_tester(naive_rmq)
+    rmq_tester(rmq_pow_2)
+    rmq_tester(rmq_by_block)
+    rmq_tester(rmq_by_subblock)
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--algorithm', type=str)
+    parser.add_argument('--size', type=int, default=1000)
+    parser.add_argument('--run', type=int, default=1000)
+    args = parser.parse_args()
+    algorithms = {
+            'naive': naive_rmq,
+            'pow2': rmq_pow_2,
+            'blocks': rmq_by_block,
+            'subblocks': rmq_by_subblock
+    }
+    if args.algorithm == 'test':
+        test()
+    else:
+        rmq_tester_random(algorithms[args.algorithm], args.size, args.run)
+
+if __name__ == '__main__':
+    main()
+    
+
