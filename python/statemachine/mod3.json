@@ -1,0 +1,48 @@
+{
+  "start": "0mod3",
+  "end": "end",
+  "error": "error",
+  "states": ["0mod3", "1mod3", "2mod3", "end", "error"],
+  "transitions": [
+    {
+      "from": "0mod3", "to": "0mod3",
+      "values": ["0", "3", "6", "9"]
+    },
+    {
+      "from": "0mod3", "to": "1mod3",
+      "values": ["1", "4", "7"]
+    },
+    {
+      "from": "0mod3", "to": "2mod3",
+      "values": ["2", "5", "8"]
+    },
+    {
+      "from": "1mod3", "to": "1mod3",
+      "values": ["0", "3", "6", "9"]
+    },
+    {
+      "from": "1mod3", "to": "2mod3",
+      "values": ["1", "4", "7"]
+    },
+    {
+      "from": "1mod3", "to": "0mod3",
+      "values": ["2", "5", "8"]
+    },
+    {
+      "from": "2mod3", "to": "2mod3",
+      "values": ["0", "3", "6", "9"]
+    },
+    {
+      "from": "2mod3", "to": "0mod3",
+      "values": ["1", "4", "7"]
+    },
+    {
+      "from": "2mod3", "to": "1mod3",
+      "values": ["2", "5", "8"]
+    },
+    {
+      "from": "0mod3", "to": "end",
+      "values": ["$"]
+    }
+  ]
+}
