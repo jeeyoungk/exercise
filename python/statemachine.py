@@ -106,6 +106,13 @@ class Log(object):
     def __str__(self):
         return "%d) %s -(%s)-> %s" % (self.version, self.from_state, self.value, self.to_state)
 
+class NullLogWriter(object):
+    def write(self, log):
+        pass
+
+    def close(self):
+        pass
+
 class FileLogWriter(object):
     """
     because binary formats are fun.
@@ -114,14 +121,20 @@ class FileLogWriter(object):
         self.outfile = outfile
 
     def write(self, log):
-        self.outfile.write(struct.pack("l", log.version))
-        self.write_string(log.from_state)
-        self.write_string(log.to_state)
-        self.write_string(log.value)
+        self._write_long(log.version)
+        self._write_string(log.from_state)
+        self._write_string(log.to_state)
+        self._write_string(log.value)
 
-    def write_string(self, string):
+    def close(self):
+        self.outfile.close()
+
+    def _write_long(self, value):
+        self.outfile.write(struct.pack("l", value))
+
+    def _write_string(self, string):
         encoded = string.encode('utf-8')
-        self.outfile.write(struct.pack("l", len(encoded)))
+        self._write_long(len(encoded))
         self.outfile.write(encoded)
 
 class FileLogReader(object):
@@ -174,17 +187,20 @@ def main():
             metavar='definition',
             help='state machine definition JSON file.'
     )
+    p.add_argument(
+            '--log',
+            default='statemachine.binlog',
+            help='binary log file.'
+    )
+    p.add_argument(
+            '--mode',
+            required=True,
+            metavar='mode',
+            help='execution mode'
+    )
     args = p.parse_args()
-    # log_writer = FileLogWriter(open('statemachine.binlog', 'wb'))
-    # sm = new_statemachine(args.definition, log_writer)
-    log_reader = FileLogReader(open('statemachine.binlog', 'rb'))
-    while True:
-        log = log_reader.read()
-        if log is None:
-            break
-        else:
-            print(log)
-    return
+    """
+    # sample interaction.
     assert sm.state == 'start'
     sm.accept_value('begin')
     assert sm.version == 1
@@ -199,6 +215,31 @@ def main():
     sm.accept_value('finish')
     assert sm.version == 7
     assert sm.state == 'end'
+    """
+    if args.mode == 'server':
+        log_writer = FileLogWriter(open(args.log, 'wb'))
+        sm = new_statemachine(args.definition, log_writer)
+        while sm.state != sm.end_state and sm.state != sm.error_state:
+            print(sm)
+            try:
+                v = input()
+            except EOFError:
+                break
+            sm.accept_value(v)
+        print(sm)
+        log_writer.close()
+    elif args.mode == 'reader':
+        log_reader = FileLogReader(open('statemachine.binlog', 'rb'))
+        sm = new_statemachine(args.definition, NullLogWriter())
+        print(sm)
+        while True:
+            log = log_reader.read()
+            if log is None:
+                break
+            else:
+                sm.accept_value(log.value)
+                print(log)
+                print(sm)
 
 if __name__ == '__main__':
     main()
