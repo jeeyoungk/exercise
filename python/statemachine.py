@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import json
+import argparse
+import struct
 
 class StateMachine(object):
     """
@@ -18,10 +20,11 @@ class StateMachine(object):
         # states
         'state',
         'version',
-        'logs',
+        'log_writer',
     )
 
-    def __init__(self, start_state, end_state, error_state, states, transitions):
+    def __init__(self, start_state, end_state, error_state, states, transitions,
+            log_writer):
         self.start_state = start_state
         self.end_state = end_state
         self.error_state = error_state
@@ -37,7 +40,7 @@ class StateMachine(object):
 
         self.state = self.start_state
         self.version = 0
-        self.logs = []
+        self.log_writer = log_writer
 
     def accept_value(self, input_value):
         '''
@@ -51,7 +54,7 @@ class StateMachine(object):
             if input_value in tr.values:
                 self.state = tr.to_state
                 self.version += 1
-                self.logs.append(Log(
+                self.log_writer.write(Log(
                     from_state = previous_state,
                     to_state = self.state,
                     value = input_value,
@@ -60,7 +63,7 @@ class StateMachine(object):
                 return True
         self.state = self.error_state
         self.version += 1
-        self.logs.append(Log(
+        self.log_writer.write(Log(
             from_state = previous_state,
             to_state = self.error_state,
             value = input_value,
@@ -100,16 +103,88 @@ class Log(object):
         self.value = value
         self.version = version
 
-def main():
-    input_object = json.load(open('statemachine.json', 'r', encoding='utf-8'))
+    def __str__(self):
+        return "%d) %s -(%s)-> %s" % (self.version, self.from_state, self.value, self.to_state)
+
+class FileLogWriter(object):
+    """
+    because binary formats are fun.
+    """
+    def __init__(self, outfile):
+        self.outfile = outfile
+
+    def write(self, log):
+        self.outfile.write(struct.pack("l", log.version))
+        self.write_string(log.from_state)
+        self.write_string(log.to_state)
+        self.write_string(log.value)
+
+    def write_string(self, string):
+        encoded = string.encode('utf-8')
+        self.outfile.write(struct.pack("l", len(encoded)))
+        self.outfile.write(encoded)
+
+class FileLogReader(object):
+    def __init__(self, infile):
+        self.infile = infile
+
+    def read(self):
+        try:
+            version = self.read_long()
+            from_state = self.read_string()
+            to_state = self.read_string()
+            value = self.read_string()
+            return Log(from_state, to_state, value, version)
+        except IOError:
+            return None
+
+    def read_bytes(self, num_bytes):
+        raw = self.infile.read(num_bytes)
+        if len(raw) != num_bytes:
+            raise IOError("premature end of file")
+        return raw
+
+    def read_long(self):
+        raw_bytes = self.read_bytes(8)
+        return struct.unpack("l", raw_bytes)[0]
+
+    def read_string(self):
+        length = self.read_long()
+        raw_bytes = self.read_bytes(length)
+        return raw_bytes.decode('utf-8')
+
+def new_statemachine(filepath, log_writer):
+    input_object = json.load(open(filepath, 'r', encoding='utf-8'))
     transitions = [Transition.from_json(x) for x in input_object['transitions']]
     sm = StateMachine(
         input_object['start'],
         input_object['end'],
         input_object['error'],
         states = input_object['states'],
-        transitions = transitions
+        transitions = transitions,
+        log_writer = log_writer
     )
+    return sm
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument(
+            '--definition',
+            required=True,
+            metavar='definition',
+            help='state machine definition JSON file.'
+    )
+    args = p.parse_args()
+    # log_writer = FileLogWriter(open('statemachine.binlog', 'wb'))
+    # sm = new_statemachine(args.definition, log_writer)
+    log_reader = FileLogReader(open('statemachine.binlog', 'rb'))
+    while True:
+        log = log_reader.read()
+        if log is None:
+            break
+        else:
+            print(log)
+    return
     assert sm.state == 'start'
     sm.accept_value('begin')
     assert sm.version == 1
