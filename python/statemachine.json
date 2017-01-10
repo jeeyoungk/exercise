@@ -2,12 +2,22 @@
   "start": "start",
   "end": "end",
   "error": "error",
-  "states": ["start", "end", "error"],
+  "states": ["start", "middle", "end", "error"],
   "transitions": [
     {
       "from": "start",
+      "to": "middle",
+      "values": ["begin"]
+    },
+    {
+      "from": "middle",
+      "to": "middle",
+      "values": ["process"]
+    },
+    {
+      "from": "middle",
       "to": "end",
-      "values": ["xyz"]
+      "values": ["finish"]
     }
   ]
 }
