@@ -1,0 +1,13 @@
+{
+  "start": "start",
+  "end": "end",
+  "error": "error",
+  "states": ["start", "end", "error"],
+  "transitions": [
+    {
+      "from": "start",
+      "to": "end",
+      "values": ["xyz"]
+    }
+  ]
+}
