@@ -166,8 +166,11 @@ class FileLogReader(object):
         raw_bytes = self.read_bytes(length)
         return raw_bytes.decode('utf-8')
 
-def new_statemachine(filepath, log_writer):
-    input_object = json.load(open(filepath, 'r', encoding='utf-8'))
+def new_statemachine(filepath, log_writer=None):
+    if log_writer is None:
+        log_writer = NullLogWriter()
+    with open(filepath, 'r', encoding='utf-8') as input_definition:
+        input_object = json.load(input_definition)
     transitions = [Transition.from_json(x) for x in input_object['transitions']]
     sm = StateMachine(
         input_object['start'],
@@ -199,23 +202,6 @@ def main():
             help='execution mode'
     )
     args = p.parse_args()
-    """
-    # sample interaction.
-    assert sm.state == 'start'
-    sm.accept_value('begin')
-    assert sm.version == 1
-    assert sm.state == 'middle'
-    sm.accept_value('process')
-    sm.accept_value('process')
-    sm.accept_value('process')
-    sm.accept_value('process')
-    sm.accept_value('process')
-    assert sm.version == 6
-    assert sm.state == 'middle'
-    sm.accept_value('finish')
-    assert sm.version == 7
-    assert sm.state == 'end'
-    """
     if args.mode == 'server':
         log_writer = FileLogWriter(open(args.log, 'wb'))
         sm = new_statemachine(args.definition, log_writer)
@@ -230,7 +216,7 @@ def main():
         log_writer.close()
     elif args.mode == 'reader':
         log_reader = FileLogReader(open('statemachine.binlog', 'rb'))
-        sm = new_statemachine(args.definition, NullLogWriter())
+        sm = new_statemachine(args.definition)
         print(sm)
         while True:
             log = log_reader.read()
