@@ -113,7 +113,7 @@ class NullLogWriter(object):
     def close(self):
         pass
 
-class FileLogWriter(object):
+class StreamWriter(object):
     """
     because binary formats are fun.
     """
@@ -137,7 +137,7 @@ class FileLogWriter(object):
         self._write_long(len(encoded))
         self.outfile.write(encoded)
 
-class FileLogReader(object):
+class StreamReader(object):
     def __init__(self, infile):
         self.infile = infile
 
@@ -203,7 +203,7 @@ def main():
     )
     args = p.parse_args()
     if args.mode == 'server':
-        log_writer = FileLogWriter(open(args.log, 'wb'))
+        log_writer = StreamWriter(open(args.log, 'wb'))
         sm = new_statemachine(args.definition, log_writer)
         while sm.state != sm.end_state and sm.state != sm.error_state:
             print(sm)
@@ -215,17 +215,15 @@ def main():
         print(sm)
         log_writer.close()
     elif args.mode == 'reader':
-        log_reader = FileLogReader(open('statemachine.binlog', 'rb'))
+        log_reader = StreamReader(open('statemachine.binlog', 'rb'))
         sm = new_statemachine(args.definition)
         print(sm)
-        while True:
+        log = log_reader.read()
+        while log is not None:
+            sm.accept_value(log.value)
+            print(log)
+            print(sm)
             log = log_reader.read()
-            if log is None:
-                break
-            else:
-                sm.accept_value(log.value)
-                print(log)
-                print(sm)
 
 if __name__ == '__main__':
     main()

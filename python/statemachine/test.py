@@ -1,5 +1,6 @@
 import unittest
-from statemachine import StateMachine, new_statemachine
+from io import BytesIO
+from statemachine import StateMachine, new_statemachine, StreamReader, StreamWriter
 
 class Test(unittest.TestCase):
     def test_statemachine(self):
@@ -26,5 +27,19 @@ class Test(unittest.TestCase):
         sm.accept_value('1')
         sm.accept_value('$')
         self.assertEqual(sm.state, 'end')
+
+    def test_binlog(self):
+        buf = BytesIO()
+        sm = new_statemachine('mod3.json', StreamWriter(buf))
+        sm.accept_value('1')
+        sm.accept_value('2')
+        sm.accept_value('1')
+        buf.seek(0)
+        log_reader = StreamReader(buf)
+        self.assertEqual(log_reader.read().value, '1')
+        self.assertEqual(log_reader.read().value, '2')
+        self.assertEqual(log_reader.read().value, '1')
+        self.assertEqual(log_reader.read(), None)
+
 if __name__ == '__main__':
     unittest.main()
