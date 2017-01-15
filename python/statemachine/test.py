@@ -20,13 +20,28 @@ class Test(unittest.TestCase):
         self.assertEqual(sm.version, 7)
         self.assertEqual(sm.state, 'end')
 
-    def test_mod3(self):
+    def test_mod3_simple(self):
         sm = new_statemachine('mod3.json')
         sm.accept_value('1')
         sm.accept_value('1')
         sm.accept_value('1')
         sm.accept_value('$')
         self.assertEqual(sm.state, 'end')
+
+    def test_mod3(self):
+        input_strings = [
+            '0',
+            '999',
+            '782',
+            '428',
+            '524'
+        ]
+        for input_string in input_strings:
+            sm = new_statemachine('mod3.json')
+            for char in input_string:
+                sm.accept_value(char)
+            expected = int(input_string) % 3
+            self.assertEqual(sm.state, "%dmod3" % expected)
 
     def test_binlog(self):
         buf = BytesIO()
