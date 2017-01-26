@@ -40,7 +40,7 @@ class Board(object):
 
 def seq(board):
     # sequential navigation strategy
-    return itertools.product(xrange(board.rows), xrange(board.cols))
+    return itertools.product(range(board.rows), range(board.cols))
 
 def rand(board):
     # random navigation strategy
@@ -83,32 +83,32 @@ def main():
     def test_run(board, goal, strategy):
         stat = {'count': 0}
         found = attempt(board, goal, strategy, stat)
-        print stat['count']
-        print board
+        print(stat['count'])
+        print(board)
     def load_test(title, size, strategy, runs):
-        print '> %s' % title
+        print('> %s' % title)
         count = 0
         found = 0
-        for run in xrange(runs):
+        for run in range(runs):
             stat = {'count': 0}
             success = attempt(Board(size, size), size, strategy, stat)
             count += stat['count']
             if success:
                 found += 1
-        print '  count: %d' % (count / runs)
-        print '  failures: %d' % (runs - found)
+        print('  count: %d' % (count / runs))
+        print('  failures: %d' % (runs - found))
 
     # test_run(Board(8, 8), 8, seq)
     # test_run(Board(8, 8), 8, rand)
     # test_run(Board(10, 10), 10, rand)
     # print 'rand'
     # load_test(8, rand, 10)
-    print ">> Board size 8"
+    print(">> Board size 8")
     # load_test('rand', 8, rand, 10)
     load_test('rand_partial(1)', 8, rand_partial(5), 10)
     load_test('rand_partial(5)', 8, rand_partial(5), 10)
     load_test('rand_partial(20)', 8, rand_partial(20), 10)
-    print ">> Board size 10"
+    print(">> Board size 10")
     load_test('rand_partial(3)', 10, rand_partial(20), 10)
 
 main()
