@@ -24,6 +24,7 @@ _testmain.go
 
 # Mac specific
 .gitignore
+.DS_Store
 
 # Python
 *.pyc
