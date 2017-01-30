@@ -1,0 +1,6870 @@
+[
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 50, 
+    "date": "2013-10-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUFFALO WILD WINGS", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85770758108904, 
+      "lng": -73.08187007904053
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "1986 MIDDLE COUNTRY RD", 
+    "amount": 31.15, 
+    "date": "2013-10-31", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "18 BAY", 
+    "merchant_city": "SHELTER ISLAND", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 41.0678493976593, 
+      "lng": -72.33565270900726
+    }, 
+    "merchant_zip": "11964", 
+    "merchant_address": "23 N FERRY RD", 
+    "amount": 187.5, 
+    "date": "2013-10-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 20.86, 
+    "date": "2013-10-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GOURMET GRILL 5", 
+    "merchant_city": "MINEOLA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74088643633417, 
+      "lng": -73.6403151541435
+    }, 
+    "merchant_zip": "11501", 
+    "merchant_address": "85 MINEOLA BLVD", 
+    "amount": 12.93, 
+    "date": "2013-10-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 25, 
+    "date": "2013-10-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BARNES & NOBLE 2325", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86419895172047, 
+      "lng": -73.13193082809447
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "600 SMITH HAVEN MALL", 
+    "amount": 26.49, 
+    "date": "2013-10-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 40.4, 
+    "date": "2013-10-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "SMITHTOWN NISSAN INC", 
+    "merchant_city": "SAINT JAMES", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86010194772645, 
+      "lng": -73.1614234184147
+    }, 
+    "merchant_zip": "11780", 
+    "merchant_address": "535 MIDDLE COUNTRY RD", 
+    "amount": 611.23, 
+    "date": "2013-10-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "VILLAGE OF PT JEFFERSON", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94565701503896, 
+      "lng": -73.0709672879255
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "121 W BROADWAY", 
+    "amount": 1, 
+    "date": "2013-10-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 12.6, 
+    "date": "2013-10-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOLBROOK LIQUORS", 
+    "merchant_city": "HOLBROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77269635425626, 
+      "lng": -73.05026156785283
+    }, 
+    "merchant_zip": "11741", 
+    "merchant_address": "125 BEACON DR", 
+    "amount": 5.42, 
+    "date": "2013-10-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "REVIVAL", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73466775058902, 
+      "lng": -73.98776349705562
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "129 E 15TH ST", 
+    "amount": 20, 
+    "date": "2013-10-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DEL FUEGO", 
+    "merchant_city": "SAINT JAMES", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87816135965955, 
+      "lng": -73.16995657594317
+    }, 
+    "merchant_zip": "11780", 
+    "merchant_address": "429 ROUTE 25A", 
+    "amount": 58, 
+    "date": "2013-10-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900230", 
+    "merchant_city": "HOLBROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77277438004319, 
+      "lng": -73.05032730102539
+    }, 
+    "merchant_zip": "11741", 
+    "merchant_address": "125 BEACON DR", 
+    "amount": 79, 
+    "date": "2013-10-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 52.46, 
+    "date": "2013-09-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 22.19, 
+    "date": "2013-09-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 80.42, 
+    "date": "2013-10-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 10.7, 
+    "date": "2013-10-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 37.58, 
+    "date": "2013-09-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 58.75, 
+    "date": "2013-09-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "LAKE GROVE DINER", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87327768908743, 
+      "lng": -73.12283277511597
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2211 NESCONSET HWY", 
+    "amount": 28.51, 
+    "date": "2013-09-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 74, 
+    "date": "2013-08-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 71.34, 
+    "date": "2013-08-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "KUMO JAPANESE", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87740568, 
+      "lng": -73.11731
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2548 NESCONSET HWY", 
+    "amount": 191.42, 
+    "date": "2013-08-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "ON THE BORDER 223", 
+    "merchant_city": "HOLTSVILLE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.818364, 
+      "lng": -73.056061
+    }, 
+    "merchant_zip": "11742", 
+    "merchant_address": "45 MIDDLE AVE", 
+    "amount": 38.45, 
+    "date": "2013-08-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GREEK TO GO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87780692278002, 
+      "lng": -73.11751954812823
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2460 NESCONSET HWY STE 7", 
+    "amount": 20.53, 
+    "date": "2013-08-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 66.96, 
+    "date": "2013-08-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -239.97, 
+    "date": "2013-08-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 49.45, 
+    "date": "2013-08-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.27, 
+    "date": "2013-09-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.27, 
+    "date": "2013-08-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 239.97, 
+    "date": "2013-08-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RESTAURANT DEPOT # 544", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677607536316, 
+      "lng": -73.107744
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "1335 LAKELAND AVE", 
+    "amount": 111.74, 
+    "date": "2013-08-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 20.65, 
+    "date": "2013-08-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "Z PITA INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.945396616119645, 
+      "lng": -73.06807367111364
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "217 MAIN ST", 
+    "amount": 46, 
+    "date": "2013-08-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "SHOPRITE 831 HAUPPAUGE", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82720585459682, 
+      "lng": -73.20261240005493
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "335 SMITHTOWN BYP", 
+    "amount": 23.24, 
+    "date": "2013-08-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "CORAM COUNTRY LANES LLC", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86903460930657, 
+      "lng": -73.0205225944519
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "615 MIDDLE COUNTRY RD", 
+    "amount": 42.5, 
+    "date": "2013-08-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STEAM ROOM INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947136251865025, 
+      "lng": -73.06905934943391
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "4 E BROADWAY", 
+    "amount": 32.48, 
+    "date": "2013-09-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "YOU ME AND TEA", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.946133325, 
+      "lng": -73.069299
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "45 CHANDLER SQ", 
+    "amount": 17.86, 
+    "date": "2013-09-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "KUMO JAPANESE", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87740568, 
+      "lng": -73.11731
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2548 NESCONSET HWY", 
+    "amount": 191.42, 
+    "date": "2013-08-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 58.75, 
+    "date": "2013-09-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 37.58, 
+    "date": "2013-09-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GREEK TO GO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87780692278002, 
+      "lng": -73.11751954812823
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2460 NESCONSET HWY STE 7", 
+    "amount": 20.53, 
+    "date": "2013-08-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "SHOPRITE 831 HAUPPAUGE", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82720585459682, 
+      "lng": -73.20261240005493
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "335 SMITHTOWN BYP", 
+    "amount": 23.24, 
+    "date": "2013-08-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 66.96, 
+    "date": "2013-08-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 239.97, 
+    "date": "2013-08-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "Z PITA INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.945396616119645, 
+      "lng": -73.06807367111364
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "217 MAIN ST", 
+    "amount": 46, 
+    "date": "2013-08-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -239.97, 
+    "date": "2013-08-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 20.65, 
+    "date": "2013-08-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.27, 
+    "date": "2013-08-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "YOU ME AND TEA", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.946133325, 
+      "lng": -73.069299
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "45 CHANDLER SQ", 
+    "amount": 17.86, 
+    "date": "2013-09-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STEAM ROOM INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947136251865025, 
+      "lng": -73.06905934943391
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "4 E BROADWAY", 
+    "amount": 32.48, 
+    "date": "2013-09-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 71.34, 
+    "date": "2013-08-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RESTAURANT DEPOT # 544", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677607536316, 
+      "lng": -73.107744
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "1335 LAKELAND AVE", 
+    "amount": 111.74, 
+    "date": "2013-08-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "LAKE GROVE DINER", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87327768908743, 
+      "lng": -73.12283277511597
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2211 NESCONSET HWY", 
+    "amount": 28.51, 
+    "date": "2013-09-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 74, 
+    "date": "2013-08-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "ON THE BORDER 223", 
+    "merchant_city": "HOLTSVILLE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.818364, 
+      "lng": -73.056061
+    }, 
+    "merchant_zip": "11742", 
+    "merchant_address": "45 MIDDLE AVE", 
+    "amount": 38.45, 
+    "date": "2013-08-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 49.45, 
+    "date": "2013-08-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.27, 
+    "date": "2013-09-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DEL FUEGO", 
+    "merchant_city": "SAINT JAMES", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87816135965955, 
+      "lng": -73.16995657594317
+    }, 
+    "merchant_zip": "11780", 
+    "merchant_address": "429 ROUTE 25A", 
+    "amount": 39.68, 
+    "date": "2013-07-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 43.04, 
+    "date": "2013-07-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "CORAM COUNTRY LANES LLC", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86903460930657, 
+      "lng": -73.0205225944519
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "615 MIDDLE COUNTRY RD", 
+    "amount": 42.5, 
+    "date": "2013-08-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THREE VILLAGE INN", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.91925413234371, 
+      "lng": -73.14791721060658
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "150 MAIN ST", 
+    "amount": 32, 
+    "date": "2013-07-31", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 10.85, 
+    "date": "2013-06-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RESTAURANT DEPOT # 544", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677607536316, 
+      "lng": -73.107744
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "1335 LAKELAND AVE", 
+    "amount": 19.24, 
+    "date": "2013-06-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 58.96, 
+    "date": "2013-06-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -5.49, 
+    "date": "2013-07-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 55.22, 
+    "date": "2013-07-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SETAUKET PASTARIA", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.90653952533156, 
+      "lng": -73.07251453399658
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4082 NESCONSET HWY", 
+    "amount": 40.69, 
+    "date": "2013-07-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "NYCT REDUCED FARE M", 
+    "merchant_city": "NEWARK", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.720461, 
+      "lng": -74.179388
+    }, 
+    "merchant_zip": "07114", 
+    "merchant_address": "FINANCE DEPARTMENT 375 MCCARTER HWY", 
+    "amount": 30, 
+    "date": "2013-07-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 17.82, 
+    "date": "2013-07-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DEL FUEGO", 
+    "merchant_city": "SAINT JAMES", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87816135965955, 
+      "lng": -73.16995657594317
+    }, 
+    "merchant_zip": "11780", 
+    "merchant_address": "429 ROUTE 25A", 
+    "amount": 67.04, 
+    "date": "2013-07-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "LOEWS STONY BRO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87540318323136, 
+      "lng": -73.12653422355652
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2196 NESCONSET HWY", 
+    "amount": 19.5, 
+    "date": "2013-07-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 42, 
+    "date": "2013-07-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": -5.69, 
+    "date": "2013-07-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 66, 
+    "date": "2013-07-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE SMITH", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.731155872068506, 
+      "lng": -73.98872764725327
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "55 3RD AVE", 
+    "amount": 25.77, 
+    "date": "2013-06-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 96.36, 
+    "date": "2013-06-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 92.5, 
+    "date": "2013-06-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 63.84, 
+    "date": "2013-06-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "YELLOW CAB SLSJET MANAGEM", 
+    "merchant_city": "LONG ISLAND CITY", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75007155, 
+      "lng": -73.944418375
+    }, 
+    "merchant_zip": "11101", 
+    "merchant_address": "2205 43RD AVE", 
+    "amount": 11.5, 
+    "date": "2013-06-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "THE ISLIP AIRPORT 01473", 
+    "merchant_city": "RONKONKOMA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.783913, 
+      "lng": -73.098484
+    }, 
+    "merchant_zip": "11779", 
+    "merchant_address": "AIRLINE TERMINAL BLDG 100 ARRIVAL AVE", 
+    "amount": 15.5, 
+    "date": "2013-07-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 55.56, 
+    "date": "2013-06-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 662.93, 
+    "date": "2013-06-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "JEWISH NATIONAL FUND", 
+    "merchant_city": "ROCKVILLE CENTRE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.659305, 
+      "lng": -73.645318
+    }, 
+    "merchant_zip": "11570", 
+    "merchant_address": "78 RANDALL AVE", 
+    "amount": 16.2, 
+    "date": "2013-06-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STARBUCKS 7576", 
+    "merchant_city": "MELVILLE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.79074446274098, 
+      "lng": -73.41592311859131
+    }, 
+    "merchant_zip": "11747", 
+    "merchant_address": "MELVILLE 64 BROAD HOLLOW ROAD", 
+    "amount": 2.88, 
+    "date": "2013-06-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HARBOR FRGHT TOOLS", 
+    "merchant_city": "HEMPSTEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.705458, 
+      "lng": -73.6234791
+    }, 
+    "merchant_zip": "11550", 
+    "merchant_address": "270 PENINSULA BLVD", 
+    "amount": 15.51, 
+    "date": "2013-06-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Travel", 
+    "merchant_phone": null, 
+    "name": "CROSS SOUND FERRY ORIENT", 
+    "merchant_city": "ORIENT", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 41.15447472277563, 
+      "lng": -72.24093314385767
+    }, 
+    "merchant_zip": "11957", 
+    "merchant_address": "41270 MAIN RD", 
+    "amount": 67.5, 
+    "date": "2013-06-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STARBUCKS 7391", 
+    "merchant_city": "BAYSIDE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.76087975496089, 
+      "lng": -73.76646801443678
+    }, 
+    "merchant_zip": "11361", 
+    "merchant_address": "215TH ST & NORTHERN BLVD 215-29 NORTHERN BLVD", 
+    "amount": 8.17, 
+    "date": "2013-06-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 30.16, 
+    "date": "2013-06-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 72.09, 
+    "date": "2013-06-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 184.96, 
+    "date": "2013-06-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "HESS 32365", 
+    "merchant_city": "MEDFORD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.84022640327826, 
+      "lng": -72.99630761146545
+    }, 
+    "merchant_zip": "11763", 
+    "merchant_address": "3203 ROUTE 112 # S", 
+    "amount": 58.28, 
+    "date": "2013-06-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -79.99, 
+    "date": "2013-06-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 59.73, 
+    "date": "2013-06-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 94.48, 
+    "date": "2013-06-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": 20.52, 
+    "date": "2013-06-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "DUTCH GIRL CLEANER", 
+    "merchant_city": "MOUNT SINAI", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.932001, 
+      "lng": -73.032382
+    }, 
+    "merchant_zip": "11766", 
+    "merchant_address": "5507 NESCONSET HWY STE 5", 
+    "amount": 10, 
+    "date": "2013-05-31", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "AMICI RESTAURANT", 
+    "merchant_city": "MOUNT SINAI", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.933673527667985, 
+      "lng": -73.02627325057983
+    }, 
+    "merchant_zip": "11766", 
+    "merchant_address": "304 ROUTE 25A", 
+    "amount": 46, 
+    "date": "2013-06-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "STOP & SHOP 579", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86948894824741, 
+      "lng": -72.99569606781006
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "275 MIDDLE COUNTRY RD", 
+    "amount": 26.14, 
+    "date": "2013-06-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GOURMET BURGER BISTRO", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94609897816374, 
+      "lng": -73.0691861615443
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "5 MILL CREEK RD", 
+    "amount": 29.55, 
+    "date": "2013-06-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 60.78, 
+    "date": "2013-05-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 112.04, 
+    "date": "2013-05-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 24.91, 
+    "date": "2013-05-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 159.98, 
+    "date": "2013-05-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 12.06, 
+    "date": "2013-05-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": -32.58, 
+    "date": "2013-04-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUFFALO WILD WINGS", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85770758108904, 
+      "lng": -73.08187007904053
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "1986 MIDDLE COUNTRY RD", 
+    "amount": 33.12, 
+    "date": "2013-05-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": 18.16, 
+    "date": "2013-05-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JERUSALEM CAFE", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75046, 
+      "lng": -73.98538
+    }, 
+    "merchant_zip": "10018", 
+    "merchant_address": "35 W 36TH STREET", 
+    "amount": 42, 
+    "date": "2013-05-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RED LOBSTER 217", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.873634217000834, 
+      "lng": -73.1247289146926
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2220 NESCONSET HWY", 
+    "amount": 55.78, 
+    "date": "2013-04-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RED LOBSTER 217", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.873634217000834, 
+      "lng": -73.1247289146926
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2220 NESCONSET HWY", 
+    "amount": 16.07, 
+    "date": "2013-04-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHAKE SHACK E 86TH ST", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.779192824834176, 
+      "lng": -73.95487546920776
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "152 E 86TH ST", 
+    "amount": 10.07, 
+    "date": "2013-04-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 64.19, 
+    "date": "2013-04-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 102.66, 
+    "date": "2013-04-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "VILLAGE OF PT JEFFERSON", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94565701503896, 
+      "lng": -73.0709672879255
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "121 W BROADWAY", 
+    "amount": 1.5, 
+    "date": "2013-04-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 55.96, 
+    "date": "2013-04-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 38.99, 
+    "date": "2013-04-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "NYCT REDUCED FARE M", 
+    "merchant_city": "NEWARK", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.720461, 
+      "lng": -74.179388
+    }, 
+    "merchant_zip": "07114", 
+    "merchant_address": "FINANCE DEPARTMENT 375 MCCARTER HWY", 
+    "amount": 30, 
+    "date": "2013-04-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RUVO", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94435972633439, 
+      "lng": -73.06831576793248
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "105 WYNN LN", 
+    "amount": 185.33, 
+    "date": "2013-04-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 61.11, 
+    "date": "2013-04-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "LE PAIN QUOTIDIEN", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.779786, 
+      "lng": -73.95963
+    }, 
+    "merchant_zip": "10028", 
+    "merchant_address": "1131 MADISON AVE", 
+    "amount": 27.79, 
+    "date": "2013-04-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "PORT JEFF BREWING COMPANY", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.945872041189965, 
+      "lng": -73.06963000338278
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "22B MILL CREEK RD", 
+    "amount": 13.03, 
+    "date": "2013-04-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE FIFTH SEASON", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947607, 
+      "lng": -73.068384
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "34 E BROADWAY", 
+    "amount": 20, 
+    "date": "2013-04-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JUNIORS SPYCOAST", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9455537752895, 
+      "lng": -73.06838493840559
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "140 MAIN ST", 
+    "amount": 20, 
+    "date": "2013-04-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOAST", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94539040566961, 
+      "lng": -73.06747995641352
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "242 E MAIN ST", 
+    "amount": 34.81, 
+    "date": "2013-04-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "HURRICANE GRILL & WINGS", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.807251612928056, 
+      "lng": -73.23820443763533
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "SUITE 7 694 MOTOR PKWAY", 
+    "amount": 12.9, 
+    "date": "2013-04-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "ICON PARKING SYSTEMS", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.757668, 
+      "lng": -73.985911
+    }, 
+    "merchant_zip": "10036", 
+    "merchant_address": "FRNT 2 1515 BROADWAY", 
+    "amount": 25, 
+    "date": "2013-04-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "FEDEX OFFICE #2443", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.80620848836414, 
+      "lng": -73.21649551391602
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "330 WHEELER RD", 
+    "amount": 141.2, 
+    "date": "2013-04-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 25.63, 
+    "date": "2013-04-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 73.74, 
+    "date": "2013-03-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 119.49, 
+    "date": "2013-03-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 42.04, 
+    "date": "2013-03-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "ICON PARKING SYSTEMS", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75525, 
+      "lng": -73.983662
+    }, 
+    "merchant_zip": "10036", 
+    "merchant_address": "1114 AVENUE OF THE AMERIC", 
+    "amount": 42, 
+    "date": "2013-04-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.25, 
+    "date": "2013-03-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "KUMO JAPANESE", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87740568, 
+      "lng": -73.11731
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2548 NESCONSET HWY", 
+    "amount": 75.87, 
+    "date": "2013-03-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 186.64, 
+    "date": "2013-03-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 66.61, 
+    "date": "2013-03-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 61.53, 
+    "date": "2013-03-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HARBOR FRGHT TOOLS", 
+    "merchant_city": "HEMPSTEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.705458, 
+      "lng": -73.6234791
+    }, 
+    "merchant_zip": "11550", 
+    "merchant_address": "270 PENINSULA BLVD", 
+    "amount": 20.69, 
+    "date": "2013-03-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JERUSALEM CAFE", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75046, 
+      "lng": -73.98538
+    }, 
+    "merchant_zip": "10018", 
+    "merchant_address": "35 W 36TH STREET", 
+    "amount": 166.5, 
+    "date": "2013-03-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GOURMET BURGER BISTRO", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94609897816374, 
+      "lng": -73.0691861615443
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "5 MILL CREEK RD", 
+    "amount": 31, 
+    "date": "2013-04-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "EMERALD GREEN GARAGE", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75480960063459, 
+      "lng": -73.99323268962787
+    }, 
+    "merchant_zip": "10018", 
+    "merchant_address": "320 W 38 TH", 
+    "amount": 32, 
+    "date": "2013-03-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "LAUNCHPAD LI LLC", 
+    "merchant_city": "MINEOLA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73972989238724, 
+      "lng": -73.63805294036865
+    }, 
+    "merchant_zip": "11501", 
+    "merchant_address": "55 MINEOLA BLVD", 
+    "amount": 90, 
+    "date": "2013-03-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "HESS 32330", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.8773669945763, 
+      "lng": -73.11802668926137
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2451 NESCONSET HWY", 
+    "amount": 62.15, 
+    "date": "2013-03-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DOHERTY PANERA BREAD #B2", 
+    "merchant_city": "HUNTINGTON STATION", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82229572727273, 
+      "lng": -73.41229100000001
+    }, 
+    "merchant_zip": "11746", 
+    "merchant_address": "160 WALT WHITMAN RD", 
+    "amount": 21.14, 
+    "date": "2013-02-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 26, 
+    "date": "2013-02-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "ZAN'S KOSHER DELI", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86627605595889, 
+      "lng": -73.13375473022461
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "135 ALEXANDER AVE", 
+    "amount": 21.7, 
+    "date": "2013-02-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.25, 
+    "date": "2013-02-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THREE VILLAGE INN", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.91925413234371, 
+      "lng": -73.14791721060658
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "150 MAIN ST", 
+    "amount": 24, 
+    "date": "2013-02-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 98.17, 
+    "date": "2013-02-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CROXLEY ALE'S HOUSE", 
+    "merchant_city": "SMITHTOWN", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85592234263506, 
+      "lng": -73.2007884979248
+    }, 
+    "merchant_zip": "11787", 
+    "merchant_address": "155 W MAIN ST", 
+    "amount": 52.31, 
+    "date": "2013-02-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 92.99, 
+    "date": "2013-02-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CEST CHEESE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94475254103241, 
+      "lng": -73.06777238845825
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "216B MAIN ST", 
+    "amount": 18.96, 
+    "date": "2013-02-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RED MANGO - PORT JEFF", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94563350149932, 
+      "lng": -73.06843681624683
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "138 MAIN ST", 
+    "amount": 8.99, 
+    "date": "2013-02-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE OAR STEAK AND SEAFOOD", 
+    "merchant_city": "PATCHOGUE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75622190458719, 
+      "lng": -73.01715279243778
+    }, 
+    "merchant_zip": "11772", 
+    "merchant_address": "264 WEST AVE", 
+    "amount": 18, 
+    "date": "2013-02-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "PANERA BREAD B9", 
+    "merchant_city": "FARMINGDALE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.72647822818215, 
+      "lng": -73.42313289642334
+    }, 
+    "merchant_zip": "11735", 
+    "merchant_address": "919 BROADHOLLOW RD", 
+    "amount": 10.73, 
+    "date": "2013-02-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "MITCHEL LONDON FOODS", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.756995, 
+      "lng": -73.993527
+    }, 
+    "merchant_zip": "10018", 
+    "merchant_address": "458 9TH AVE", 
+    "amount": 28.21, 
+    "date": "2013-02-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUFFALO WILD WINGS", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85770758108904, 
+      "lng": -73.08187007904053
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "1986 MIDDLE COUNTRY RD", 
+    "amount": 39.65, 
+    "date": "2013-02-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 94.99, 
+    "date": "2013-02-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 88.96, 
+    "date": "2013-02-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STARBUCKS 11811", 
+    "merchant_city": "COMMACK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.845208, 
+      "lng": -73.274939
+    }, 
+    "merchant_zip": "11725", 
+    "merchant_address": "2055A JERICHO TPKE", 
+    "amount": 5.76, 
+    "date": "2013-02-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RUVO", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94435972633439, 
+      "lng": -73.06831576793248
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "105 WYNN LN", 
+    "amount": 38.5, 
+    "date": "2013-02-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUFFALO WILD WINGS", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85770758108904, 
+      "lng": -73.08187007904053
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "1986 MIDDLE COUNTRY RD", 
+    "amount": 23.91, 
+    "date": "2013-01-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 132.29, 
+    "date": "2013-01-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 74.13, 
+    "date": "2013-01-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CEST CHEESE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94475254103241, 
+      "lng": -73.06777238845825
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "216B MAIN ST", 
+    "amount": 18.47, 
+    "date": "2013-01-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE CHEESCAKE FACTORY 111", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.8630716905236, 
+      "lng": -73.1290643446139
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "610 SMITH HAVEN MALL", 
+    "amount": 45, 
+    "date": "2013-01-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DOHERTY PANERA BREAD #B2", 
+    "merchant_city": "HUNTINGTON STATION", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82229572727273, 
+      "lng": -73.41229100000001
+    }, 
+    "merchant_zip": "11746", 
+    "merchant_address": "160 WALT WHITMAN RD", 
+    "amount": 9.48, 
+    "date": "2013-01-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JUNIORS RESTAURANT", 
+    "merchant_city": "MASHANTUCKET", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.47733217474275, 
+      "lng": -71.96418285369873
+    }, 
+    "merchant_zip": "06338", 
+    "merchant_address": "240 MGM GRAND DR", 
+    "amount": 26.73, 
+    "date": "2013-01-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "KITCHEN COLLECTION 102", 
+    "merchant_city": "RIVERHEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.916293, 
+      "lng": -72.70137
+    }, 
+    "merchant_zip": "11901", 
+    "merchant_address": "1770 W MAIN ST STE 412", 
+    "amount": 6.49, 
+    "date": "2013-01-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "LEXUS OF SMITHTOWN", 
+    "merchant_city": "SAINT JAMES", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86076059898127, 
+      "lng": -73.15272283912749
+    }, 
+    "merchant_zip": "11780", 
+    "merchant_address": "700 MIDDLE COUNTRY RD", 
+    "amount": 365.87, 
+    "date": "2013-01-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": 53.23, 
+    "date": "2012-12-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 46, 
+    "date": "2012-12-31", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "LAKE GROVE DINER", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87327768908743, 
+      "lng": -73.12283277511597
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2211 NESCONSET HWY", 
+    "amount": 12.65, 
+    "date": "2012-12-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 122.83, 
+    "date": "2012-12-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BOARDWALK GAMES INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94656520226808, 
+      "lng": -73.06928991685558
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "98 MAIN ST", 
+    "amount": 15.2, 
+    "date": "2013-01-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1209", 
+    "merchant_city": "SELDEN", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86503869856488, 
+      "lng": -73.05342994630337
+    }, 
+    "merchant_zip": "11784", 
+    "merchant_address": "401 INDEPENDENCE PLZ", 
+    "amount": 140.94, 
+    "date": "2012-12-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.25, 
+    "date": "2012-12-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 40.76, 
+    "date": "2012-12-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "APPLEBEE'S 17", 
+    "merchant_city": "MILLER PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94215173280603, 
+      "lng": -72.98940768262746
+    }, 
+    "merchant_zip": "11764", 
+    "merchant_address": "355 ROUTE 25A", 
+    "amount": 27, 
+    "date": "2012-12-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 75.56, 
+    "date": "2012-11-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 42.51, 
+    "date": "2012-11-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 67.36, 
+    "date": "2012-12-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 105.1, 
+    "date": "2012-10-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "KFC C160022", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.905940615531854, 
+      "lng": -73.07125549478752
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4040 NESCONSET HWY", 
+    "amount": 21.71, 
+    "date": "2012-12-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DOMO SUSHI", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93881290970773, 
+      "lng": -73.1089901879643
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "180 ROUTE 25A", 
+    "amount": 35.55, 
+    "date": "2012-11-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Travel", 
+    "merchant_phone": null, 
+    "name": "BRIDGEPORT & PORT JE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.946712258478144, 
+      "lng": -73.06952342396406
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "102 W BROADWAY", 
+    "amount": 54, 
+    "date": "2012-11-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE BOSTON PARK PLAZA F &", 
+    "merchant_city": "BOSTON", 
+    "merchant_state": "MA", 
+    "coordinates": {
+      "lat": 42.35118233956202, 
+      "lng": -71.07000410556793
+    }, 
+    "merchant_zip": "02116", 
+    "merchant_address": "50 PARK PLZA ARLINGTON ST", 
+    "amount": 31.75, 
+    "date": "2012-11-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "B GOOD DARTMOUTH ST", 
+    "merchant_city": "BOSTON", 
+    "merchant_state": "MA", 
+    "coordinates": {
+      "lat": 42.34668297357024, 
+      "lng": -71.07566865603555
+    }, 
+    "merchant_zip": "02116", 
+    "merchant_address": "131 DARTMOUTH ST", 
+    "amount": 9.93, 
+    "date": "2012-11-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.25, 
+    "date": "2012-11-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUTERA'S REST OF SMITHTOW", 
+    "merchant_city": "SMITHTOWN", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85566266757932, 
+      "lng": -73.19229125976562
+    }, 
+    "merchant_zip": "11787", 
+    "merchant_address": "65 E MAIN ST", 
+    "amount": 22, 
+    "date": "2012-10-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "HAUPPAUGUE PALACE", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.844739, 
+      "lng": -73.173722
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "525 SMITHTOWN BYP", 
+    "amount": 21.52, 
+    "date": "2012-10-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TACO BELL #4515", 
+    "merchant_city": "RIDGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.89179456233978, 
+      "lng": -72.89987683296204
+    }, 
+    "merchant_zip": "11961", 
+    "merchant_address": "1750 MIDDLE COUNTRY RD", 
+    "amount": 24.83, 
+    "date": "2012-10-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 56.25, 
+    "date": "2012-10-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 73.87, 
+    "date": "2012-10-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "NYCT REDUCED FARE M", 
+    "merchant_city": "NEWARK", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.720461, 
+      "lng": -74.179388
+    }, 
+    "merchant_zip": "07114", 
+    "merchant_address": "FINANCE DEPARTMENT 375 MCCARTER HWY", 
+    "amount": 30, 
+    "date": "2012-10-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": -9.58, 
+    "date": "2012-10-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 17.07, 
+    "date": "2012-10-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BED BATH & BEYOND 37", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.869391590165364, 
+      "lng": -73.12860488891602
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2045 SMITH HAVEN PLZ", 
+    "amount": 28.22, 
+    "date": "2012-09-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "AIRPORT DINER", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.78509514460191, 
+      "lng": -73.11317422461423
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "3760 VETERANS MEMORIAL HW", 
+    "amount": 27.95, 
+    "date": "2012-09-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 259.06, 
+    "date": "2012-09-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 43.45, 
+    "date": "2012-08-31", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "MT SINAI HERITAGE DINER", 
+    "merchant_city": "MOUNT SINAI", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86890258977056, 
+      "lng": -72.99414165013613
+    }, 
+    "merchant_zip": "11766", 
+    "merchant_address": "275 ROUTE 25A", 
+    "amount": 31.32, 
+    "date": "2012-09-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 83.53, 
+    "date": "2012-09-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHAGWONG TAVERN", 
+    "merchant_city": "MONTAUK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 41.035324787873186, 
+      "lng": -71.94314360618591
+    }, 
+    "merchant_zip": "11954", 
+    "merchant_address": "SHAGWONG TAVERN 774 MAIN STREET", 
+    "amount": 45.79, 
+    "date": "2012-09-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "SHINN ESTATE VINEYARDS", 
+    "merchant_city": "MATTITUCK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 41.014293529972996, 
+      "lng": -72.53256517974773
+    }, 
+    "merchant_zip": "11952", 
+    "merchant_address": "2000 OREGON RD", 
+    "amount": 40, 
+    "date": "2012-08-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE CURRY CLUB", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.92654858648732, 
+      "lng": -73.1183910369873
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "10 WOODS CORNER RD", 
+    "amount": 46.08, 
+    "date": "2012-08-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 51.9, 
+    "date": "2012-09-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "KOHLS DEPT STORE 377", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.921404, 
+      "lng": -73.051448
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "5000 NESCONSET HWY", 
+    "amount": 9.41, 
+    "date": "2012-09-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": 9.94, 
+    "date": "2012-08-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "SHOPRITE 831 HAUPPAUGE", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82720585459682, 
+      "lng": -73.20261240005493
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "335 SMITHTOWN BYP", 
+    "amount": 78.92, 
+    "date": "2012-08-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 128.52, 
+    "date": "2012-08-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "KUMO JAPANESE", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87740568, 
+      "lng": -73.11731
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2548 NESCONSET HWY", 
+    "amount": 65, 
+    "date": "2012-08-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 31.15, 
+    "date": "2012-08-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 122.51, 
+    "date": "2012-08-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOAST", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94539040566961, 
+      "lng": -73.06747995641352
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "242 E MAIN ST", 
+    "amount": 28, 
+    "date": "2012-07-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "KITCHEN COLLECTION 102", 
+    "merchant_city": "RIVERHEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.916293, 
+      "lng": -72.70137
+    }, 
+    "merchant_zip": "11901", 
+    "merchant_address": "1770 W MAIN ST STE 412", 
+    "amount": 11.93, 
+    "date": "2012-08-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "KITCHEN COLLECTION 102", 
+    "merchant_city": "RIVERHEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.916293, 
+      "lng": -72.70137
+    }, 
+    "merchant_zip": "11901", 
+    "merchant_address": "1770 W MAIN ST STE 412", 
+    "amount": 8.98, 
+    "date": "2012-08-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHANDON COURT", 
+    "merchant_city": "EAST ISLIP", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73243829229288, 
+      "lng": -73.1855355275241
+    }, 
+    "merchant_zip": "11730", 
+    "merchant_address": "115 E MAIN ST", 
+    "amount": 15, 
+    "date": "2012-07-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DUNKIN DONUTS/ BASKIN RBN", 
+    "merchant_city": "HICKSVILLE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.767145512136445, 
+      "lng": -73.52805143646484
+    }, 
+    "merchant_zip": "11801", 
+    "merchant_address": "24 NEWBRIDGE RD", 
+    "amount": 3.74, 
+    "date": "2012-07-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHANDON COURT", 
+    "merchant_city": "EAST ISLIP", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73243829229288, 
+      "lng": -73.1855355275241
+    }, 
+    "merchant_zip": "11730", 
+    "merchant_address": "115 E MAIN ST", 
+    "amount": 50.94, 
+    "date": "2012-07-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 230.73, 
+    "date": "2012-07-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 51.9, 
+    "date": "2012-07-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STEAM ROOM INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947136251865025, 
+      "lng": -73.06905934943391
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "4 E BROADWAY", 
+    "amount": 19.82, 
+    "date": "2012-07-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -40.18, 
+    "date": "2012-06-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "STOP & SHOP 579", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86948894824741, 
+      "lng": -72.99569606781006
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "275 MIDDLE COUNTRY RD", 
+    "amount": 30.56, 
+    "date": "2012-06-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 94.48, 
+    "date": "2012-06-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "PARTY CITY #675", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87437862598892, 
+      "lng": -73.12314414138545
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "205 HALLOCK RD", 
+    "amount": 10.81, 
+    "date": "2012-06-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "STAPLES 1857", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82868673148413, 
+      "lng": -73.20047394722216
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "526 ROUTE 111", 
+    "amount": 81.37, 
+    "date": "2012-06-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Other", 
+    "merchant_phone": null, 
+    "name": "JEWISH NATIONAL FUND", 
+    "merchant_city": "ROCKVILLE CENTRE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.659305, 
+      "lng": -73.645318
+    }, 
+    "merchant_zip": "11570", 
+    "merchant_address": "78 RANDALL AVE", 
+    "amount": 16.2, 
+    "date": "2012-06-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": 36.03, 
+    "date": "2012-04-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RED LOBSTER 217", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.873634217000834, 
+      "lng": -73.1247289146926
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2220 NESCONSET HWY", 
+    "amount": 14.71, 
+    "date": "2012-04-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RESTAURANT DEPOT # 544", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677607536316, 
+      "lng": -73.107744
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "1335 LAKELAND AVE", 
+    "amount": 9.96, 
+    "date": "2012-06-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "DUTCH GIRL CLEANER", 
+    "merchant_city": "MOUNT SINAI", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.932001, 
+      "lng": -73.032382
+    }, 
+    "merchant_zip": "11766", 
+    "merchant_address": "5507 NESCONSET HWY STE 5", 
+    "amount": 9.95, 
+    "date": "2012-06-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 98.41, 
+    "date": "2012-05-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 75.91, 
+    "date": "2012-04-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -152.06, 
+    "date": "2012-04-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900230", 
+    "merchant_city": "HOLBROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77277438004319, 
+      "lng": -73.05032730102539
+    }, 
+    "merchant_zip": "11741", 
+    "merchant_address": "125 BEACON DR", 
+    "amount": 92, 
+    "date": "2012-06-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE FIFTH SEASON", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947607, 
+      "lng": -73.068384
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "34 E BROADWAY", 
+    "amount": 32.16, 
+    "date": "2012-06-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RED LOBSTER 217", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.873634217000834, 
+      "lng": -73.1247289146926
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2220 NESCONSET HWY", 
+    "amount": 64, 
+    "date": "2012-04-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 53.34, 
+    "date": "2012-04-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 52.49, 
+    "date": "2012-06-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BEST YET MKT CORAM", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.878899, 
+      "lng": -73.010002
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "1840 ROUTE 112", 
+    "amount": 14.95, 
+    "date": "2012-06-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "OLD NAVY / 14 6787", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.865050317382824, 
+      "lng": -73.12714887231445
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "SMITH HAVEN PLAZA 313 SMITH HAVEN MALL", 
+    "amount": 152.51, 
+    "date": "2012-06-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Travel", 
+    "merchant_phone": null, 
+    "name": "BRIDGEPORT & PORT JE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.946712258478144, 
+      "lng": -73.06952342396406
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "102 W BROADWAY", 
+    "amount": 69, 
+    "date": "2012-05-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Travel", 
+    "merchant_phone": null, 
+    "name": "MOHEGAN SUN HOTEL", 
+    "merchant_city": "UNCASVILLE", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.492056452513175, 
+      "lng": -72.09147899636999
+    }, 
+    "merchant_zip": "06382", 
+    "merchant_address": "1 MOHEGAN SUN BLVD", 
+    "amount": 186.3, 
+    "date": "2012-05-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RESTAURANT DEPOT # 544", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677607536316, 
+      "lng": -73.107744
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "1335 LAKELAND AVE", 
+    "amount": 58.39, 
+    "date": "2012-06-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 35, 
+    "date": "2012-05-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -15.2, 
+    "date": "2012-05-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 83, 
+    "date": "2012-05-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SOMBREROS SOUTHWEST GRILL", 
+    "merchant_city": "KINGS PARK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.883439, 
+      "lng": -73.253816
+    }, 
+    "merchant_zip": "11754", 
+    "merchant_address": "30 INDIAN HEAD RD", 
+    "amount": 23.17, 
+    "date": "2012-04-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "APPLEBEE'S 17", 
+    "merchant_city": "MILLER PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94215173280603, 
+      "lng": -72.98940768262746
+    }, 
+    "merchant_zip": "11764", 
+    "merchant_address": "355 ROUTE 25A", 
+    "amount": 29, 
+    "date": "2012-05-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": 123.27, 
+    "date": "2012-04-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "HIGH ROLLERS", 
+    "merchant_city": "MASHANTUCKET", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.47410162529449, 
+      "lng": -71.96071580065212
+    }, 
+    "merchant_zip": "06338", 
+    "merchant_address": "350 TROLLEY LINE BLVD", 
+    "amount": 28, 
+    "date": "2012-05-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": -16.28, 
+    "date": "2012-04-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RITE AID 10558", 
+    "merchant_city": "GREAT NECK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.79130929705582, 
+      "lng": -73.73185996046685
+    }, 
+    "merchant_zip": "11023", 
+    "merchant_address": "152-154 MIDDLE NECK RD", 
+    "amount": 2.89, 
+    "date": "2012-05-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GREENPORT HARBOR BREWING", 
+    "merchant_city": "GREENPORT", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 41.103608869359334, 
+      "lng": -72.35866069793701
+    }, 
+    "merchant_zip": "11944", 
+    "merchant_address": "234 CARPENTER ST", 
+    "amount": 32, 
+    "date": "2012-05-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 194.75, 
+    "date": "2012-04-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "OLD NAVY / 14 6787", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.865050317382824, 
+      "lng": -73.12714887231445
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "SMITH HAVEN PLAZA 313 SMITH HAVEN MALL", 
+    "amount": 9.19, 
+    "date": "2012-06-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Travel", 
+    "merchant_phone": null, 
+    "name": "MOHEGAN SUN HOTEL", 
+    "merchant_city": "UNCASVILLE", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.492056452513175, 
+      "lng": -72.09147899636999
+    }, 
+    "merchant_zip": "06382", 
+    "merchant_address": "1 MOHEGAN SUN BLVD", 
+    "amount": 91.94, 
+    "date": "2012-05-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "HONU KITCHEN AND COCKTAIL", 
+    "merchant_city": "HUNTINGTON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87007700529858, 
+      "lng": -73.42623640530705
+    }, 
+    "merchant_zip": "11743", 
+    "merchant_address": "363 NEW YORK AVE.", 
+    "amount": 17, 
+    "date": "2012-04-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1209", 
+    "merchant_city": "SELDEN", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86503869856488, 
+      "lng": -73.05342994630337
+    }, 
+    "merchant_zip": "11784", 
+    "merchant_address": "401 INDEPENDENCE PLZ", 
+    "amount": 48.49, 
+    "date": "2012-04-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "APPLEBEE'S 17", 
+    "merchant_city": "MILLER PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94215173280603, 
+      "lng": -72.98940768262746
+    }, 
+    "merchant_zip": "11764", 
+    "merchant_address": "355 ROUTE 25A", 
+    "amount": 37.59, 
+    "date": "2012-04-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "ECKO 162", 
+    "merchant_city": "RIVERHEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.919099, 
+      "lng": -72.715514
+    }, 
+    "merchant_zip": "11901", 
+    "merchant_address": "605 TANGER MALL DR", 
+    "amount": 75.43, 
+    "date": "2012-04-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 60.91, 
+    "date": "2012-04-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "HESS 32365", 
+    "merchant_city": "MEDFORD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.84022640327826, 
+      "lng": -72.99630761146545
+    }, 
+    "merchant_zip": "11763", 
+    "merchant_address": "3203 ROUTE 112 # S", 
+    "amount": 56.44, 
+    "date": "2012-03-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "TARGET T1948", 
+    "merchant_city": "MEDFORD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.825143762613614, 
+      "lng": -72.9891300201416
+    }, 
+    "merchant_zip": "11763", 
+    "merchant_address": "2975 HORSEBLOCK RD", 
+    "amount": 8.39, 
+    "date": "2012-03-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "TARGET T1948", 
+    "merchant_city": "MEDFORD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.825143762613614, 
+      "lng": -72.9891300201416
+    }, 
+    "merchant_zip": "11763", 
+    "merchant_address": "2975 HORSEBLOCK RD", 
+    "amount": -66.27, 
+    "date": "2012-03-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SCHNIPPER'S QUALITY", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75638015812107, 
+      "lng": -73.99022161960602
+    }, 
+    "merchant_zip": "10018", 
+    "merchant_address": "620 8TH AVE", 
+    "amount": 59, 
+    "date": "2012-03-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RITE AID 10659", 
+    "merchant_city": "ROCKY POINT", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94334, 
+      "lng": -72.943135
+    }, 
+    "merchant_zip": "11778", 
+    "merchant_address": "346-102 POINT PLAZA", 
+    "amount": 108.61, 
+    "date": "2012-04-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": -101.54, 
+    "date": "2012-03-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "VILLAGE POUR HOUSE", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73132870223296, 
+      "lng": -73.98874486417706
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "64 3RD AVE", 
+    "amount": 91.86, 
+    "date": "2012-03-19", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "STOP & SHOP 579", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.86948894824741, 
+      "lng": -72.99569606781006
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "275 MIDDLE COUNTRY RD", 
+    "amount": 16.63, 
+    "date": "2012-03-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 1229", 
+    "merchant_city": "CORAM", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.868236330899386, 
+      "lng": -72.99719274044037
+    }, 
+    "merchant_zip": "11727", 
+    "merchant_address": "346 MIDDLE COUNTRY RD", 
+    "amount": -18.44, 
+    "date": "2012-03-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 12.86, 
+    "date": "2012-03-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 155.53, 
+    "date": "2012-03-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 102.49, 
+    "date": "2012-03-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "FAT CAT BILLIARDS", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73359624463056, 
+      "lng": -74.00313913822174
+    }, 
+    "merchant_zip": "10014", 
+    "merchant_address": "75 CHRISTOPHER ST", 
+    "amount": 15, 
+    "date": "2012-03-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "NYCT REDUCED FARE M", 
+    "merchant_city": "NEWARK", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.720461, 
+      "lng": -74.179388
+    }, 
+    "merchant_zip": "07114", 
+    "merchant_address": "FINANCE DEPARTMENT 375 MCCARTER HWY", 
+    "amount": 30, 
+    "date": "2012-03-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "ECKO 162", 
+    "merchant_city": "RIVERHEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.919099, 
+      "lng": -72.715514
+    }, 
+    "merchant_zip": "11901", 
+    "merchant_address": "605 TANGER MALL DR", 
+    "amount": 37.98, 
+    "date": "2012-03-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "ELDORADO S BAR AND G", 
+    "merchant_city": "PORT JEFFERSON STATION", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.91805265574104, 
+      "lng": -73.0528441194426
+    }, 
+    "merchant_zip": "11776", 
+    "merchant_address": "4837 NESCONSET HWY", 
+    "amount": 40.05, 
+    "date": "2012-03-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SMOKEY BONES # 7576", 
+    "merchant_city": "RONKONKOMA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.81260746176024, 
+      "lng": -73.10126781463623
+    }, 
+    "merchant_zip": "11779", 
+    "merchant_address": "5012 EXPRESS DR S", 
+    "amount": 53, 
+    "date": "2012-03-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GRUMPY JACKS SPORTS BAR", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93698851141642, 
+      "lng": -73.05461883544922
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "28 OAKLAND AVE", 
+    "amount": 66.55, 
+    "date": "2012-02-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 53.65, 
+    "date": "2012-01-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 119.49, 
+    "date": "2012-01-29", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "PORT JEFF BREWING COMPANY", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.945872041189965, 
+      "lng": -73.06963000338278
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "22B MILL CREEK RD", 
+    "amount": 38.02, 
+    "date": "2012-01-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "KMART 7749", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.751575, 
+      "lng": -73.992015
+    }, 
+    "merchant_zip": "10119", 
+    "merchant_address": "250 W 34TH ST", 
+    "amount": 8.47, 
+    "date": "2012-02-27", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THUNDER JACKSONS", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.7288489465841, 
+      "lng": -74.00041184413695
+    }, 
+    "merchant_zip": "10012", 
+    "merchant_address": "169 BLEECKER ST", 
+    "amount": 13, 
+    "date": "2012-03-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 151.79, 
+    "date": "2012-02-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SETAUKET PASTARIA", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.90653952533156, 
+      "lng": -73.07251453399658
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4082 NESCONSET HWY", 
+    "amount": 41.78, 
+    "date": "2012-02-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUFFALO WILD WINGS", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85770758108904, 
+      "lng": -73.08187007904053
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "1986 MIDDLE COUNTRY RD", 
+    "amount": 67.72, 
+    "date": "2012-02-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STEAM ROOM INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947136251865025, 
+      "lng": -73.06905934943391
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "4 E BROADWAY", 
+    "amount": 21.67, 
+    "date": "2012-02-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 89.07, 
+    "date": "2012-02-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "STEAM ROOM INC", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.947136251865025, 
+      "lng": -73.06905934943391
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "4 E BROADWAY", 
+    "amount": 24.39, 
+    "date": "2012-02-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "TOMMYS PLACE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94642574496342, 
+      "lng": -73.06872502626405
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "109 MAIN ST", 
+    "amount": 17.36, 
+    "date": "2012-01-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 61, 
+    "date": "2012-01-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Travel", 
+    "merchant_phone": null, 
+    "name": "BRIDGEPORT & PORT JE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.946712258478144, 
+      "lng": -73.06952342396406
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "102 W BROADWAY", 
+    "amount": 68, 
+    "date": "2012-01-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "PARTY CITY 525", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85947936823546, 
+      "lng": -73.08259326728324
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "253 CENTEREACH MALL", 
+    "amount": -52.1, 
+    "date": "2012-02-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 102.49, 
+    "date": "2012-01-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "LOEWS STONY BRO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87540318323136, 
+      "lng": -73.12653422355652
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2196 NESCONSET HWY", 
+    "amount": 11.75, 
+    "date": "2012-01-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "PIZZA HUT 013146", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85829241476367, 
+      "lng": -73.0831984707887
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "2082 MIDDLE COUNTRY RD", 
+    "amount": 17.34, 
+    "date": "2012-02-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "MAI CUISINE", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75258610477855, 
+      "lng": -73.98043464951085
+    }, 
+    "merchant_zip": "10017", 
+    "merchant_address": "16 E 41ST STREET", 
+    "amount": 46.2, 
+    "date": "2012-02-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JUNIORS RESTAURANT", 
+    "merchant_city": "MASHANTUCKET", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.47733217474275, 
+      "lng": -71.96418285369873
+    }, 
+    "merchant_zip": "06338", 
+    "merchant_address": "240 MGM GRAND DR", 
+    "amount": 33.11, 
+    "date": "2012-01-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "BRIDGEPORT ARENA F/B", 
+    "merchant_city": "BRIDGEPORT", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.178843, 
+      "lng": -73.188291
+    }, 
+    "merchant_zip": "06604", 
+    "merchant_address": "10 MIDDLE ST", 
+    "amount": 32, 
+    "date": "2012-01-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "NYC TAXI NETWORK", 
+    "merchant_city": "BROOKLYN", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.714922, 
+      "lng": -73.941866
+    }, 
+    "merchant_zip": "11211", 
+    "merchant_address": "807 METROPOLITAN AVE", 
+    "amount": 9, 
+    "date": "2012-01-31", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "WALDBAUMS 601", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87341560489982, 
+      "lng": -73.12607288360596
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2162 NESCONSET HWY", 
+    "amount": 33.84, 
+    "date": "2012-02-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "PARTY CITY 525", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85947936823546, 
+      "lng": -73.08259326728324
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "253 CENTEREACH MALL", 
+    "amount": 52.1, 
+    "date": "2012-02-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "LIVE BAIT", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.740892335768336, 
+      "lng": -73.98833870887756
+    }, 
+    "merchant_zip": "10010", 
+    "merchant_address": "14 E 23RD ST FRNT 1", 
+    "amount": 36.26, 
+    "date": "2012-01-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE CHEESCAKE FACTORY 111", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.8630716905236, 
+      "lng": -73.1290643446139
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "610 SMITH HAVEN MALL", 
+    "amount": 54, 
+    "date": "2012-01-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 101, 
+    "date": "2011-12-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "COMIX COMEDY CLUB", 
+    "merchant_city": "MASHANTUCKET", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.472794470875584, 
+      "lng": -71.9608026284179
+    }, 
+    "merchant_zip": "06338", 
+    "merchant_address": "350 TROLLEY LINE BLVD", 
+    "amount": 33.84, 
+    "date": "2012-01-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JOHN HARVARDS BREW HOUSE", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.870350333987915, 
+      "lng": -73.1284111030336
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2093 SMITH HAVEN PLZ", 
+    "amount": 31.28, 
+    "date": "2011-12-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DUNKIN DONUT", 
+    "merchant_city": "PORTLAND", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.560657, 
+      "lng": -72.573656
+    }, 
+    "merchant_zip": "06480", 
+    "merchant_address": "1633 PORTLAND COBALT RD", 
+    "amount": 7.99, 
+    "date": "2012-01-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "PUKET CAFE THAI CUISINE", 
+    "merchant_city": "ROCKY HILL", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.64469, 
+      "lng": -72.67854
+    }, 
+    "merchant_zip": "06067", 
+    "merchant_address": "945 P CROMWELL AVE", 
+    "amount": 55.33, 
+    "date": "2012-01-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "RUBY TUESDAY #2842", 
+    "merchant_city": "CROMWELL", 
+    "merchant_state": "CT", 
+    "coordinates": {
+      "lat": 41.60441016306491, 
+      "lng": -72.67674632480617
+    }, 
+    "merchant_zip": "06416", 
+    "merchant_address": "50 SHUNPIKE RD", 
+    "amount": 45.68, 
+    "date": "2012-01-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DOS TOROS", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.733551530741686, 
+      "lng": -73.98995876312256
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "137 4TH AVE", 
+    "amount": 11, 
+    "date": "2011-12-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 99.37, 
+    "date": "2011-12-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "PIONEER STORES", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.783335339600285, 
+      "lng": -73.95263184788375
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "1407 LEXINGTON AVE", 
+    "amount": 7.6, 
+    "date": "2011-12-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "CVS 2717", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.78023909491289, 
+      "lng": -73.95511153386049
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "1294 LEXINGTON AVE", 
+    "amount": 2.17, 
+    "date": "2011-12-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "J & R'S STEAKHOUSE", 
+    "merchant_city": "ROCKY POINT", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.945053843134104, 
+      "lng": -72.95166013430571
+    }, 
+    "merchant_zip": "11778", 
+    "merchant_address": "181 ROUTE 25A", 
+    "amount": 66.42, 
+    "date": "2011-12-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHAKE SHACK E 86TH ST", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.779192824834176, 
+      "lng": -73.95487546920776
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "152 E 86TH ST", 
+    "amount": 12.03, 
+    "date": "2011-11-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "CVS 2717", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.78023909491289, 
+      "lng": -73.95511153386049
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "1294 LEXINGTON AVE", 
+    "amount": 2.29, 
+    "date": "2011-12-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BEST CELLARS INC", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.779922, 
+      "lng": -73.955055
+    }, 
+    "merchant_zip": "10028", 
+    "merchant_address": "1291 LEXINGTON AVE", 
+    "amount": 13.07, 
+    "date": "2011-12-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "PIONEER STORES", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.783335339600285, 
+      "lng": -73.95263184788375
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "1407 LEXINGTON AVE", 
+    "amount": 12, 
+    "date": "2011-12-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "LOEWS STONY BRO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87540318323136, 
+      "lng": -73.12653422355652
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2196 NESCONSET HWY", 
+    "amount": 11.75, 
+    "date": "2011-11-24", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHAKE SHACK E 86TH ST", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.779192824834176, 
+      "lng": -73.95487546920776
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "152 E 86TH ST", 
+    "amount": 9.31, 
+    "date": "2011-11-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "COFFEE SHOP", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.73654711794558, 
+      "lng": -73.99084531729105
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "29 UNION SQ W", 
+    "amount": 41.77, 
+    "date": "2011-12-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "QDOBA MEXICAN GRILL #698", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.734864, 
+      "lng": -73.992289
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "120 UNIVERSITY PL", 
+    "amount": 11.73, 
+    "date": "2011-11-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "CVS 2717", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.78023909491289, 
+      "lng": -73.95511153386049
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "1294 LEXINGTON AVE", 
+    "amount": -14.99, 
+    "date": "2011-11-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CEST CHEESE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94475254103241, 
+      "lng": -73.06777238845825
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "216B MAIN ST", 
+    "amount": 26.02, 
+    "date": "2011-11-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "CVS 2717", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.78023909491289, 
+      "lng": -73.95511153386049
+    }, 
+    "merchant_zip": "10128", 
+    "merchant_address": "1294 LEXINGTON AVE", 
+    "amount": 19.98, 
+    "date": "2011-11-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "THE ISLIP AIRPORT 01473", 
+    "merchant_city": "RONKONKOMA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.783913, 
+      "lng": -73.098484
+    }, 
+    "merchant_zip": "11779", 
+    "merchant_address": "AIRLINE TERMINAL BLDG 100 ARRIVAL AVE", 
+    "amount": 14, 
+    "date": "2011-11-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BILL S BAR", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.740164559232504, 
+      "lng": -74.00562818329209
+    }, 
+    "merchant_zip": "10014", 
+    "merchant_address": "22 NINTH AVE", 
+    "amount": -4.62, 
+    "date": "2011-11-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "TARGET T1948", 
+    "merchant_city": "MEDFORD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.825143762613614, 
+      "lng": -72.9891300201416
+    }, 
+    "merchant_zip": "11763", 
+    "merchant_address": "2975 HORSEBLOCK RD", 
+    "amount": 13.53, 
+    "date": "2011-11-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 157.34, 
+    "date": "2011-10-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Transportation", 
+    "merchant_phone": null, 
+    "name": "YELLOW CAB SLSJET MANAGEM", 
+    "merchant_city": "LONG ISLAND CITY", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75007155, 
+      "lng": -73.944418375
+    }, 
+    "merchant_zip": "11101", 
+    "merchant_address": "2205 43RD AVE", 
+    "amount": 22.4, 
+    "date": "2011-11-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JOHN HARVARDS BREW HOUSE", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.870350333987915, 
+      "lng": -73.1284111030336
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2093 SMITH HAVEN PLZ", 
+    "amount": 42.78, 
+    "date": "2011-10-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "RESTAURANT DEPOT # 544", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677607536316, 
+      "lng": -73.107744
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "1335 LAKELAND AVE", 
+    "amount": 124.75, 
+    "date": "2011-10-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 99.37, 
+    "date": "2011-10-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SMOKEY BONES # 7576", 
+    "merchant_city": "RONKONKOMA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.81260746176024, 
+      "lng": -73.10126781463623
+    }, 
+    "merchant_zip": "11779", 
+    "merchant_address": "5012 EXPRESS DR S", 
+    "amount": 30.56, 
+    "date": "2011-11-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHOP'T CREATIVE SALAD COM", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.737282906043546, 
+      "lng": -73.99090844530741
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "24 E 17TH ST", 
+    "amount": 10.66, 
+    "date": "2011-11-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BROS JIMMY'S BBQ", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75047969122117, 
+      "lng": -73.99461574510211
+    }, 
+    "merchant_zip": "10001", 
+    "merchant_address": "416 8TH AVE", 
+    "amount": 63.78, 
+    "date": "2011-10-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BILL S BAR", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.740164559232504, 
+      "lng": -74.00562818329209
+    }, 
+    "merchant_zip": "10014", 
+    "merchant_address": "22 NINTH AVE", 
+    "amount": 115.12, 
+    "date": "2011-11-03", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "WALGREENS #14345", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75172333, 
+      "lng": -73.99350459
+    }, 
+    "merchant_zip": "10001", 
+    "merchant_address": "460 8TH AVE (ONE PENN W)", 
+    "amount": 4.99, 
+    "date": "2011-10-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "QDOBA MEXICAN GRILL #698", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.734864, 
+      "lng": -73.992289
+    }, 
+    "merchant_zip": "10003", 
+    "merchant_address": "120 UNIVERSITY PL", 
+    "amount": 10.21, 
+    "date": "2011-10-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 1042.78, 
+    "date": "2011-10-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 95, 
+    "date": "2011-10-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CEST CHEESE", 
+    "merchant_city": "PORT JEFFERSON", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.94475254103241, 
+      "lng": -73.06777238845825
+    }, 
+    "merchant_zip": "11777", 
+    "merchant_address": "216B MAIN ST", 
+    "amount": 16.29, 
+    "date": "2011-09-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "TARGET T1818", 
+    "merchant_city": "RIVERHEAD", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.93286195062764, 
+      "lng": -72.67916747867596
+    }, 
+    "merchant_zip": "11901", 
+    "merchant_address": "1150 OLD COUNTRY RD", 
+    "amount": 21.88, 
+    "date": "2011-10-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "SUNRISE MEDICAL LABS", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.80711, 
+      "lng": -73.247694
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "240 MOTOR PKWY", 
+    "amount": 17.34, 
+    "date": "2011-10-14", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "HOME DEPOT 6955", 
+    "merchant_city": "CENTRAL ISLIP", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77106835145771, 
+      "lng": -73.2009054721061
+    }, 
+    "merchant_zip": "11722", 
+    "merchant_address": "301 S RESEARCH PL", 
+    "amount": -18.38, 
+    "date": "2011-09-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": -792.06, 
+    "date": "2013-11-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 792.06, 
+    "date": "2013-11-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "LOEWS STONY BRO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87540318323136, 
+      "lng": -73.12653422355652
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2196 NESCONSET HWY", 
+    "amount": 23, 
+    "date": "2013-11-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "WATERZOOI", 
+    "merchant_city": "GARDEN CITY", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.72741612858954, 
+      "lng": -73.6353996449871
+    }, 
+    "merchant_zip": "11530", 
+    "merchant_address": "850 FRANKLIN AVE", 
+    "amount": 96.91, 
+    "date": "2013-11-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "THE CURRY CLUB", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.92654858648732, 
+      "lng": -73.1183910369873
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "10 WOODS CORNER RD", 
+    "amount": 48.59, 
+    "date": "2013-11-07", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": -7.99, 
+    "date": "2013-11-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 93.16, 
+    "date": "2013-11-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 792.06, 
+    "date": "2013-11-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 101.84, 
+    "date": "2013-11-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 6.02, 
+    "date": "2013-11-09", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 61.51, 
+    "date": "2013-11-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 14.77, 
+    "date": "2013-11-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 1634", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.80729546568559, 
+      "lng": -73.23769756639335
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "694 MOTOR PKWY", 
+    "amount": 21.78, 
+    "date": "2013-11-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 1634", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.80729546568559, 
+      "lng": -73.23769756639335
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "694 MOTOR PKWY", 
+    "amount": 21.78, 
+    "date": "2013-11-16", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "SHOPRITE 831 HAUPPAUGE", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.82720585459682, 
+      "lng": -73.20261240005493
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "335 SMITHTOWN BYP", 
+    "amount": 21.7, 
+    "date": "2013-11-17", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "ST JAMES", 
+    "merchant_city": "MINEOLA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.741729, 
+      "lng": -73.639662
+    }, 
+    "merchant_zip": "11501", 
+    "merchant_address": "190 2ND ST", 
+    "amount": 21, 
+    "date": "2013-11-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "JERUSALEM CAFE", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.75046, 
+      "lng": -73.98538
+    }, 
+    "merchant_zip": "10018", 
+    "merchant_address": "35 W 36TH STREET", 
+    "amount": 121, 
+    "date": "2013-11-21", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 71.82, 
+    "date": "2013-11-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "EAST COAST BURRITO CO", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.92768753067194, 
+      "lng": -73.1175887038035
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "736 ROUTE 25A", 
+    "amount": 19.99, 
+    "date": "2013-11-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 57.07, 
+    "date": "2013-11-30", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "FRANKS STEAKS", 
+    "merchant_city": "JERICHO", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77677227731794, 
+      "lng": -73.56800223720994
+    }, 
+    "merchant_zip": "11753", 
+    "merchant_address": "4 JERICHO TPKE", 
+    "amount": 77.59, 
+    "date": "2013-12-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "TARGET T2102", 
+    "merchant_city": "CENTRAL ISLIP", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.77235187838098, 
+      "lng": -73.20211887359619
+    }, 
+    "merchant_zip": "11722", 
+    "merchant_address": "160 N RESEARCH PL", 
+    "amount": 25, 
+    "date": "2013-12-05", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "SHAKE SHACK W 44TH ST", 
+    "merchant_city": "NEW YORK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.759143, 
+      "lng": -73.990068
+    }, 
+    "merchant_zip": "10036", 
+    "merchant_address": "300 W 44TH ST", 
+    "amount": 25.75, 
+    "date": "2013-12-06", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 160.41, 
+    "date": "2013-12-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "GREEK TO GO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87780692278002, 
+      "lng": -73.11751954812823
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2460 NESCONSET HWY STE 7", 
+    "amount": 16.84, 
+    "date": "2013-12-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "VONAGE HOLDINGS CORP", 
+    "merchant_city": "HOLMDEL", 
+    "merchant_state": "NJ", 
+    "coordinates": {
+      "lat": 40.345604, 
+      "lng": -74.188438
+    }, 
+    "merchant_zip": "07733", 
+    "merchant_address": "23 MAIN ST", 
+    "amount": 59.46, 
+    "date": "2013-12-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 12.06, 
+    "date": "2013-12-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CROXLEY'S", 
+    "merchant_city": "SMITHTOWN", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85592234263506, 
+      "lng": -73.2007884979248
+    }, 
+    "merchant_zip": "11787", 
+    "merchant_address": "155 W MAIN ST", 
+    "amount": 35, 
+    "date": "2013-12-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DAVE & BUSTERS 32", 
+    "merchant_city": "ISLANDIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.739598990903566, 
+      "lng": -73.4162225780652
+    }, 
+    "merchant_zip": "11749", 
+    "merchant_address": "1856 VETERANS HWY", 
+    "amount": 6.14, 
+    "date": "2013-12-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 69.21, 
+    "date": "2013-12-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "BUFFALO WILD WINGS", 
+    "merchant_city": "CENTEREACH", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.85770758108904, 
+      "lng": -73.08187007904053
+    }, 
+    "merchant_zip": "11720", 
+    "merchant_address": "1986 MIDDLE COUNTRY RD", 
+    "amount": 31.69, 
+    "date": "2013-12-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BED BATH & BEYOND 37", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.869391590165364, 
+      "lng": -73.12860488891602
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2045 SMITH HAVEN PLZ", 
+    "amount": 65.16, 
+    "date": "2013-12-18", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "AIRPORT DINER", 
+    "merchant_city": "BOHEMIA", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.78509514460191, 
+      "lng": -73.11317422461423
+    }, 
+    "merchant_zip": "11716", 
+    "merchant_address": "3760 VETERANS MEMORIAL HW", 
+    "amount": 27.76, 
+    "date": "2013-12-23", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Other", 
+    "merchant_phone": null, 
+    "name": "LONG ISLAND CARES INC", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.819003, 
+      "lng": -73.261635
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "10 DAVIDS DR", 
+    "amount": 100, 
+    "date": "2013-12-25", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "ISLAND 16 CINEMAS DE LUX", 
+    "merchant_city": "HOLTSVILLE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.80585, 
+      "lng": -73.040567
+    }, 
+    "merchant_zip": "11742", 
+    "merchant_address": "185 MORRIS AVE", 
+    "amount": 25, 
+    "date": "2013-12-26", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 205.77, 
+    "date": "2013-12-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 31.45, 
+    "date": "2013-12-28", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Entertainment", 
+    "merchant_phone": null, 
+    "name": "LOEWS STONY BRO", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87540318323136, 
+      "lng": -73.12653422355652
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2196 NESCONSET HWY", 
+    "amount": 9.75, 
+    "date": "2014-01-01", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": 61.98, 
+    "date": "2014-01-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "COSTCO 9900206", 
+    "merchant_city": "NESCONSET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.860206834098456, 
+      "lng": -73.13057899475098
+    }, 
+    "merchant_zip": "11767", 
+    "merchant_address": "3000 MIDDLE COUNTRY RD", 
+    "amount": -13, 
+    "date": "2014-01-02", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 181.67, 
+    "date": "2014-01-04", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 22.87, 
+    "date": "2014-01-08", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "KUMO JAPANESE", 
+    "merchant_city": "STONY BROOK", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87740568, 
+      "lng": -73.11731
+    }, 
+    "merchant_zip": "11790", 
+    "merchant_address": "2548 NESCONSET HWY", 
+    "amount": 39.46, 
+    "date": "2014-01-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BED BATH & BEYOND 37", 
+    "merchant_city": "LAKE GROVE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.869391590165364, 
+      "lng": -73.12860488891602
+    }, 
+    "merchant_zip": "11755", 
+    "merchant_address": "2045 SMITH HAVEN PLZ", 
+    "amount": -65.16, 
+    "date": "2014-01-10", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "DEL FUEGO", 
+    "merchant_city": "SAINT JAMES", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.87816135965955, 
+      "lng": -73.16995657594317
+    }, 
+    "merchant_zip": "11780", 
+    "merchant_address": "429 ROUTE 25A", 
+    "amount": 49.28, 
+    "date": "2014-01-11", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 32.84, 
+    "date": "2014-01-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "KOHLS DEPT STORE 377", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.921404, 
+      "lng": -73.051448
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "5000 NESCONSET HWY", 
+    "amount": 79.29, 
+    "date": "2014-01-12", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Business Services", 
+    "merchant_phone": null, 
+    "name": "DUTCH GIRL CLEANER", 
+    "merchant_city": "MOUNT SINAI", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.932001, 
+      "lng": -73.032382
+    }, 
+    "merchant_zip": "11766", 
+    "merchant_address": "5507 NESCONSET HWY STE 5", 
+    "amount": 38, 
+    "date": "2014-01-13", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "CHIPOTLE 0979", 
+    "merchant_city": "CARLE PLACE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.74350166266222, 
+      "lng": -73.61805438995361
+    }, 
+    "merchant_zip": "11514", 
+    "merchant_address": "135 OLD COUNTRY RD", 
+    "amount": 22.87, 
+    "date": "2014-01-15", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Merchandise & Supplies", 
+    "merchant_phone": null, 
+    "name": "BJ'S 011", 
+    "merchant_city": "EAST SETAUKET", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.9027901845628, 
+      "lng": -73.0782184632683
+    }, 
+    "merchant_zip": "11733", 
+    "merchant_address": "4000 NESCONSET HWY", 
+    "amount": 42.31, 
+    "date": "2014-01-20", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }, 
+  {
+    "category": "Restaurant", 
+    "merchant_phone": null, 
+    "name": "HURRICANE GRILL & WINGS", 
+    "merchant_city": "HAUPPAUGE", 
+    "merchant_state": "NY", 
+    "coordinates": {
+      "lat": 40.807251612928056, 
+      "lng": -73.23820443763533
+    }, 
+    "merchant_zip": "11788", 
+    "merchant_address": "SUITE 7 694 MOTOR PKWAY", 
+    "amount": 24.42, 
+    "date": "2014-01-22", 
+    "merchant_country": "UNITED STATES", 
+    "type": null
+  }
+]
