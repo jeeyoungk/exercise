@@ -1,6 +1,8 @@
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
 *.a
+*.class
+*.o
+*.pyc
 *.so
 
 # Folders
@@ -26,5 +28,6 @@ _testmain.go
 .gitignore
 .DS_Store
 
-# Python
-*.pyc
+
+# Intellj
+.idea
