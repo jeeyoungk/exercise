@@ -1,11 +1,11 @@
 DAYS_IN_MONTH = [31,28,31,30,31,30,31,31,30,31,30,31]
-DAYS_IN_MONTH_COMM = [None for i in range(12)]
+DAYS_IN_MONTH_CUMULATIVE = [None for i in range(12)]
 DOW = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat']
 
 # pre-calculate cumulative days till this month (not including this month).
 for i in range(12):
-    if i == 0: DAYS_IN_MONTH_COMM[i] = 0
-    else: DAYS_IN_MONTH_COMM[i] = DAYS_IN_MONTH_COMM[i-1] + DAYS_IN_MONTH[i-1]
+    if i == 0: DAYS_IN_MONTH_CUMULATIVE[i] = 0
+    else: DAYS_IN_MONTH_CUMULATIVE[i] = DAYS_IN_MONTH_CUMULATIVE[i-1] + DAYS_IN_MONTH[i-1]
 
 def year_component(year):
     year = year - 1 # don't count this year.
@@ -19,7 +19,7 @@ def year_component(year):
     return days
 
 def month_component(month):
-    return DAYS_IN_MONTH_COMM[month - 1]
+    return DAYS_IN_MONTH_CUMULATIVE[month - 1]
 
 def day_component(day):
     return day
