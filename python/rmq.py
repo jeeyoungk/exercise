@@ -1,8 +1,12 @@
 # range median queries
-
 import math
 import random
 import argparse
+try:
+    import six
+    range = six.moves.range
+except ImportError:
+    range = xrange
 
 # Helper Functions
 def log2(v):
@@ -79,7 +83,7 @@ def naive_rmq(ary):
     def inner(start, end):
         v = ary[start]
         vidx = start
-        for i in xrange(start+1, end+1):
+        for i in range(start+1, end+1):
             if ary[i] < v:
                 v = ary[i]
                 vidx = i
@@ -97,9 +101,9 @@ def rmq_pow_2(ary):
     last_row = list(range(N))
     mins = [last_row]
     min_index = pairwise_min_index_for_array(ary)
-    for power in xrange(P):
+    for power in range(P):
         new_mins = [0] * (len(last_row) - width)
-        for i in xrange(len(last_row) - width):
+        for i in range(len(last_row) - width):
             min_value = min_index(last_row[i], last_row[i + width])
             new_mins[i] = min_value
         mins.append(new_mins)
@@ -121,7 +125,7 @@ def rmq_by_block(ary, index_subblock=False, block_rmq_algorithm=rmq_pow_2):
     if num_blocks * block_width < N: num_blocks += 1 # round up
     min_block_indices = [None] * num_blocks
     min_index = min_index_for_array(ary)
-    for i in xrange(N):
+    for i in range(N):
         block_idx = i / block_width
         if min_block_indices[block_idx] is None:
             min_block_indices[block_idx] = i
@@ -133,7 +137,7 @@ def rmq_by_block(ary, index_subblock=False, block_rmq_algorithm=rmq_pow_2):
     trees = {}
     block_signatures = []
     if index_subblock:
-        for i in xrange(num_blocks):
+        for i in range(num_blocks):
             subarray =  ary[i * block_width : (i + 1) * block_width]
             while len(subarray) < block_width:
                 subarray.append(float('inf'))
@@ -175,15 +179,15 @@ def rmq_by_subblock(ary):
 def rmq_tester_1(rmq_maker, N):
     # test 1 - sequential
     rmq = rmq_maker(range(N))
-    for i in xrange(N):
-        for j in xrange(i, N):
+    for i in range(N):
+        for j in range(i, N):
             assert rmq(i, j) == min(i, j)
 
 def rmq_tester_2(rmq_maker, N):
     # test 2 - reverse sequential
     rmq = rmq_maker(list(reversed(range(N))))
-    for i in xrange(N):
-        for j in xrange(i, N):
+    for i in range(N):
+        for j in range(i, N):
             assert rmq(i, j) == max(i, j)
 
 def rmq_tester_3(rmq_maker, N):
@@ -191,17 +195,17 @@ def rmq_tester_3(rmq_maker, N):
     test = [1] * N
     test[10] = 0
     rmq = rmq_maker(test)
-    for i in xrange(N):
-        for j in xrange(i, N):
+    for i in range(N):
+        for j in range(i, N):
             assert test[rmq(i, j)] == (0 if (i <= 10 <= j) else 1)
 
 def rmq_tester_random(rmq_maker, N, iteration = 1000):
     # test 4 - random test
-    test = range(N)
+    test = list(range(N))
     random.shuffle(test)
     rmq = rmq_maker(test)
     canonical = rmq_pow_2(test)
-    for it in xrange(iteration):
+    for it in range(iteration):
         x = random.randint(0, N - 1)
         y = random.randint(0, N - 1)
         i = min(x, y)
@@ -214,15 +218,6 @@ def rmq_tester(rmq_maker):
         rmq_tester_2(rmq_maker, N)
         rmq_tester_3(rmq_maker, N)
     rmq_tester_random(rmq_maker, 1000)
-
-def test():
-    # rmq_tester_random(rmq_by_subblock, 1000000, 1)
-    rmq_tester_random(rmq_by_subblock, 10000000, 1)
-    return
-    rmq_tester(naive_rmq)
-    rmq_tester(rmq_pow_2)
-    rmq_tester(rmq_by_block)
-    rmq_tester(rmq_by_subblock)
 
 def main():
     parser = argparse.ArgumentParser()
