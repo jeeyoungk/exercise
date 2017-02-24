@@ -31,3 +31,7 @@ _testmain.go
 
 # Intellj
 .idea
+
+
+# VS Code
+.vscode

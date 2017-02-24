@@ -31,6 +31,9 @@ def cannot_pickle(x):
 def exception(x):
     raise RuntimeError("I don't like %d" % x)
 
+def heavy_work(x):
+    while True:
+        pass
 
 def main():
     print "PID: %d" % os.getpid()
@@ -40,7 +43,7 @@ def main():
         print "Test: %s" % func.__name__
         try:
             res = p.map_async(func, range(10))
-            result = res.get(10)
+            result = res.get(10000000000)
             print " success: %s" % result
         except Exception as e:
             print " error: %s" % e
@@ -50,6 +53,7 @@ def main():
     wrapper(exception)
     wrapper(sleep)
     wrapper(sleep_nohandler)
+    # wrapper(heavy_work)
 
 if __name__ == '__main__':
     main()
