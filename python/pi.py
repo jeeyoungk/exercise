@@ -46,6 +46,9 @@ def around_border(x, y, N):
     return True
 
 def navigating(N):
+    '''
+    calculate the area of a quarter-circle via following its outlines.
+    '''
     length = 2 ** N
     x = 0
     y = length - 1
@@ -54,19 +57,21 @@ def navigating(N):
     border = 1
 
     while not (x == 2 ** N - 1 and y == 0):
-        # print((x, y), inside, outside)
         right = around_border(x + 1, y, N)
         bottom = around_border(x, y - 1, N)
         assert not (right and bottom), "(%d, %d) Cannot navigate" % (x, y)
         assert right or bottom, "(%d, %d) Navigating both" % (x, y)
         if right:
+            # move to the right pixel
             inside += y
             outside += (length - y - 1)
             x += 1
         elif bottom:
+            # move to the bottom pixel
+            # subtract 1 pixel from the circle.
+            # no need to add 1 to outside, because this area is taken by the border.
             inside -= 1
             y -= 1
-    # print((x, y), inside, outside)
     return (
         (inside  / length / length),
         (outside / length / length)
