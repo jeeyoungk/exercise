@@ -29,8 +29,6 @@ def iterate(x, y, iteration, max_iteration):
     lower += ld
     upper += ud
     return (lower / 4, upper / 4)
-    # TODO - recursion call
-    
     
 
 def calculate(max_iteration):
