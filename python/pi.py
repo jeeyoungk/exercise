@@ -3,6 +3,17 @@
 from __future__ import division
 
 def iterate(x, y, iteration, max_iteration):
+    '''
+    Determines whether a square
+    size = (1 / 2 ^ iteration)
+    at coord (x, y)
+
+    is inside the unit circle or not.
+
+    returns 2-tuple of
+    (volume_inside, volume_outside)
+    where volume_insdie + volume_outside <= 1 / 4 ^ iteration
+    '''
     length = 2 ** iteration
     low_x = x / length
     low_y = y / length
@@ -14,21 +25,13 @@ def iterate(x, y, iteration, max_iteration):
     elif high_length < 1: return (1, 0) # part of circle
     elif iteration == max_iteration: return (0, 0) # uncertain
 
-    lower = 0
-    upper = 0
-    ld, ud = iterate(x * 2, y * 2, iteration + 1, max_iteration)
-    lower += ld
-    upper += ud
-    ld, ud = iterate(x * 2, y * 2 + 1, iteration + 1, max_iteration)
-    lower += ld
-    upper += ud
-    ld, ud = iterate(x * 2 + 1, y * 2, iteration + 1, max_iteration)
-    lower += ld
-    upper += ud
-    ld, ud = iterate(x * 2 + 1, y * 2 + 1, iteration + 1, max_iteration)
-    lower += ld
-    upper += ud
-    return (lower / 4, upper / 4)
+    # recursive call - subdivide the square to 4 chunks
+    # and collect their results.
+    ld1, ud1 = iterate(x * 2, y * 2, iteration + 1, max_iteration)
+    ld2, ud2 = iterate(x * 2, y * 2 + 1, iteration + 1, max_iteration)
+    ld3, ud3 = iterate(x * 2 + 1, y * 2, iteration + 1, max_iteration)
+    ld4, ud4 = iterate(x * 2 + 1, y * 2 + 1, iteration + 1, max_iteration)
+    return ((ld1 + ld2 + ld3 + ld4) / 4, (ud1 + ud2 + ud3 + ud4) / 4)
     
 
 def calculate(max_iteration):
