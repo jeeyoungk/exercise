@@ -2,7 +2,7 @@
 # and seeing it is part of the circle or not.
 from __future__ import division
 
-def iterate(x, y, iteration, max_iteration):
+def iterate(x, y, iteration, N):
     '''
     Determines whether a square
     size = (1 / 2 ^ iteration)
@@ -21,26 +21,70 @@ def iterate(x, y, iteration, max_iteration):
     high_y = (y + 1) / length
     low_length = low_x ** 2 + low_y ** 2
     high_length = high_x ** 2 + high_y ** 2
-    if low_length > 1: return (0, 1) # NOT part of circle
-    elif high_length < 1: return (1, 0) # part of circle
-    elif iteration == max_iteration: return (0, 0) # uncertain
+    if low_length > 1: return (0, 1) # NOT part of the circle
+    elif high_length < 1: return (1, 0) # part of the circle
+    elif iteration == N: return (0, 0) # uncertain
 
     # recursive call - subdivide the square to 4 chunks
     # and collect their results.
-    ld1, ud1 = iterate(x * 2, y * 2, iteration + 1, max_iteration)
-    ld2, ud2 = iterate(x * 2, y * 2 + 1, iteration + 1, max_iteration)
-    ld3, ud3 = iterate(x * 2 + 1, y * 2, iteration + 1, max_iteration)
-    ld4, ud4 = iterate(x * 2 + 1, y * 2 + 1, iteration + 1, max_iteration)
+    ld1, ud1 = iterate(x * 2, y * 2, iteration + 1, N)
+    ld2, ud2 = iterate(x * 2, y * 2 + 1, iteration + 1, N)
+    ld3, ud3 = iterate(x * 2 + 1, y * 2, iteration + 1, N)
+    ld4, ud4 = iterate(x * 2 + 1, y * 2 + 1, iteration + 1, N)
     return ((ld1 + ld2 + ld3 + ld4) / 4, (ud1 + ud2 + ud3 + ud4) / 4)
-    
 
-def calculate(max_iteration):
-    lower, upper = iterate(0, 0, 0, max_iteration)
+def around_border(x, y, N):
+    length = 2 ** N
+    low_x = x / length
+    low_y = y / length
+    high_x = (x + 1) / length
+    high_y = (y + 1) / length
+    low_length = low_x ** 2 + low_y ** 2
+    high_length = high_x ** 2 + high_y ** 2
+    if low_length > 1: return False
+    elif high_length < 1: return False
+    return True
+
+def navigating(N):
+    length = 2 ** N
+    x = 0
+    y = length - 1
+    inside = length - 1
+    outside = 0
+    border = 1
+
+    while not (x == 2 ** N - 1 and y == 0):
+        # print((x, y), inside, outside)
+        right = around_border(x + 1, y, N)
+        bottom = around_border(x, y - 1, N)
+        assert not (right and bottom), "(%d, %d) Cannot navigate" % (x, y)
+        assert right or bottom, "(%d, %d) Navigating both" % (x, y)
+        if right:
+            inside += y
+            outside += (length - y - 1)
+            x += 1
+        elif bottom:
+            inside -= 1
+            y -= 1
+    # print((x, y), inside, outside)
+    return (
+        (inside  / length / length),
+        (outside / length / length)
+    )
+
+
+def calculate(N, algorithm):
+    lower, upper = algorithm(N)
+    pi_lower = lower * 4
+    pi_upper = (1 - upper) * 4
     delta = ((1 - upper) - lower) * 4
-    print("%2d: %f < pi < %f (delta = %f)" % (max_iteration, lower * 4, (1 - upper) * 4, delta))
+    print("%2d: %f < pi < %f (delta = %f)" % (N, pi_lower, pi_upper, delta))
+
 
 for i in range(20):
-    calculate(i)
+    print("")
+    calculate(i, lambda N: iterate(0, 0, 0, N))
+    calculate(i, navigating)
 
 # sample out:
 '''
