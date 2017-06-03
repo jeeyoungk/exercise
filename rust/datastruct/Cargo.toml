@@ -1,0 +1,6 @@
+[package]
+name = "datastruct"
+version = "0.1.0"
+authors = ["Jeeyoung Kim <jee@squareup.com>"]
+
+[dependencies]

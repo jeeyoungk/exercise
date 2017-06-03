@@ -94,6 +94,12 @@
             <artifactId>aws-java-sdk-core</artifactId>
             <version>1.11.86</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.19</version>
+        </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
