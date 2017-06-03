@@ -22,9 +22,9 @@ fn primitives() {
     println!("1 + 2 = {}", 1 + 2);
     println!("1 - 2 = {}", 1 - 2);
     println!("true and true = {}", true && true);
-    let x:char = 'x';
+    let x: char = 'x';
     println!("x = {}", x);
-    let y:f32 = 3.14;
+    let y: f32 = 3.14;
     println!("y = {}", y);
 }
 
@@ -39,7 +39,7 @@ fn tuples() {
 }
 
 fn arrays() {
-    fn sum(slice:&[i32]) -> i32 {
+    fn sum(slice: &[i32]) -> i32 {
         let mut total = 0;
         for i in 0..slice.len() {
             total += slice[i]
@@ -57,22 +57,25 @@ fn structs() {
     #[derive(Copy, Clone)]
     struct Point {
         x: i32,
-        y: i32
+        y: i32,
     }
     fn add(p1: Point, p2: Point) -> Point {
         Point {
             x: p1.x + p2.x,
-            y: p1.y + p2.y
+            y: p1.y + p2.y,
         }
     }
     impl Add for Point {
         // operator overloading!
         type Output = Point;
         fn add(self, other: Point) -> Point {
-            Point { x: self.x + other.x, y: self.y + other.y }
+            Point {
+                x: self.x + other.x,
+                y: self.y + other.y,
+            }
         }
     }
-    
+
     fn print_point(p: Point) {
         println!("({} ,{})", p.x, p.y);
     }
@@ -86,7 +89,7 @@ fn structs() {
 
 fn references() {
     // testing mutable reference.
-    let mut x:i32 = 5;
+    let mut x: i32 = 5;
     println!("x: {}", x);
     fn increment(x: &mut i32) {
         *x = *x + 1;
@@ -102,14 +105,14 @@ fn references() {
     print_twice(&x);
     /*
     this code does not compile - taking multiple mutable references.
-    { 
+    {
         let y = &mut x;
         let z = &mut x;
     }
     */
     /*
     this code does not compile - taking mutable & immutable references (they form read-write-lock).
-    { 
+    {
         let y = & x;
         let z = &mut x;
     }
@@ -121,14 +124,13 @@ fn enums() {
     enum Color {
         RED,
         GREEN,
-        BLACK
+        BLACK,
     };
     fn categorize_color(c: Color) {
         match c {
             Color::RED => println!("color is red!"),
             Color::GREEN => println!("color is green!"),
-            _ =>
-                println!("Unknown color.")
+            _ => println!("Unknown color."),
         }
     }
     categorize_color(Color::RED);
@@ -137,18 +139,18 @@ fn enums() {
     // pattern matching enum.
     enum Option {
         None,
-        Some(i32)
+        Some(i32),
     }
     fn app(o: Option, function: fn(i32) -> i32) -> Option {
         match o {
             Option::None => Option::None,
-            Option::Some(x) => Option::Some(function(x))
+            Option::Some(x) => Option::Some(function(x)),
         }
     }
-    fn add_one(x:i32) -> i32 {
+    fn add_one(x: i32) -> i32 {
         x + 1
     }
-    fn print_value(x:i32) -> i32 {
+    fn print_value(x: i32) -> i32 {
         println!("value: {}", x);
         return 0;
     }
