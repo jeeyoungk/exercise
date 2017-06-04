@@ -29,12 +29,6 @@ struct RCNodeIterator<'a, T: 'a + Copy> {
     node: &'a RCNode<T>,
 }
 
-// doubly linked list
-enum DLNode<T> {
-    Empty,
-    Elem(T, Box<DLNode<T>>, Box<DLNode<T>>),
-}
-
 impl<'a, T> Iterator for NodeIterator<'a, T> {
     type Item = &'a T;
 
@@ -110,20 +104,10 @@ impl<T:Copy> RCNode<T> {
     }
 }
 
-impl<T> DLNode<T> {
-    pub fn len(&self) -> usize {
-        match self {
-            &DLNode::Empty => 0,
-            &DLNode::Elem(_, _, ref next) => 1 + next.len(),
-        }
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use linkedlist::Node;
     use linkedlist::RCNode;
-    use linkedlist::DLNode;
     use std::rc::Rc;
 
     #[test]
@@ -137,12 +121,6 @@ mod tests {
     fn test_rcnode_simple() {
         assert_eq!(RCNode::Empty::<i32>.len(), 0);
         assert_eq!(RCNode::Elem(1, Rc::new(RCNode::Empty)).len(), 1);
-    }
-
-    #[test]
-    fn test_dlnode_simple() {
-        assert_eq!(DLNode::Empty::<i32>.len(), 0);
-
     }
 
     #[test]
