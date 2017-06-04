@@ -1,6 +1,9 @@
 mod columnar;
 mod linkedlist;
 mod cell;
+mod tree;
+
+extern crate rand;
 
 fn main() {
     println!("Hello, world!");
@@ -47,6 +50,31 @@ mod tests {
     }
 
     #[test]
+    fn test_reference() {
+        let x = 5;
+        let a = &x;
+        let b = &x; // duplicate read-only references are allowed.
+        let c = a; // reference can be copied.
+        assert_eq!(x, *a);
+        assert_eq!(x, *b);
+        assert_eq!(x, *c);
+    }
+
+    #[test]
+    fn test_copy() {
+        let x = 5;
+        let y = x; // copy
+        assert_eq!(x, y);
+    }
+
+    #[test]
+    fn test_non_copy() {
+        let x = Box::new(5);
+        let y = x; // move
+        // assert_eq!(x, y); // cannot use x again.
+    }
+
+    #[test]
     #[allow(dead_code)]
     fn test_sizeof() {
         struct SingleField {
@@ -60,6 +88,20 @@ mod tests {
             y: &'a i32,
             z: &'a i64,
         }
+        enum EnumA {
+            A,
+            B,
+            C
+        }
+        enum EnumB {
+            A,
+            B(i32),
+        }
+        enum EnumC {
+            A,
+            B(i32),
+            C(i64),
+        }
         assert_eq!(mem::size_of::<i64>(), 8);
         assert_eq!(mem::size_of::<i32>(), 4);
         assert_eq!(mem::size_of::<i16>(), 2);
@@ -68,5 +110,8 @@ mod tests {
         assert_eq!(mem::size_of::<SingleField>(), 4);
         assert_eq!(mem::size_of::<RefField>(), 8); // pointer size.
         assert_eq!(mem::size_of::<RefFieldMultiple>(), 24); // pointer size.
+        assert_eq!(mem::size_of::<EnumA>(), 1);
+        assert_eq!(mem::size_of::<EnumB>(), 8);
+        assert_eq!(mem::size_of::<EnumC>(), 16);
     }
 }
