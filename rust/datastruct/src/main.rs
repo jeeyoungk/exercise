@@ -2,6 +2,7 @@ mod columnar;
 mod linkedlist;
 mod cell;
 mod tree;
+mod kmeans;
 
 extern crate rand;
 
@@ -9,6 +10,7 @@ fn main() {
     println!("Hello, world!");
 }
 
+#[allow(unused_variables)]
 #[cfg(test)]
 mod tests {
     use std::mem;

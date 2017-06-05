@@ -1,7 +1,5 @@
 use std::cmp::max;
 use std::mem;
-use std::iter::Map;
-use std::ops::FnMut;
 use std::fmt;
 
 #[derive(Debug)]
@@ -27,6 +25,7 @@ impl fmt::Display for Structure {
     }
 }
 */
+
 impl<T: Ord + Copy + fmt::Debug> fmt::Display for Tree<T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         return self.fmt_indent(f, 0);
@@ -71,7 +70,6 @@ impl<'a, T: Ord + Copy + fmt::Debug> Iterator for TreeIterator<'a, T> {
                     match *x { // trees are additionally traversed.
                         Tree::Leaf => panic!("Should not traverse leaf nodes"),
                         Tree::Node {
-                            v,
                             ref left,
                             ref right,
                             ..
@@ -151,6 +149,7 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
         return AppendResult { depth_changed: old_depth != self.depth() };
     }
 
+    #[allow(dead_code)]
     fn check_depth(&mut self) {
         let (left_depth, right_depth) = match *self {
             Tree::Leaf => panic!("No leaf node"),
@@ -365,7 +364,7 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
     {
         match *self {
             Tree::Leaf => {
-                write!(f, "{}_\n", "|".repeat(indent));
+                write!(f, "{}_\n", "|".repeat(indent))?;
             }
             Tree::Node {
                 v,
@@ -373,9 +372,9 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
                 ref right,
                 ..
             } => {
-                write!(f, "{}{:?}\n", "|".repeat(indent), v);
-                left.fmt_indent(f, indent + 1);
-                right.fmt_indent(f, indent + 1);
+                write!(f, "{}{:?}\n", "|".repeat(indent), v)?;
+                left.fmt_indent(f, indent + 1)?;
+                right.fmt_indent(f, indent + 1)?;
             }
         }
         return write!(f, "");
@@ -408,6 +407,7 @@ mod tests {
     }
 
     #[test]
+    #[allow(unused_variables)]
     fn test_tree_balanced() {
         let mut t = Tree::Leaf::<i32>;
         t.append(2);
