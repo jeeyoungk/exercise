@@ -14,7 +14,7 @@ mod tests {
     use std::mem;
     #[test]
     fn test_intersection_lifetime() {
-        fn x_or_y<'a>(x : &'a i32, y: &'a i32) -> &'a i32{
+        fn x_or_y<'a>(x: &'a i32, y: &'a i32) -> &'a i32 {
             if x < y {
                 return x;
             }
@@ -41,7 +41,7 @@ mod tests {
             assert_eq!(*z, 5);
             {
                 let y = &7;
-                let tmp = XY{x, y};
+                let tmp = XY { x, y };
                 z = tmp.x; // this code would not work without x and y being in different lifetime.
                 assert_eq!(*tmp.y, 7);
             }
@@ -78,10 +78,10 @@ mod tests {
     #[allow(dead_code)]
     fn test_sizeof() {
         struct SingleField {
-            x: i32
+            x: i32,
         }
         struct RefField<'a> {
-            x: &'a i32
+            x: &'a i32,
         }
         struct RefFieldMultiple<'a> {
             x: &'a i16,
@@ -91,7 +91,7 @@ mod tests {
         enum EnumA {
             A,
             B,
-            C
+            C,
         }
         enum EnumB {
             A,

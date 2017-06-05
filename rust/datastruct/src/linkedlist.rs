@@ -5,7 +5,7 @@ use std::rc::Rc;
 #[derive(Debug)]
 enum Node<T> {
     Empty,
-    Elem(T, Box<Node<T>>)
+    Elem(T, Box<Node<T>>),
 }
 
 struct NodeIterator<'a, T: 'a> {
@@ -22,7 +22,7 @@ enum RCNode<T: Copy> {
     // Box<T>
     // For this case, I chose to use T:Copy.
     Empty,
-    Elem(T, Rc<RCNode<T>>)
+    Elem(T, Rc<RCNode<T>>),
 }
 
 struct RCNodeIterator<'a, T: 'a + Copy> {
@@ -38,7 +38,7 @@ impl<'a, T> Iterator for NodeIterator<'a, T> {
             Node::Elem(ref v, ref next) => {
                 self.node = &**next;
                 Some(v)
-            },
+            }
         }
     }
 }
@@ -51,7 +51,7 @@ impl<'a, T: Copy> Iterator for RCNodeIterator<'a, T> {
             RCNode::Elem(ref v, ref next) => {
                 self.node = &**next;
                 Some(v)
-            },
+            }
         }
     }
 }
@@ -66,21 +66,16 @@ impl<T> Node<T> {
 
     pub fn prepend(self, v: T) -> Node<T> {
         // TODO - this one does not borrow self.
-        return Node::Elem(
-            v,
-            Box::new(self),
-        );
+        return Node::Elem(v, Box::new(self));
     }
 
     pub fn iter<'a>(&'a self) -> NodeIterator<'a, T> {
         // lifetime needs to be propagated.
-        return NodeIterator {
-            node: self,
-        };
+        return NodeIterator { node: self };
     }
 }
 
-impl<T:Copy> RCNode<T> {
+impl<T: Copy> RCNode<T> {
     pub fn len(&self) -> usize {
         match self {
             &RCNode::Empty => 0,
@@ -90,17 +85,12 @@ impl<T:Copy> RCNode<T> {
 
     pub fn prepend(&self, v: T) -> RCNode<T> {
         // notice "borrow" here.
-        return RCNode::Elem(
-            v,
-            Rc::new(self.clone())
-        )
+        return RCNode::Elem(v, Rc::new(self.clone()));
     }
 
     pub fn iter<'a>(&'a self) -> RCNodeIterator<'a, T> {
         // lifetime needs to be propagated.
-        return RCNodeIterator {
-            node: self,
-        };
+        return RCNodeIterator { node: self };
     }
 }
 
@@ -114,7 +104,8 @@ mod tests {
     fn test_simple() {
         assert_eq!(Node::Empty::<i32>.len(), 0);
         assert_eq!(Node::Elem(32, Box::new(Node::Empty)).len(), 1);
-        assert_eq!(Node::Elem(32, Box::new(Node::Elem(10, Box::new(Node::Empty)))).len(), 2);
+        assert_eq!(Node::Elem(32, Box::new(Node::Elem(10, Box::new(Node::Empty)))).len(),
+                   2);
     }
 
     #[test]

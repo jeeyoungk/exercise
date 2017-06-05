@@ -34,22 +34,20 @@ struct RawColumnIterator<'a, T: 'a> {
 
 impl<T: Copy> Column<T> for RawColumn<T> {
     fn len(&self) -> usize {
-        return self.elements.len()
+        return self.elements.len();
     }
 }
 
 impl<T> RawColumn<T> {
     pub fn new() -> RawColumn<T> {
-        RawColumn {
-            elements: Vec::new()
-        }
+        RawColumn { elements: Vec::new() }
     }
 
     fn iterator<'a>(&'a self) -> RawColumnIterator<T> {
         return RawColumnIterator {
-            column: self,
-            index: 0,
-        }
+                   column: self,
+                   index: 0,
+               };
     }
 }
 
@@ -60,7 +58,7 @@ impl<'a, T: Copy> ColumnIterator<T> for RawColumnIterator<'a, T> {
     }
 
     fn peek(&self) -> T {
-        return self.column.elements[self.index]
+        return self.column.elements[self.index];
     }
 
     fn seek(&mut self, offset: usize) {
@@ -79,7 +77,7 @@ impl<'a, T: Copy> Iterator for RawColumnIterator<'a, T> {
             self.index += 1;
             return Some(v);
         }
-        return None
+        return None;
     }
 }
 
@@ -90,7 +88,7 @@ mod tests {
 
     #[test]
     fn column_sample() {
-        let mut rc : RawColumn<i32> = RawColumn::new();
+        let mut rc: RawColumn<i32> = RawColumn::new();
         rc.elements.push(1);
         rc.elements.push(2);
         rc.elements.push(3);
@@ -105,7 +103,7 @@ mod tests {
 
     #[test]
     fn column_iterator() {
-        let mut rc : RawColumn<i32> = RawColumn::new();
+        let mut rc: RawColumn<i32> = RawColumn::new();
         rc.elements.push(1);
         rc.elements.push(2);
         rc.elements.push(3);

@@ -24,7 +24,7 @@ mod tests {
             let y = c.try_borrow(); // this panics
             match y {
                 Ok(_) => assert!(false),
-                _ => ()
+                _ => (),
             }
         }
         {
