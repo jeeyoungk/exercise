@@ -55,7 +55,7 @@ impl<'a, T: Ord + Copy + fmt::Debug> Iterator for TreeIterator<'a, T> {
             let t = tree.as_ref();
             match *t {
                 Tree::Leaf => (),
-                ref x => stack.push(VorT::T(t)),
+                _ => stack.push(VorT::T(t)),
             }
         };
         while self.stack.len() > 0 {
