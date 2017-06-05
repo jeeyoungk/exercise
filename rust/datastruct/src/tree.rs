@@ -1,6 +1,10 @@
 use std::cmp::max;
 use std::mem;
+use std::iter::Map;
+use std::ops::FnMut;
+use std::fmt;
 
+#[derive(Debug)]
 enum Tree<T: Ord + Copy> {
     Leaf,
     Node {
@@ -11,9 +15,27 @@ enum Tree<T: Ord + Copy> {
     },
 }
 
+/*
+impl fmt::Display for Structure {
+    // This trait requires `fmt` with this exact signature.
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Write strictly the first element into the supplied output
+        // stream: `f`. Returns `fmt::Result` which indicates whether the
+        // operation succeeded or failed. Note that `write!` uses syntax which
+        // is very similar to `println!`.
+        write!(f, "{}", self.0)
+    }
+}
+*/
+impl<T: Ord + Copy + fmt::Debug> fmt::Display for Tree<T> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        return self.fmt_indent(f, 0);
+    }
+}
+
 // value or reference to a tree - used for navigation.
 enum VorT<'a, S: Ord + Copy + 'a> {
-    V(S),
+    V(&'a Tree<S>),
     T(&'a Tree<S>),
 }
 
@@ -25,9 +47,9 @@ struct AppendResult {
     depth_changed: bool,
 }
 
-impl<'a, T: Ord + Copy> Iterator for TreeIterator<'a, T> {
-    type Item = T;
-    fn next(&mut self) -> Option<T> {
+impl<'a, T: Ord + Copy + fmt::Debug> Iterator for TreeIterator<'a, T> {
+    type Item = &'a Tree<T>;
+    fn next(&mut self) -> Option<&'a Tree<T>> {
         let maybe_append = |stack: &mut Vec<_>, tree: &'a Box<Tree<T>>| {
             // maybe append to the stack if the value is not a leaf node.
             let t = tree.as_ref();
@@ -39,10 +61,15 @@ impl<'a, T: Ord + Copy> Iterator for TreeIterator<'a, T> {
         while self.stack.len() > 0 {
             let vort = self.stack.pop().unwrap();
             match vort {
-                VorT::V(v) => return Some(v), // values are returned.
+                VorT::V(x) => {
+                    match *x {
+                        Tree::Leaf => panic!("Should not traverse leaf nodes"),
+                        Tree::Node { .. } => return Some(x),
+                    }
+                }
                 VorT::T(x) => {
                     match *x { // trees are additionally traversed.
-                        Tree::Leaf => panic!("Should not append leaf nodes"),
+                        Tree::Leaf => panic!("Should not traverse leaf nodes"),
                         Tree::Node {
                             v,
                             ref left,
@@ -51,7 +78,7 @@ impl<'a, T: Ord + Copy> Iterator for TreeIterator<'a, T> {
                         } => {
                             // performs in-order traversal.
                             maybe_append(&mut self.stack, right);
-                            self.stack.push(VorT::V(v));
+                            self.stack.push(VorT::V(x));
                             maybe_append(&mut self.stack, left);
                         }
                     }
@@ -62,9 +89,10 @@ impl<'a, T: Ord + Copy> Iterator for TreeIterator<'a, T> {
     }
 }
 
-impl<T: Ord + Copy> Tree<T> {
+impl<T: Ord + Copy + fmt::Debug> Tree<T> {
     fn append(&mut self, v: T) -> AppendResult {
         // consumes self, and creates a new list.
+        let old_depth = self.depth();
         let result: AppendResult = match *self {
             Tree::Leaf => {
                 *self = Tree::Node {
@@ -81,19 +109,67 @@ impl<T: Ord + Copy> Tree<T> {
                 ref mut right,
                 ..
             } => {
-                if v < nv {
-                    left.append(v)
-                } else if v > nv {
-                    right.append(v)
-                } else {
+                if v == nv {
                     AppendResult { depth_changed: false }
+                } else {
+                    let result: AppendResult = if v < nv {
+                        left.append(v)
+                    } else {
+                        right.append(v)
+                    };
+                    result
                 }
             }
         };
-        return self.recompute(result);
+        if result.depth_changed {
+            /*
+            let (left_depth, right_depth) = match *self {
+                Tree::Leaf => panic!("No leaf node"),
+                Tree::Node {
+                    ref left,
+                    ref right,
+                    ..
+                } => (left.depth(), right.depth()),
+            };
+            let delta = left_depth as i32 - right_depth as i32;
+            if delta == 2 {
+                self.rotate_right(); // need to call this at the end.
+                self.check_depth();
+            } else if delta == -2 {
+                self.rotate_left(); // need to call this at the end.
+                self.check_depth();
+            } else if delta == 0 || delta == -1 || delta == 1 {
+                // do nothing
+            } else {
+                panic!("Depth difference cannot be more than 2, got {}\n{}",
+                       delta,
+                       &self);
+            }
+            */
+        }
+        self.recompute(result);
+        return AppendResult { depth_changed: old_depth != self.depth() };
+    }
+
+    fn check_depth(&mut self) {
+        let (left_depth, right_depth) = match *self {
+            Tree::Leaf => panic!("No leaf node"),
+            Tree::Node {
+                ref left,
+                ref right,
+                ..
+            } => (left.depth(), right.depth()),
+        };
+        let delta = left_depth as i32 - right_depth as i32;
+        assert!(delta >= -2, "delta={} tree=\n{}", delta, self);
+        if delta == 3 {
+            self.rotate_right();
+        };
+        assert!(delta <= 2, "delta={} tree=\n{}", delta, self);
     }
 
     fn recompute(&mut self, prev_result: AppendResult) -> AppendResult {
+        // recompute - and see if the depth has changed.
         let depth_changed = if prev_result.depth_changed {
             self.recompute_depth()
         } else {
@@ -164,6 +240,7 @@ impl<T: Ord + Copy> Tree<T> {
             Tree::Node { cached_depth, .. } => cached_depth,
         }
     }
+
     fn raw_depth(&self) -> usize {
         // returns un-cached depth - used for testing.
         match *self {
@@ -185,8 +262,9 @@ impl<T: Ord + Copy> Tree<T> {
         //    Y
         //  X   c
         // a b
+        // println!("rotate_left [{:?}]\n{}", self.value().unwrap(), self);
         match *self {
-            Tree::Leaf => return, // cannot rotate leaf node.
+            Tree::Leaf => panic!("cannot rotate"), // cannot rotate leaf node.
             Tree::Node {
                 v: ref mut x_val,
                 left: ref mut a,
@@ -198,7 +276,7 @@ impl<T: Ord + Copy> Tree<T> {
                     Tree::Node { .. } => true,
                 };
                 if !is_y_node {
-                    return 
+                    panic!("cannot rotate")
                 }
                 mem::swap(a, y);
                 let new_a = y;
@@ -224,8 +302,9 @@ impl<T: Ord + Copy> Tree<T> {
 
     fn rotate_right(&mut self) {
         // reverse of rotate_left
+        //println!("rotate_right [{:?}]\n{}", self.value().unwrap(), self);
         match *self {
-            Tree::Leaf => return,
+            Tree::Leaf => panic!("cannot rotate"),
             Tree::Node {
                 v: ref mut y_val,
                 left: ref mut x,
@@ -237,7 +316,7 @@ impl<T: Ord + Copy> Tree<T> {
                     Tree::Node { .. } => true,
                 };
                 if !is_x_node {
-                    return
+                    panic!("cannot rotate")
                 }
                 mem::swap(x, c);
                 let new_x = c;
@@ -280,11 +359,40 @@ impl<T: Ord + Copy> Tree<T> {
             }
         }
     }
+
+    fn fmt_indent(&self, f: &mut fmt::Formatter, indent: usize) -> fmt::Result
+        where T: fmt::Debug
+    {
+        match *self {
+            Tree::Leaf => {
+                write!(f, "{}_\n", "|".repeat(indent));
+            }
+            Tree::Node {
+                v,
+                ref left,
+                ref right,
+                ..
+            } => {
+                write!(f, "{}{:?}\n", "|".repeat(indent), v);
+                left.fmt_indent(f, indent + 1);
+                right.fmt_indent(f, indent + 1);
+            }
+        }
+        return write!(f, "");
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use tree::Tree;
+    use std::fmt;
+
+    fn verify_depty<T: Ord + Copy + fmt::Debug>(t: &Tree<T>) {
+        let iter = t.iter();
+        for t in iter {
+            assert_eq!(t.depth(), t.raw_depth());
+        }
+    }
 
     #[test]
     fn test_tree() {
@@ -292,10 +400,11 @@ mod tests {
         for x in 1..10 {
             t.append(x);
             assert_eq!(t.len(), x as usize);
-            assert_eq!(t.depth(), x as usize);
+            // assert_eq!(t.depth(), x as usize);
             assert!(t.find(x));
             assert!(!t.find(x + 1));
         }
+        verify_depty(&t);
     }
 
     #[test]
@@ -308,10 +417,11 @@ mod tests {
         t.append(1);
         assert_eq!(t.len(), 3);
         assert_eq!(t.depth(), 2);
-        let v: Vec<i32> = t.iter().collect();
+        let v: Vec<i32> = t.iter().map(|x| x.value().unwrap()).collect();
         assert_eq!(vec![1, 2, 3], v);
         let iter = t.iter();
         // t.append(4); // does not compile - iterator is still alive.
+        verify_depty(&t);
     }
 
     #[test]
@@ -324,20 +434,22 @@ mod tests {
         t.append(25);
         assert_eq!(t.value(), Some(10));
         t.rotate_left();
+        verify_depty(&t);
         assert_eq!(t.value(), Some(20));
         assert_eq!(t.left().value(), Some(10));
         assert_eq!(t.left().left().value(), Some(5));
         assert_eq!(t.left().right().value(), Some(15));
         assert_eq!(t.right().value(), Some(25));
-        let v: Vec<i32> = t.iter().collect();
+        let v: Vec<i32> = t.iter().map(|x| x.value().unwrap()).collect();
         assert_eq!(vec![5, 10, 15, 20, 25], v);
         t.rotate_right();
+        verify_depty(&t);
         assert_eq!(t.value(), Some(10));
         assert_eq!(t.left().value(), Some(5));
         assert_eq!(t.right().value(), Some(20));
         assert_eq!(t.right().left().value(), Some(15));
         assert_eq!(t.right().right().value(), Some(25));
-        let v: Vec<i32> = t.iter().collect();
+        let v: Vec<i32> = t.iter().map(|x| x.value().unwrap()).collect();
         assert_eq!(vec![5, 10, 15, 20, 25], v);
     }
 
@@ -348,11 +460,13 @@ mod tests {
         let mut rng: StdRng = SeedableRng::from_seed(seed);
         let mut t = Tree::Leaf::<u32>;
         for x in 1..100 {
-            t.append(rng.gen::<u32>());
+            let v = rng.gen::<u32>();
+            t.append(v);
             assert_eq!(t.len(), x);
         }
         assert_eq!(t.depth(), 13);
-        let v: Vec<_> = t.iter().collect();
+        verify_depty(&t);
+        let v: Vec<_> = t.iter().map(|x| x.value().unwrap()).collect();
         assert_eq!(vec![75549367, 103053517, 157650975, 203616506, 226504616, 243216458,
                         248794081, 251732419, 300437459, 335380164, 342577264, 367011760,
                         374644985, 413093421, 498698172, 637344937, 652361274, 664864318,
@@ -373,6 +487,7 @@ mod tests {
                    v);
     }
 
+    #[test]
     fn test_random_shuffle() {
         use rand::{SeedableRng, StdRng, Rng};
         let seed: &[_] = &[1, 2, 3, 4];
@@ -383,7 +498,8 @@ mod tests {
         for i in &shuffled {
             t.append(*i);
         }
-        let v: Vec<_> = t.iter().collect();
+        verify_depty(&t);
+        let v: Vec<_> = t.iter().map(|x| x.value().unwrap()).collect();
         assert_eq!(v, (1..100).collect::<Vec<u32>>());
     }
 }
