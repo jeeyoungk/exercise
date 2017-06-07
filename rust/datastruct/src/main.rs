@@ -35,7 +35,7 @@ impl<'a> Iterator for SplitIterator<'a> {
     }
 }
 
-fn string_split<'a>(s: &'a str, delimit: u8) -> SplitIterator {
+fn string_split(s: &str, delimit: u8) -> SplitIterator {
     return SplitIterator {
                s: s,
                delimit: delimit,
@@ -43,10 +43,11 @@ fn string_split<'a>(s: &'a str, delimit: u8) -> SplitIterator {
            };
 }
 
-fn lcs<'a, T: PartialOrd>(seq: &'a Vec<T>) -> Vec<&'a T> {
+fn lcs<T: PartialOrd>(seq: &Vec<T>) -> Vec<&T> {
     let seq_len = seq.len();
     let mut prev: Vec<usize> = Vec::with_capacity(seq_len);
-    // heads[N] heads of active subsequences 
+    // heads[N] heads of active subsequences of length N.
+    // seq[heads[0]], seq[heads[1]], ... is an increasing seq.
     let mut heads: Vec<usize> = Vec::with_capacity(0);
     let mut len = 0;
     heads.push(0); // dummy element.
@@ -58,9 +59,11 @@ fn lcs<'a, T: PartialOrd>(seq: &'a Vec<T>) -> Vec<&'a T> {
             let mid = (lo + hi + 1) / 2;
             let head = heads[mid]; // head of lcs with length 'mid'
             if seq[head] < *current {
-                lo = mid + 1; // discard shorter sequences, as current may be appendable to a longer sequence.
+                // discard shorter sequences, as current may be appendable to a longer sequence.
+                lo = mid + 1;
             } else {
-                hi = mid - 1; // discard longer sequencess, current cannot be appended to seq[head].
+                // discard longer sequencess, current cannot be appended to seq[head].
+                hi = mid - 1;
             }
         }
         let new_length = lo;
@@ -233,5 +236,13 @@ mod tests {
         assert_eq!(mem::size_of::<EnumA>(), 1);
         assert_eq!(mem::size_of::<EnumB>(), 8);
         assert_eq!(mem::size_of::<EnumC>(), 16);
+        assert_eq!(mem::size_of::<Box<i64>>(), 8);
+        assert_eq!(mem::size_of::<usize>(), 8);
+
+        // Magical - options of boxes are 8 bytes.
+        assert_eq!(mem::size_of::<Box<()>>(), 8);
+        assert_eq!(mem::size_of::<Option<Box<()>>>(), 8);
+        assert_eq!(mem::size_of::<usize>(), 8);
+        assert_eq!(mem::size_of::<Option<usize>>(), 16);
     }
 }
