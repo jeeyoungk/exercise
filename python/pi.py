@@ -15,14 +15,15 @@ def iterate(x, y, iteration, N):
     where volume_insdie + volume_outside <= 1 / 4 ^ iteration
     '''
     length = 2 ** iteration
-    low_x = x / length
-    low_y = y / length
-    high_x = (x + 1) / length
-    high_y = (y + 1) / length
+    double_length = length * length
+    low_x = x
+    low_y = y
+    high_x = (x + 1)
+    high_y = (y + 1)
     low_length = low_x ** 2 + low_y ** 2
     high_length = high_x ** 2 + high_y ** 2
-    if low_length > 1: return (0, 1) # NOT part of the circle
-    elif high_length < 1: return (1, 0) # part of the circle
+    if low_length >= double_length: return (0, 1) # NOT part of the circle
+    elif high_length <= double_length: return (1, 0) # part of the circle
     elif iteration == N: return (0, 0) # uncertain
 
     # recursive call - subdivide the square to 4 chunks
@@ -35,14 +36,15 @@ def iterate(x, y, iteration, N):
 
 def around_border(x, y, N):
     length = 2 ** N
-    low_x = x / length
-    low_y = y / length
-    high_x = (x + 1) / length
-    high_y = (y + 1) / length
+    double_length = length * length
+    low_x = x
+    low_y = y
+    high_x = (x + 1)
+    high_y = (y + 1)
     low_length = low_x ** 2 + low_y ** 2
     high_length = high_x ** 2 + high_y ** 2
-    if low_length > 1: return False
-    elif high_length < 1: return False
+    if low_length > double_length: return False
+    elif high_length < double_length: return False
     return True
 
 def navigating(N):
@@ -83,12 +85,12 @@ def calculate(N, algorithm):
     pi_lower = lower * 4
     pi_upper = (1 - upper) * 4
     delta = ((1 - upper) - lower) * 4
-    print("%2d: %f < pi < %f (delta = %f)" % (N, pi_lower, pi_upper, delta))
+    print("%2d: %f < pi < %f (delta = %.10f)" % (N, pi_lower, pi_upper, delta))
 
 
-for i in range(20):
+for i in range(25, 30):
     print("")
-    calculate(i, lambda N: iterate(0, 0, 0, N))
+    # calculate(i, lambda N: iterate(0, 0, 0, N))
     calculate(i, navigating)
 
 # sample out:
