@@ -4,6 +4,7 @@ mod cell;
 mod tree;
 mod kmeans;
 mod complex;
+mod circular_palindrome;
 
 extern crate rand;
 
@@ -89,7 +90,7 @@ fn lcs<T: PartialOrd>(seq: &Vec<T>) -> Vec<&T> {
 }
 
 fn main() {
-    println!("Hello, world!");
+    circular_palindrome::main();
 }
 
 #[allow(unused_variables)]
