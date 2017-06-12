@@ -1,9 +1,7 @@
 # implements longest increasing subsequence
 # from https://en.wikipedia.org/wiki/Longest_increasing_subsequence
 
-import bisect
-
-def lis(seq):
+ef lis(seq):
     N = len(seq)
     P = [] # previous list
     M = [None] * (N + 1) # history list.
