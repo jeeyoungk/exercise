@@ -34,7 +34,7 @@ fn palindrome(string: &[u8]) -> Vec<usize> {
             let cond = string[i] == string[j] && prev_2[wrap(i + 1, n)];
             cur.push(cond);
 
-            let new_max : usize = match cond {
+            let new_max: usize = match cond {
                 true => len + 1,
                 false => cmp::max(max_length[i], max_length[wrap(i + 1, n)]),
             };
@@ -60,7 +60,7 @@ pub fn main() {
     let palindromes = palindrome(buffer.trim().as_bytes());
     for v in palindromes {
         println!("{}", v);
-    }    
+    }
 }
 
 #[cfg(test)]

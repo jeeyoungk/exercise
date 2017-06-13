@@ -3,7 +3,7 @@ use std::mem;
 use std::fmt;
 
 #[derive(Debug)]
-enum Tree<T: Ord + Copy> {
+enum Tree<T: Ord> {
     Leaf,
     Node {
         v: T,
@@ -13,32 +13,21 @@ enum Tree<T: Ord + Copy> {
     },
 }
 
-/*
-impl fmt::Display for Structure {
-    // This trait requires `fmt` with this exact signature.
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        // Write strictly the first element into the supplied output
-        // stream: `f`. Returns `fmt::Result` which indicates whether the
-        // operation succeeded or failed. Note that `write!` uses syntax which
-        // is very similar to `println!`.
-        write!(f, "{}", self.0)
-    }
-}
-*/
-
-impl<T: Ord + Copy + fmt::Debug> fmt::Display for Tree<T> {
+impl<T: Ord> fmt::Display for Tree<T>
+    where T: fmt::Debug
+{
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         return self.fmt_indent(f, 0);
     }
 }
 
 // value or reference to a tree - used for navigation.
-enum VorT<'a, S: Ord + Copy + 'a> {
+enum VorT<'a, S: Ord + 'a> {
     V(&'a Tree<S>),
     T(&'a Tree<S>),
 }
 
-struct TreeIterator<'a, T: Ord + Copy + 'a> {
+struct TreeIterator<'a, T: Ord + 'a> {
     stack: Vec<VorT<'a, T>>,
 }
 
@@ -46,7 +35,7 @@ struct AppendResult {
     depth_changed: bool,
 }
 
-impl<'a, T: Ord + Copy + fmt::Debug> Iterator for TreeIterator<'a, T> {
+impl<'a, T: Ord> Iterator for TreeIterator<'a, T> {
     type Item = &'a Tree<T>;
     fn next(&mut self) -> Option<&'a Tree<T>> {
         let maybe_append = |stack: &mut Vec<_>, tree: &'a Box<Tree<T>>| {
@@ -87,9 +76,8 @@ impl<'a, T: Ord + Copy + fmt::Debug> Iterator for TreeIterator<'a, T> {
     }
 }
 
-impl<T: Ord + Copy + fmt::Debug> Tree<T> {
+impl<T: Ord> Tree<T> {
     fn append(&mut self, v: T) -> AppendResult {
-        // consumes self, and creates a new list.
         let old_depth = self.depth();
         let result: AppendResult = match *self {
             Tree::Leaf => {
@@ -102,15 +90,15 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
                 return AppendResult { depth_changed: true }; // no need to recompute for new nodes.
             }
             Tree::Node {
-                v: nv,
+                v: ref nv,
                 ref mut left,
                 ref mut right,
                 ..
             } => {
-                if v == nv {
+                if v == *nv {
                     AppendResult { depth_changed: false }
                 } else {
-                    let result: AppendResult = if v < nv {
+                    let result: AppendResult = if v < *nv {
                         left.append(v)
                     } else {
                         right.append(v)
@@ -119,32 +107,7 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
                 }
             }
         };
-        if result.depth_changed {
-            /*
-            let (left_depth, right_depth) = match *self {
-                Tree::Leaf => panic!("No leaf node"),
-                Tree::Node {
-                    ref left,
-                    ref right,
-                    ..
-                } => (left.depth(), right.depth()),
-            };
-            let delta = left_depth as i32 - right_depth as i32;
-            if delta == 2 {
-                self.rotate_right(); // need to call this at the end.
-                self.check_depth();
-            } else if delta == -2 {
-                self.rotate_left(); // need to call this at the end.
-                self.check_depth();
-            } else if delta == 0 || delta == -1 || delta == 1 {
-                // do nothing
-            } else {
-                panic!("Depth difference cannot be more than 2, got {}\n{}",
-                       delta,
-                       &self);
-            }
-            */
-        }
+        // TODO - balancing logic, maybe?
         self.recompute(result);
         return AppendResult { depth_changed: old_depth != self.depth() };
     }
@@ -160,11 +123,11 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
             } => (left.depth(), right.depth()),
         };
         let delta = left_depth as i32 - right_depth as i32;
-        assert!(delta >= -2, "delta={} tree=\n{}", delta, self);
+        // assert!(delta >= -2, "delta={} tree=\n{}", delta, self);
         if delta == 3 {
             self.rotate_right();
         };
-        assert!(delta <= 2, "delta={} tree=\n{}", delta, self);
+        // assert!(delta <= 2, "delta={} tree=\n{}", delta, self);
     }
 
     fn recompute(&mut self, prev_result: AppendResult) -> AppendResult {
@@ -197,7 +160,9 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
         }
     }
 
-    fn value(&self) -> Option<T> {
+    fn value(&self) -> Option<T>
+        where T: Copy
+    {
         match *self {
             Tree::Leaf => None,
             Tree::Node { v, .. } => Some(v),
@@ -343,14 +308,14 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
         match *self {
             Tree::Leaf => false,
             Tree::Node {
-                v: nv,
+                v: ref nv,
                 ref left,
                 ref right,
                 ..
             } => {
-                if v < nv {
+                if v < *nv {
                     left.find(v)
-                } else if nv < v {
+                } else if *nv < v {
                     right.find(v)
                 } else {
                     true
@@ -367,12 +332,12 @@ impl<T: Ord + Copy + fmt::Debug> Tree<T> {
                 write!(f, "{}_\n", "|".repeat(indent))?;
             }
             Tree::Node {
-                v,
+                ref v,
                 ref left,
                 ref right,
                 ..
             } => {
-                write!(f, "{}{:?}\n", "|".repeat(indent), v)?;
+                write!(f, "{}{:?}\n", "|".repeat(indent), *v)?;
                 left.fmt_indent(f, indent + 1)?;
                 right.fmt_indent(f, indent + 1)?;
             }
@@ -386,7 +351,7 @@ mod tests {
     use tree::Tree;
     use std::fmt;
 
-    fn verify_depty<T: Ord + Copy + fmt::Debug>(t: &Tree<T>) {
+    fn verify_depty<T: Ord + fmt::Debug>(t: &Tree<T>) {
         let iter = t.iter();
         for t in iter {
             assert_eq!(t.depth(), t.raw_depth());

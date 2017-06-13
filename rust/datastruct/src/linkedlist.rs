@@ -1,11 +1,32 @@
 // linked list implementation in rust
 use std::rc::Rc;
+use std::mem;
 
 // implementing linked list via pointers.
 #[derive(Debug)]
 enum Node<T> {
     Empty,
     Elem(T, Box<Node<T>>),
+}
+
+impl<T> Drop for Node<T> {
+    fn drop(&mut self) {
+        /*
+        let mut cur = mem::replace(self, Node::Empty);
+        while let Node::Elem(_, ref mut boxed) = cur {
+            cur = mem::replace(&mut **boxed, Node::Empty);
+        }
+        while true {
+            match cur {
+                Node::Empty => (),
+                Node::Elem(_, ref mut boxed) => {
+                    // cur = mem::replace(&mut **boxed, Node::Empty);
+                },
+            }
+            break;
+        }
+        */
+    }
 }
 
 struct NodeIterator<'a, T: 'a> {
@@ -64,9 +85,9 @@ impl<T> Node<T> {
         }
     }
 
-    pub fn prepend(self, v: T) -> Node<T> {
-        // TODO - this one does not borrow self.
-        return Node::Elem(v, Box::new(self));
+    pub fn prepend(&mut self, v: T) {
+        let prev = mem::replace(self, Node::Empty);
+        *self = Node::Elem(v, Box::new(prev));
     }
 
     pub fn iter<'a>(&'a self) -> NodeIterator<'a, T> {
@@ -116,12 +137,12 @@ mod tests {
 
     #[test]
     fn test_prepend() {
-        let n1 = Node::Empty::<i32>;
-        let n2 = n1.prepend(1);
-        let n3 = n2.prepend(2);
-        let n4 = n3.prepend(3);
-        assert_eq!(n4.len(), 3);
-        let mut it = n4.iter();
+        let mut n = Node::Empty::<i32>;
+        n.prepend(1);
+        n.prepend(2);
+        n.prepend(3);
+        assert_eq!(n.len(), 3);
+        let mut it = n.iter();
         assert_eq!(it.next(), Some(3).as_ref());
         assert_eq!(it.next(), Some(2).as_ref());
         assert_eq!(it.next(), Some(1).as_ref());
@@ -154,10 +175,50 @@ mod tests {
     #[test]
     fn test_build_iterative() {
         let mut n = Node::Empty;
-        n = n.prepend(1);
-        n = n.prepend(2);
-        n = n.prepend(3);
-        n = n.prepend(4);
+        n.prepend(1);
+        n.prepend(2);
+        n.prepend(3);
+        n.prepend(4);
         assert_eq!(n.len(), 4);
+    }
+
+    #[test]
+    fn test_stack_explosion() {
+        // this test does not pass.
+        /*
+        let mut n: Node<u8> = Node::Empty;
+        for _ in 0..100000 {
+            n.prepend(0);
+        }
+        assert_eq!(n.len(), 100000);
+        drop(n);
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
