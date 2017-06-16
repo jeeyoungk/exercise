@@ -1,10 +1,11 @@
-#![feature(specialization)]
+// #![feature(specialization)]
 
 mod columnar;
 mod linkedlist;
 mod list_attempt_2;
 mod cell;
 mod tree;
+mod tree_attempt_2;
 mod kmeans;
 mod complex;
 mod circular_palindrome;
@@ -255,6 +256,7 @@ mod tests {
 
     #[test]
     fn test_specialization() {
+        /*
         struct Special {
             v: usize,
         }
@@ -262,7 +264,6 @@ mod tests {
         trait MyTrait {
             fn size(&self) -> usize;
         }
-
         impl<T> MyTrait for T {
             default fn size(&self) -> usize {
                 return 0;
@@ -276,6 +277,7 @@ mod tests {
         }
         assert_eq!(3.size(), 0);
         assert_eq!(Special { v: 5 }.size(), 5);
+        */
     }
 
     #[test]
@@ -466,5 +468,32 @@ mod tests {
         assert_eq!(*x, 7);
         increment_3(&mut x);
         assert_eq!(*x, 8);
+    }
+
+    #[test]
+    fn test_reproduce() {
+        /*
+        struct Node {
+            value: usize,
+            next: Option<Box<Node>>,
+        }
+        fn recursive<'a>(link: &'a mut Option<Box<Node>>) -> Option<&'a mut Option<Box<Node>>> {
+            {
+                match link.as_mut() {
+                    None => (),
+                    Some(cur) => {
+                        // let unwrapped = link.as_mut().unwrap();
+                        let next: &mut Option<Box<Node>> = &mut cur.next;
+                        // return recursive(next);
+                        if next.is_some() {
+                            return Some(next);
+                            // return None;
+                        }
+                    }
+                };
+            }
+            return Some(link);
+        }
+        */
     }
 }

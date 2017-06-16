@@ -23,7 +23,7 @@ fn solve(vec: &Vec<isize>) -> Option<usize> {
         } else if i + 2 < vec.len() && *item == cur_2 {
             mem::swap(&mut cur_2, &mut cur_1);
             mem::swap(&mut cur_1, &mut cur_0);
-            count +=2;
+            count += 2;
         } else {
             return None;
         }
@@ -42,7 +42,8 @@ fn main() {
         let len = buffer.trim().parse::<usize>().ok().unwrap();
         buffer.trim();
         read(&stdin, &mut buffer);
-        let vec: Vec<_> = buffer.trim()
+        let vec: Vec<_> = buffer
+            .trim()
             .split(" ")
             .map(|x| x.parse::<isize>().ok().unwrap())
             .collect();
